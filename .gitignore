@@ -1,0 +1,6 @@
+
+vendor/github.com/gin-contrib/sse/
+vendor/github.com/gin-gonic/gin/
+vendor/github.com/mattn/go-isatty/
+vendor/github.com/ugorji/go/
+vendor/gopkg.in/yaml.v2/
