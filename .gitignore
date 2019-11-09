@@ -5,3 +5,4 @@ vendor/github.com/mattn/go-isatty/
 vendor/github.com/ugorji/go/
 vendor/gopkg.in/yaml.v2/
 vendor/
+*.exe
