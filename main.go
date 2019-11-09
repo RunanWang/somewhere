@@ -2,15 +2,14 @@ package main
 
 import (
 	"github.com/gin-gonic/gin";
-	"net/http"
+	"github.com/somewhere/handler"
 )
 
 func main(){
 	router := gin.Default()
-	router.GET("",welcomePage)
+	router.LoadHTMLGlob("templates/*")
+	router.GET("",handler.WelcomePage)
+	router.GET("/index",handler.IndexHandler)
 	router.Run()
 }
 
-func welcomePage(c *gin.Context){
-	c.String(http.StatusOK,"welcome!")
-}
