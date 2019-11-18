@@ -1,0 +1,17 @@
+
+[server]
+Address="0.0.0.0:40001"
+LogLevel="Release"
+ExpireTokenHour=48
+ConvertServer="http://demo.bj.sensetime.com/sensego/datacenter/internal/geo/converter"
+CameraServer="http://0.0.0.0:8080" #CameraServer="http://demo.bj.sensetime.com/sensego/sensor/camera"
+
+[database]
+uri = "mongodb://sensego:SenseTime123@10.107.1.97:3714"
+db = "calibration"
+connect = "replicaSet"
+replica_set = ""
+max_pool_size = 1024
+min_pool_size = 8
+max_idle_time = 5000
+ssl = false
