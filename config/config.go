@@ -26,6 +26,10 @@ type TDbConfig struct {
 	MinPoolSize   int    `toml:"min_pool_size" opt:"minPoolSize"`
 	MaxIdleTimeMS int    `toml:"max_idle_time" opt:"maxIdleTimeMS"` // ms
 	SSL           bool   `toml:"ssl" opt:"ssl"`
+	Address       string
+	Name          string
+	Password      string
+	DbName        string
 }
 
 var Config TConfig
