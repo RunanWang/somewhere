@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
-	"gitlab.bj.sensetime.com/SenseGo/cali_server/err"
+	cerror "github.com/somewhere/err"
 )
 
 func CommonErrorResp(c *gin.Context, aErr *cerror.Error) {

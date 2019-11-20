@@ -2,7 +2,7 @@ package model
 
 import (
 	"github.com/globalsign/mgo/bson"
-	"gitlab.bj.sensetime.com/SenseGo/cali_server/db"
+	"github.com/somewhere/db"
 )
 
 type TCalibration struct {

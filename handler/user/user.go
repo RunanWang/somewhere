@@ -4,8 +4,8 @@ import (
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 	cerror "github.com/somewhere/err"
-	"gitlab.bj.sensetime.com/SenseGo/cali_server/msg"
-	"gitlab.bj.sensetime.com/SenseGo/cali_server/service"
+	"github.com/somewhere/msg"
+	"github.com/somewhere/service"
 )
 
 func GenerateKey(c *gin.Context) {

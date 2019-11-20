@@ -3,9 +3,9 @@ package admin
 import (
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
-	cerror "gitlab.bj.sensetime.com/SenseGo/cali_server/err"
-	"gitlab.bj.sensetime.com/SenseGo/cali_server/msg"
-	"gitlab.bj.sensetime.com/SenseGo/cali_server/service"
+	cerror "github.com/somewhere/err"
+	"github.com/somewhere/msg"
+	"github.com/somewhere/service"
 )
 
 func CommitLine(c *gin.Context) {

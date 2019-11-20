@@ -1,25 +1,25 @@
-package line
+package admin
 
 import (
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
-	cerror "gitlab.bj.sensetime.com/SenseGo/cali_server/err"
-	"gitlab.bj.sensetime.com/SenseGo/cali_server/msg"
-	"gitlab.bj.sensetime.com/SenseGo/cali_server/service"
+	cerror "github.com/somewhere/err"
+	"github.com/somewhere/msg"
+	"github.com/somewhere/service"
 )
 
-func GetLine(c *gin.Context) {
+func adminGet(c *gin.Context) {
 
 	var (
-		getLineReq  msg.GetLineReq
-		getLineResp msg.GetLineResp
-		err         error
+		getAdminReq  msg.GetLineReq
+		getAdminResp msg.GetLineResp
+		err          error
 	)
 
 	logger := c.MustGet("logger").(*log.Entry)
 	logger.Tracef("in get line handler")
 
-	err = c.Bind(&getLineReq)
+	err = c.Bind(&getAdminReq)
 	if err != nil {
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
@@ -28,7 +28,7 @@ func GetLine(c *gin.Context) {
 		return
 	}
 
-	err = service.GetLine(c, &getLineReq, &getLineResp)
+	err = service.GetAdmin(c, &getLineReq, &getLineResp)
 	if err != nil {
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
