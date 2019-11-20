@@ -8,7 +8,6 @@ import (
 
 func AddStore(c *gin.Context, addStoreReq *msg.AddStoresReq) (int, error) {
 	storeModel := &model.TStores{
-		ID:    addStoreReq.StoreID,
 		Name:  addStoreReq.StoreName,
 		Level: addStoreReq.StoreLevel,
 	}
@@ -38,7 +37,7 @@ func UpdateStore(c *gin.Context, updateStoresReq *msg.UpdateStoresReq) (int, err
 	return storeModel.UpdateStore()
 }
 
-func DelStore(c *gin.Context, delStoreReq *msg.DeleteStoresReq) (int, error) {
+func DeleteStore(c *gin.Context, delStoreReq *msg.DeleteStoresReq) (int, error) {
 	storeModel := &model.TStores{
 		ID: delStoreReq.StoreID,
 	}

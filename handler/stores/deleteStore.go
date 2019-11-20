@@ -1,8 +1,6 @@
 package stores
 
 import (
-	"fmt"
-
 	"github.com/gin-gonic/gin"
 	"github.com/go-sql-driver/mysql"
 	log "github.com/sirupsen/logrus"
@@ -11,18 +9,17 @@ import (
 	"github.com/somewhere/service"
 )
 
-func AddStore(c *gin.Context) {
+func DeleteStore(c *gin.Context) {
 
 	var (
-		addStoreReq  msg.AddStoresReq
-		addStoreResp msg.AddStoresResp
-		err          error
+		DeleteStoreReq  msg.DeleteStoresReq
+		DeleteStoreResp msg.DeleteStoresResp
+		err             error
 	)
 
 	logger := c.MustGet("logger").(*log.Entry)
-	logger.Tracef("in add store handler")
-	fmt.Println("before")
-	err = c.Bind(&addStoreReq)
+	logger.Tracef("in Delete store handler")
+	err = c.Bind(&DeleteStoreReq)
 	if err != nil {
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
@@ -31,10 +28,9 @@ func AddStore(c *gin.Context) {
 		return
 	}
 	logger = logger.WithFields(log.Fields{
-		"req": addStoreReq,
+		"req": DeleteStoreReq,
 	})
-	fmt.Println("bound")
-	id, err := service.AddStore(c, &addStoreReq)
+	num, err := service.DeleteStore(c, &DeleteStoreReq)
 	if err != nil {
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
@@ -49,11 +45,11 @@ func AddStore(c *gin.Context) {
 		return
 	}
 
-	addStoreResp.StoreID = id
-	addStoreResp.ErrorCode = 0
-	addStoreResp.RequestID = c.MustGet("request_id").(string)
+	DeleteStoreResp.StoreID = num
+	DeleteStoreResp.ErrorCode = 0
+	DeleteStoreResp.RequestID = c.MustGet("request_id").(string)
 	logger = logger.WithFields(log.Fields{
-		"resp": addStoreResp,
+		"resp": DeleteStoreResp,
 	})
-	service.CommonInfoResp(c, addStoreResp)
+	service.CommonInfoResp(c, DeleteStoreResp)
 }

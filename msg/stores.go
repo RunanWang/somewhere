@@ -3,7 +3,7 @@ package msg
 import "github.com/somewhere/model"
 
 type GetStoresReq struct {
-	StoreID int `form:"store_id" binding:"required"`
+	StoreID int `form:"store_id"`
 }
 
 type GetStoresResp struct {
@@ -12,9 +12,8 @@ type GetStoresResp struct {
 }
 
 type AddStoresReq struct {
-	StoreID    int    `json:"store_id" binding:"required"`
 	StoreName  string `json:"store_name" binding:"required"`
-	StoreLevel int    `json:"store_level" binding:"required"`
+	StoreLevel int    `json:"store_level"`
 }
 
 type AddStoresResp struct {
@@ -23,13 +22,13 @@ type AddStoresResp struct {
 }
 
 type UpdateStoresReq struct {
-	StoreID    int    `json:"store_id" binding:"required"`
+	StoreID    int    `json:"store_id"`
 	StoreName  string `json:"store_name" binding:"required"`
 	StoreLevel int    `json:"store_level" binding:"required"`
 }
 
 type UpdateStoresResp struct {
-	StoreID int `json:"store_id"`
+	StoreID int `json:"update_sucess_num"`
 	StdResp
 }
 
@@ -38,6 +37,6 @@ type DeleteStoresReq struct {
 }
 
 type DeleteStoresResp struct {
-	StoreID int `json:"store_id"`
+	StoreID int `json:"delete_success_num"`
 	StdResp
 }

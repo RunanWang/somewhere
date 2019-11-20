@@ -64,6 +64,9 @@ func (t *App) initRouter() {
 
 	userGroup := rootGroup.Group("/stores")
 	userGroup.GET("", stores.GetStores)
+	userGroup.POST("", stores.AddStore)
+	userGroup.PUT("", stores.UpdateStore)
+	userGroup.DELETE("", stores.DeleteStore)
 }
 
 func (t *App) Run() {
