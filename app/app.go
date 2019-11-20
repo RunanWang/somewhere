@@ -13,8 +13,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/somewhere/config"
 	"github.com/somewhere/db"
-	admin "github.com/somewhere/handler/admin"
-	user "github.com/somewhere/handler/user"
+	"github.com/somewhere/handler/stores"
 )
 
 type App struct {
@@ -63,12 +62,8 @@ func (t *App) initRouter() {
 
 	rootGroup := r.Group("somewhere")
 
-	userGroup := rootGroup.Group("/user")
-	userGroup.GET("", user.UserGet)
-
-	adminGroup := rootGroup.Group("/admin")
-	adminGroup.GET("", admin.AdminGet)
-	adminGroup.POST("", admin.AdminPost)
+	userGroup := rootGroup.Group("/stores")
+	userGroup.GET("", stores.GetStores)
 }
 
 func (t *App) Run() {

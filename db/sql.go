@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
-	"gitlab.bj.sensetime.com/SenseGo/camera-kit/config"
+	"github.com/somewhere/config"
 )
 
 var SqlDb *sql.DB
@@ -32,7 +32,7 @@ func InitSQLDatabase() error {
 func getDSN() string {
 	// DSN format user:password@tcp(your-amazonaws-uri.com:3306)/dbname
 	ret := fmt.Sprintf("%s:%s@tcp(%s)/%s", config.Config.DbConfig.Name, config.Config.DbConfig.Password,
-		config.Config.DbConfig.Address, config.Config.DbConfig.DbName)
+		config.Config.DbConfig.SqlAddress, config.Config.DbConfig.DbName)
 	fmt.Println("ret", ret)
 	return ret
 }

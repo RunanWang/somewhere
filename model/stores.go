@@ -33,11 +33,26 @@ func (t *TStores) AddStore() (int, error) {
 }
 
 func (t *TStores) GetStoreByName() (stores []*TStores, err error) {
-	row := db.SqlDb.QueryRow("SELECT * FROM camera where name = ?", t.Name)
+	row := db.SqlDb.QueryRow("SELECT * FROM stores where name = ?", t.Name)
 	if err != nil {
 		return
 	}
 
+	var aStore TStores
+	err = row.Scan(&aStore.ID, &aStore.Name, &aStore.Level)
+	if err != nil {
+		return
+	}
+	stores = append(stores, &aStore)
+
+	return
+}
+
+func (t *TStores) GetStoreByID() (stores []*TStores, err error) {
+	row := db.SqlDb.QueryRow("SELECT * FROM stores where id = ?", t.ID)
+	if err != nil {
+		return
+	}
 	var aStore TStores
 	err = row.Scan(&aStore.ID, &aStore.Name, &aStore.Level)
 	if err != nil {

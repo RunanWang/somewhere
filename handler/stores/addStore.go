@@ -12,46 +12,46 @@ import (
 func AddStore(c *gin.Context) {
 
 	var (
-		addStoreReq  msg.TAddCameraReq
-		addStoreResp msg.TAddCameraResp
+		addStoreReq  msg.AddStoresReq
+		addStoreResp msg.AddStoresResp
 		err          error
 	)
 
 	logger := c.MustGet("logger").(*log.Entry)
-	logger.Tracef("in add camera handler")
+	logger.Tracef("in add store handler")
 
-	err = c.Bind(&addCameraReq)
+	err = c.Bind(&addStoreReq)
 	if err != nil {
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
-		service.CommonErrorResp(c, logger, cerror.ErrInvalidParam)
+		service.CommonErrorResp(c, cerror.ErrInvalidParam)
 		return
 	}
 	logger = logger.WithFields(log.Fields{
-		"req": addCameraReq,
+		"req": addStoreReq,
 	})
 
-	id, err := service.AddCamera(c, &addCameraReq)
+	id, err := service.AddStore(c, &addStoreReq)
 	if err != nil {
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
 
 		if _, isMysql := err.(*mysql.MySQLError); isMysql {
-			service.CommonErrorResp(c, logger, cerror.ErrInternalError)
+			service.CommonErrorResp(c, cerror.ErrInternalError)
 		} else {
-			service.CommonErrorResp(c, logger, cerror.ErrInvalidParam)
+			service.CommonErrorResp(c, cerror.ErrInvalidParam)
 		}
 
 		return
 	}
 
-	addCameraResp.ID = id
-	addCameraResp.ErrorCode = 0
-	addCameraResp.RequestID = c.MustGet("request_id").(string)
+	addStoreResp.StoreID = id
+	addStoreResp.ErrorCode = 0
+	addStoreResp.RequestID = c.MustGet("request_id").(string)
 	logger = logger.WithFields(log.Fields{
-		"resp": addCameraResp,
+		"resp": addStoreResp,
 	})
-	service.CommonInfoResp(c, logger, addCameraResp)
+	service.CommonInfoResp(c, addStoreResp)
 }
