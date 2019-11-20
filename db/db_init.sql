@@ -1,13 +1,53 @@
-CREATE TABLE IF NOT EXISTS `basic_user_info`(
-   `user_id` INT UNSIGNED AUTO_INCREMENT,
-   `user_name` VARCHAR(100) NOT NULL,
-   `user_password` VARCHAR(40) NOT NULL,
-   `user_submission_date` DATE,
-   PRIMARY KEY ( `user_id` )
-)ENGINE=InnoDB;
+CREATE DATABASE IF NOT EXISTS kit DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+use kit;
 
-INSERT INTO basic_user_info(
-user_name, user_password,user_submission_date)VALUES(
-"admin","admin_pass",NOW());
+CREATE TABLE IF NOT EXISTS `users`(
+   `id` INT(10) NOT NULL,
+   `name` VARCHAR(100) NOT NULL,
+   `age` INT
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE users CONVERT TO CHARACTER SET utf8;
 
-SELECT * FROM basic_user_info
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `name` (`name`);
+
+ALTER TABLE `users`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+
+CREATE TABLE IF NOT EXISTS `stores`(
+   `id` INT(10) NOT NULL,
+   `name` VARCHAR(100) NOT NULL,
+   `level` INT(3) NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE stores CONVERT TO CHARACTER SET utf8;
+
+ALTER TABLE `stores`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `level` (`level`);
+
+ALTER TABLE `stores`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `sp`(
+   `id` INT(10) NOT NULL,
+   `store_id`  INT(10) NOT NULL,
+   `pro_id`  INT(10) NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE sp CONVERT TO CHARACTER SET utf8;
+
+ALTER TABLE `sp`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `store_id` (`store_id`),
+  ADD KEY `pro_id` (`pro_id`);
+
+ALTER TABLE `sp`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+COMMIT;
+
