@@ -10,11 +10,8 @@ type TConfig struct {
 }
 
 type TServiceConfig struct {
-	Address         string
-	LogLevel        string
-	ConvertServer   string
-	CameraServer    string
-	ExpireTokenHour int
+	Address  string
+	LogLevel string
 }
 
 type TDbConfig struct {
@@ -26,10 +23,10 @@ type TDbConfig struct {
 	MinPoolSize   int    `toml:"min_pool_size" opt:"minPoolSize"`
 	MaxIdleTimeMS int    `toml:"max_idle_time" opt:"maxIdleTimeMS"` // ms
 	SSL           bool   `toml:"ssl" opt:"ssl"`
-	SqlAddress    string
-	Name          string
-	Password      string
-	DbName        string
+	SQLAddress    string
+	SQLName       string
+	SQLPassword   string
+	SQLDbName     string
 }
 
 var Config TConfig

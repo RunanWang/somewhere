@@ -31,8 +31,8 @@ func InitSQLDatabase() error {
 
 func getDSN() string {
 	// DSN format user:password@tcp(your-amazonaws-uri.com:3306)/dbname
-	ret := fmt.Sprintf("%s:%s@tcp(%s)/%s", config.Config.DbConfig.Name, config.Config.DbConfig.Password,
-		config.Config.DbConfig.SqlAddress, config.Config.DbConfig.DbName)
+	ret := fmt.Sprintf("%s:%s@tcp(%s)/%s", config.Config.DbConfig.SQLName, config.Config.DbConfig.SQLPassword,
+		config.Config.DbConfig.SQLAddress, config.Config.DbConfig.SQLDbName)
 	fmt.Println("ret", ret)
 	return ret
 }
