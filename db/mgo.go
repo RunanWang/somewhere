@@ -5,7 +5,7 @@ import (
 	"github.com/somewhere/config"
 )
 
-var mgoDb *mgo.Database
+var MgoDb *mgo.Database
 
 func InitDatabase() error {
 
@@ -16,13 +16,13 @@ func InitDatabase() error {
 
 	sesstion.SetMode(mgo.Eventual, true)
 
-	mgoDb = sesstion.DB(config.Config.DbConfig.DB)
+	MgoDb = sesstion.DB(config.Config.DbConfig.DB)
 
 	return createIndex()
 }
 
 func createIndex() error {
-	col := mgoDb.C("records")
+	col := MgoDb.C("records")
 	index := mgo.Index{
 		Key:    []string{"user_id, store_id"},
 		Unique: false,

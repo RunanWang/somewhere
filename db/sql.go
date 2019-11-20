@@ -8,7 +8,7 @@ import (
 	"gitlab.bj.sensetime.com/SenseGo/camera-kit/config"
 )
 
-var sqlDb *sql.DB
+var SqlDb *sql.DB
 
 func InitSQLDatabase() error {
 
@@ -25,7 +25,7 @@ func InitSQLDatabase() error {
 		fmt.Println("123", err)
 		return err
 	}
-	sqlDb = db
+	SqlDb = db
 	return nil
 }
 

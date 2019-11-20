@@ -8,7 +8,7 @@ import (
 	"github.com/somewhere/service"
 )
 
-func GenerateKey(c *gin.Context) {
+func UserGet(c *gin.Context) {
 
 	var (
 		generateKeyReq  msg.TGenerateKeyReq
