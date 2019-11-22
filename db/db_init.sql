@@ -47,5 +47,20 @@ ALTER TABLE `products`
 ALTER TABLE `products`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
+
+CREATE TABLE IF NOT EXISTS `records`(
+   `id` INT(10) NOT NULL,
+   `product_id`  INT(10) NOT NULL,
+   `user_id` INT(100) NOT NULL,
+   `is_trade` boolean NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE products CONVERT TO CHARACTER SET utf8;
+
+ALTER TABLE `records`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `records`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
 COMMIT;
 

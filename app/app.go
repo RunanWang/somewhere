@@ -14,6 +14,7 @@ import (
 	"github.com/somewhere/config"
 	"github.com/somewhere/db"
 	"github.com/somewhere/handler/products"
+	"github.com/somewhere/handler/records"
 	"github.com/somewhere/handler/stores"
 	"github.com/somewhere/handler/users"
 )
@@ -81,6 +82,10 @@ func (t *App) initRouter() {
 	proGroup.POST("", products.AddProduct)
 	proGroup.PUT("", products.UpdateProduct)
 	proGroup.DELETE("", products.DeleteProduct)
+
+	recGroup := rootGroup.Group("/records")
+	recGroup.GET("", records.GetRecords)
+	recGroup.POST("", records.AddRecord)
 }
 
 func (t *App) Run() {
