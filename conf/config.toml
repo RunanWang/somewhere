@@ -5,7 +5,7 @@ LogLevel="Release"
 
 [database]
 uri = "mongodb://localhost:3714"
-db = "calibration"
+db = "kit"
 connect = "replicaSet"
 replica_set = ""
 max_pool_size = 1024

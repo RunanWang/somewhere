@@ -39,7 +39,7 @@ func (t *App) Initialize() {
 	config.InitConfig(configPath)
 	t.initLogger()
 
-	db.InitDatabase()
+	//db.InitDatabase()
 	db.InitSQLDatabase()
 	t.initRouter()
 }
