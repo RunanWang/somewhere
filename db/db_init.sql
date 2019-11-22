@@ -34,6 +34,7 @@ ALTER TABLE `stores`
 
 CREATE TABLE IF NOT EXISTS `products`(
    `id` INT(10) NOT NULL,
+   `store_id`  INT(10) NOT NULL,
    `name` VARCHAR(100) NOT NULL,
    `price` INT(10) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -44,23 +45,6 @@ ALTER TABLE `products`
   ADD KEY `price` (`price`);
 
 ALTER TABLE `products`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-
-
-
-CREATE TABLE IF NOT EXISTS `sp`(
-   `id` INT(10) NOT NULL,
-   `store_id`  INT(10) NOT NULL,
-   `pro_id`  INT(10) NOT NULL
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
-ALTER TABLE sp CONVERT TO CHARACTER SET utf8;
-
-ALTER TABLE `sp`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `store_id` (`store_id`),
-  ADD KEY `pro_id` (`pro_id`);
-
-ALTER TABLE `sp`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 COMMIT;
