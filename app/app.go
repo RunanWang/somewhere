@@ -14,6 +14,7 @@ import (
 	"github.com/somewhere/config"
 	"github.com/somewhere/db"
 	"github.com/somewhere/handler/stores"
+	"github.com/somewhere/handler/users"
 )
 
 type App struct {
@@ -62,11 +63,17 @@ func (t *App) initRouter() {
 
 	rootGroup := r.Group("somewhere")
 
-	userGroup := rootGroup.Group("/stores")
-	userGroup.GET("", stores.GetStores)
-	userGroup.POST("", stores.AddStore)
-	userGroup.PUT("", stores.UpdateStore)
-	userGroup.DELETE("", stores.DeleteStore)
+	storesGroup := rootGroup.Group("/stores")
+	storesGroup.GET("", stores.GetStores)
+	storesGroup.POST("", stores.AddStore)
+	storesGroup.PUT("", stores.UpdateStore)
+	storesGroup.DELETE("", stores.DeleteStore)
+
+	userGroup := rootGroup.Group("/users")
+	userGroup.GET("", users.GetUsers)
+	userGroup.POST("", users.AddUser)
+	userGroup.PUT("", users.UpdateUser)
+	userGroup.DELETE("", users.DeleteUser)
 }
 
 func (t *App) Run() {

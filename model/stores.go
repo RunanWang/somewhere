@@ -5,9 +5,9 @@ import (
 )
 
 type TStores struct {
-	ID    int    `json:"id"`
-	Name  string `json:"name"`
-	Level int    `json:"level"`
+	ID    int    `json:"store_id"`
+	Name  string `json:"store_name"`
+	Level int    `json:"store_level"`
 }
 
 func (t *TStores) AddStore() (int, error) {

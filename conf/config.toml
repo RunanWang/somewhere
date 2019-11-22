@@ -4,7 +4,7 @@ Address="0.0.0.0:40001"
 LogLevel="Release"
 
 [database]
-uri = "mongodb://sensego:SenseTime123@10.107.1.97:3714"
+uri = "mongodb://localhost:3714"
 db = "calibration"
 connect = "replicaSet"
 replica_set = ""

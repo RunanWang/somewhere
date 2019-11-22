@@ -1,4 +1,4 @@
-package stores
+package users
 
 import (
 	"github.com/gin-gonic/gin"
@@ -9,18 +9,18 @@ import (
 	"github.com/somewhere/service"
 )
 
-func AddStore(c *gin.Context) {
+func AddUser(c *gin.Context) {
 
 	var (
-		addStoreReq  msg.AddStoresReq
-		addStoreResp msg.AddStoresResp
-		err          error
+		addUserReq  msg.AddUsersReq
+		addUserResp msg.AddUsersResp
+		err         error
 	)
 
 	logger := c.MustGet("logger").(*log.Entry)
-	logger.Tracef("in add store handler")
+	logger.Tracef("in add User handler")
 
-	err = c.Bind(&addStoreReq)
+	err = c.Bind(&addUserReq)
 	if err != nil {
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
@@ -29,10 +29,10 @@ func AddStore(c *gin.Context) {
 		return
 	}
 	logger = logger.WithFields(log.Fields{
-		"req": addStoreReq,
+		"req": addUserReq,
 	})
 
-	id, err := service.AddStore(c, &addStoreReq)
+	id, err := service.AddUser(c, &addUserReq)
 	if err != nil {
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
@@ -47,11 +47,11 @@ func AddStore(c *gin.Context) {
 		return
 	}
 
-	addStoreResp.StoreID = id
-	addStoreResp.ErrorCode = 0
-	addStoreResp.RequestID = c.MustGet("request_id").(string)
+	addUserResp.UserID = id
+	addUserResp.ErrorCode = 0
+	addUserResp.RequestID = c.MustGet("request_id").(string)
 	logger = logger.WithFields(log.Fields{
-		"resp": addStoreResp,
+		"resp": addUserResp,
 	})
-	service.CommonInfoResp(c, addStoreResp)
+	service.CommonInfoResp(c, addUserResp)
 }
