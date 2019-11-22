@@ -13,6 +13,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/somewhere/config"
 	"github.com/somewhere/db"
+	"github.com/somewhere/handler/products"
 	"github.com/somewhere/handler/stores"
 	"github.com/somewhere/handler/users"
 )
@@ -74,6 +75,12 @@ func (t *App) initRouter() {
 	userGroup.POST("", users.AddUser)
 	userGroup.PUT("", users.UpdateUser)
 	userGroup.DELETE("", users.DeleteUser)
+
+	proGroup := rootGroup.Group("/products")
+	proGroup.GET("", products.GetProducts)
+	proGroup.POST("", products.AddProduct)
+	proGroup.PUT("", products.UpdateProduct)
+	proGroup.DELETE("", products.DeleteProduct)
 }
 
 func (t *App) Run() {
