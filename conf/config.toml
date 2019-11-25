@@ -4,7 +4,7 @@ Address="0.0.0.0:40001"
 LogLevel="Release"
 
 [database]
-uri = "mongodb://localhost:3714"
+uri = "mongodb://0.0.0.0:27017"
 db = "kit"
 connect = "replicaSet"
 replica_set = ""

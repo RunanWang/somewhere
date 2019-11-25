@@ -7,17 +7,17 @@ type GetRecordsReq struct {
 }
 
 type GetRecordsResp struct {
-	List []*model.TRecord `json:"list"`
+	List []model.TRecord `json:"list"`
 	StdResp
 }
 
 type AddRecordReq struct {
 	UserID int `json:"user_id" `
 	ProID  int `json:"pro_id" `
-	Status int `json:"is_trde" `
+	Status int `json:"is_trade" `
 }
 
 type AddRecordResp struct {
-	RecordID int `json:"Record_id"`
+	RecordID int `json:"success"`
 	StdResp
 }

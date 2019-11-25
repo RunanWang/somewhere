@@ -24,7 +24,7 @@ func InitDatabase() error {
 func createIndex() error {
 	col := MgoDb.C("records")
 	index := mgo.Index{
-		Key:    []string{"user_id, store_id"},
+		Key:    []string{"user_id, timestamp"},
 		Unique: false,
 	}
 

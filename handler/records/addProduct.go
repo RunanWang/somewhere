@@ -32,7 +32,7 @@ func AddRecord(c *gin.Context) {
 		"req": addRecordReq,
 	})
 
-	id, err := service.AddRecord(c, &addRecordReq)
+	err = service.AddRecord(c, &addRecordReq)
 	if err != nil {
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
@@ -47,7 +47,7 @@ func AddRecord(c *gin.Context) {
 		return
 	}
 
-	addRecordResp.RecordID = id
+	addRecordResp.RecordID = 1
 	addRecordResp.ErrorCode = 0
 	addRecordResp.RequestID = c.MustGet("request_id").(string)
 	logger = logger.WithFields(log.Fields{
