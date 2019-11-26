@@ -16,17 +16,9 @@ func AddRecord(c *gin.Context, addRecordReq *msg.AddRecordReq) error {
 		UserID:    addRecordReq.UserID,
 		Timestamp: startTime,
 	}
-
 	return RecordModel.AddRecord()
 }
 
 func GetRecords(c *gin.Context, getRecordsReq *msg.GetRecordsReq) ([]model.TRecord, error) {
-	//if getRecordsReq.RecordID <= 0 {
 	return model.GetAllRecords()
-	//} else {
-	// RecordsModel := &model.TRecord{
-	// 	RecID: getRecordsReq.RecordID,
-	// }
-	// return model.GetAllRecords()
-	//}
 }

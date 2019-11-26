@@ -63,48 +63,17 @@ func GetAllProducts() (Products []TProduct, err error) {
 	return ret, nil
 }
 
-func (t *TProduct) UpdateProduct() (int, error) {
-
-	stmt, err := db.SqlDb.Prepare("UPDATE products SET name=?,store_id=?,price=? WHERE id=?")
+func (t *TProduct) UpdateProduct() error {
+	col := db.MgoDb.C("items")
+	err := col.Update(bson.M{"_id": t.ID}, bson.M{"$set": bson.M{"store_id": t.StoreID, "item_name": t.Name, "item_price": t.Price, "item_score": t.Score, "item_salecount": t.SaleCount, "item_brand": t.Brand, "item_timestamp": t.Timestamp}})
 	if err != nil {
-
-		return -1, err
+		return err
 	}
-	rs, err := stmt.Exec(t.Name, t.StoreID, t.Price, t.ID)
-	if err != nil {
-
-		return -1, err
-	}
-
-	row, err := rs.RowsAffected()
-	if err != nil {
-
-		return -1, err
-	}
-	defer stmt.Close()
-
-	return int(row), nil
+	return nil
 }
 
-func (t *TProduct) DeleteProduct() (int, error) {
-
-	stmt, err := db.SqlDb.Prepare("DELETE FROM products WHERE id=?")
-	if err != nil {
-
-		return -1, err
-	}
-
-	rs, err := stmt.Exec(t.ID)
-	if err != nil {
-
-		return -1, err
-	}
-	row, err := rs.RowsAffected()
-	if err != nil {
-
-		return -1, err
-	}
-	defer stmt.Close()
-
-	return int(row), nil
+func (t *TProduct) DeleteProduct() error {
+	col := db.MgoDb.C("items")
+	err := col.Remove(bson.M{"_id": t.ID})
+	return err
 }

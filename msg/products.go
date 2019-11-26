@@ -43,7 +43,7 @@ type UpdateProductsResp struct {
 }
 
 type DeleteProductsReq struct {
-	ProductID int `form:"product_id" binding:"required"`
+	ID string `json:"item_id" bson:"item_id"`
 }
 
 type DeleteProductsResp struct {

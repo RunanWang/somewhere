@@ -35,7 +35,7 @@ func GetProducts(c *gin.Context, getProductsReq *msg.GetProductsReq) ([]model.TP
 	return model.GetAllProducts()
 }
 
-func UpdateProduct(c *gin.Context, updateProductsReq *msg.UpdateProductsReq) (int, error) {
+func UpdateProduct(c *gin.Context, updateProductsReq *msg.UpdateProductsReq) error {
 	ProductModel := &model.TProduct{
 		ID:        bson.ObjectIdHex(updateProductsReq.ID),
 		Name:      updateProductsReq.Name,
@@ -51,8 +51,7 @@ func UpdateProduct(c *gin.Context, updateProductsReq *msg.UpdateProductsReq) (in
 
 func DeleteProduct(c *gin.Context, delProductReq *msg.DeleteProductsReq) (int, error) {
 	ProductModel := &model.TProduct{
-		//ID: delProductReq.ProductID,
+		ID: bson.ObjectIdHex(delProductReq.ID),
 	}
-
-	return ProductModel.DeleteProduct()
+	return 0, ProductModel.DeleteProduct()
 }

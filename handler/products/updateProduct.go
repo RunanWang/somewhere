@@ -30,7 +30,7 @@ func UpdateProduct(c *gin.Context) {
 	logger = logger.WithFields(log.Fields{
 		"req": UpdateProductReq,
 	})
-	num, err := service.UpdateProduct(c, &UpdateProductReq)
+	err = service.UpdateProduct(c, &UpdateProductReq)
 	if err != nil {
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
@@ -45,7 +45,7 @@ func UpdateProduct(c *gin.Context) {
 		return
 	}
 
-	UpdateProductResp.ProductID = num
+	UpdateProductResp.ProductID = 0
 	UpdateProductResp.ErrorCode = 0
 	UpdateProductResp.RequestID = c.MustGet("request_id").(string)
 	logger = logger.WithFields(log.Fields{
