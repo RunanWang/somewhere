@@ -1,35 +1,24 @@
 package model
 
 import (
+	"github.com/globalsign/mgo/bson"
 	"github.com/somewhere/db"
 )
 
 type TUser struct {
-	ID   int    `json:"user_id"`
-	Name string `json:"user_name"`
-	Age  int    `json:"user_age"`
+	ID         bson.ObjectId `json:"_id" bson:"user_id"`
+	Name       string        `json:"user_name" bson:"user_name"`
+	Age        int           `json:"user_age" bson:"user_age"`
+	Gender     int           `json:"user_gender" bson:"user_gender"`
+	City       string        `json:"user_city" bson:"user_city"`
+	Timestamp  int64         `json:"user_timestamp" bson:"user_timestamp"`
+	Historysum float64       `json:"user_historysum" bson:"user_historysum"`
 }
 
-func (t *TUser) AddUser() (int, error) {
-
-	// Prepare statement for inserting data
-	stmtIns, err := db.SqlDb.Prepare("INSERT INTO users (name,age) VALUES( ?, ? )") // ? = placeholder
-	if err != nil {
-		return -1, err
-	}
-	defer stmtIns.Close()
-
-	rs, err := stmtIns.Exec(t.Name, t.Age)
-	if err != nil {
-		return -1, err
-	}
-
-	id, err := rs.LastInsertId()
-	if err != nil {
-		return -1, err
-	}
-
-	return int(id), nil
+func (t *TUser) AddUser() error {
+	col := db.MgoDb.C("users")
+	err := col.Insert(t)
+	return err
 }
 
 func (t *TUser) GetUserByName() (users []*TUser, err error) {
@@ -63,65 +52,27 @@ func (t *TUser) GetUserByID() (users []*TUser, err error) {
 	return
 }
 
-func GetAllUsers() (users []*TUser, err error) {
-
-	rows, err := db.SqlDb.Query("SELECT * from users")
+func GetAllUsers() (users []TUser, err error) {
+	col := db.MgoDb.C("users")
+	var ret []TUser
+	err = col.Find(bson.M{}).All(&ret)
 	if err != nil {
 		return nil, err
 	}
-	for rows.Next() {
-		var aUser TUser
-		err = rows.Scan(&aUser.ID, &aUser.Name, &aUser.Age)
-		if err != nil {
-			return
-		}
-		users = append(users, &aUser)
-	}
-	return users, nil
+	return ret, nil
 }
 
-func (t *TUser) UpdateUser() (int, error) {
-
-	stmt, err := db.SqlDb.Prepare("UPDATE users SET name=?,age=? WHERE id=?")
+func (t *TUser) UpdateUser() error {
+	col := db.MgoDb.C("users")
+	err := col.Update(bson.M{"_id": t.ID}, bson.M{"$set": bson.M{"user_name": t.Name, "user_gender": t.Gender, "user_age": t.Age, "user_city": t.City, "user_historysum": t.Historysum}})
 	if err != nil {
-
-		return -1, err
+		return err
 	}
-	rs, err := stmt.Exec(t.Name, t.Age, t.ID)
-	if err != nil {
-
-		return -1, err
-	}
-
-	row, err := rs.RowsAffected()
-	if err != nil {
-
-		return -1, err
-	}
-	defer stmt.Close()
-
-	return int(row), nil
+	return nil
 }
 
-func (t *TUser) DeleteUser() (int, error) {
-
-	stmt, err := db.SqlDb.Prepare("DELETE FROM users WHERE id=?")
-	if err != nil {
-
-		return -1, err
-	}
-
-	rs, err := stmt.Exec(t.ID)
-	if err != nil {
-
-		return -1, err
-	}
-	row, err := rs.RowsAffected()
-	if err != nil {
-
-		return -1, err
-	}
-	defer stmt.Close()
-
-	return int(row), nil
+func (t *TUser) DeleteUser() error {
+	col := db.MgoDb.C("users")
+	err := col.Remove(bson.M{"_id": t.ID})
+	return err
 }

@@ -1,46 +1,54 @@
 package service
 
 import (
+	"time"
+
 	"github.com/gin-gonic/gin"
+	"github.com/globalsign/mgo/bson"
+	log "github.com/sirupsen/logrus"
 	"github.com/somewhere/model"
 	"github.com/somewhere/msg"
 )
 
-func AddUser(c *gin.Context, addUserReq *msg.AddUsersReq) (int, error) {
+func AddUser(c *gin.Context, addUserReq *msg.AddUsersReq) (string, error) {
 	UserModel := &model.TUser{
-		Name: addUserReq.UserName,
-		Age:  addUserReq.UserAge,
+		ID:         bson.NewObjectId(),
+		Name:       addUserReq.UserName,
+		Gender:     addUserReq.Gender,
+		Age:        addUserReq.UserAge,
+		City:       addUserReq.City,
+		Timestamp:  time.Now().Unix(),
+		Historysum: addUserReq.Historysum,
 	}
-
-	return UserModel.AddUser()
+	logger := c.MustGet("logger").(*log.Entry)
+	err := UserModel.AddUser()
+	logger = logger.WithFields(log.Fields{
+		"add_item_error": err,
+	})
+	c.Set("logger", logger)
+	return UserModel.ID.Hex(), err
 }
 
-func GetUsers(c *gin.Context, getUsersReq *msg.GetUsersReq) ([]*model.TUser, error) {
-	if getUsersReq.UserID <= 0 {
-		return model.GetAllUsers()
-	} else {
-		UsersModel := &model.TUser{
-			ID: getUsersReq.UserID,
-		}
-		return UsersModel.GetUserByID()
-	}
+func GetUsers(c *gin.Context, getUsersReq *msg.GetUsersReq) ([]model.TUser, error) {
+	return model.GetAllUsers()
 }
 
-func UpdateUser(c *gin.Context, updateUsersReq *msg.UpdateUsersReq) (int, error) {
-
+func UpdateUser(c *gin.Context, updateUsersReq *msg.UpdateUsersReq) (string, error) {
 	UserModel := &model.TUser{
-		ID:   updateUsersReq.UserID,
-		Name: updateUsersReq.UserName,
-		Age:  updateUsersReq.UserAge,
+		ID:         bson.ObjectIdHex(updateUsersReq.UserID),
+		Name:       updateUsersReq.UserName,
+		Gender:     updateUsersReq.Gender,
+		Age:        updateUsersReq.UserAge,
+		City:       updateUsersReq.City,
+		Historysum: updateUsersReq.Historysum,
 	}
-
-	return UserModel.UpdateUser()
+	return UserModel.ID.Hex(), UserModel.UpdateUser()
 }
 
-func DeleteUser(c *gin.Context, delUserReq *msg.DeleteUsersReq) (int, error) {
+func DeleteUser(c *gin.Context, delUserReq *msg.DeleteUsersReq) (string, error) {
 	UserModel := &model.TUser{
-		ID: delUserReq.UserID,
+		ID: bson.ObjectIdHex(delUserReq.UserID),
 	}
 
-	return UserModel.DeleteUser()
+	return UserModel.ID.Hex(), UserModel.DeleteUser()
 }

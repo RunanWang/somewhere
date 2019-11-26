@@ -1,6 +1,8 @@
 # somewhere
 
-## stores
+## 数据库设计
+
+### stores
 
 | name        | type     | meaning      |
 | ----------- | -------- | ------------ |
@@ -9,7 +11,7 @@
 | store_score | double   | 商户评分     |
 | store_city  | string   | 商户所在城市 |
 
-## users
+### users
 
 | name            | type     | meaning                   |
 | --------------- | -------- | ------------------------- |
@@ -21,7 +23,7 @@
 | user_timestamp  | int      | 用户创建时间              |
 | user_historysum | double   | 用户历史消费              |
 
-## items
+### items
 
 | name           | type     | meaning      |
 | -------------- | -------- | ------------ |
@@ -34,7 +36,7 @@
 | item_brand     | string   | 商品品牌     |
 | item_timestamp | int      | 商品创建时间 |
 
-## records
+### records
 
 | name            | type     | meaning                   |
 | --------------- | -------- | ------------------------- |
@@ -53,3 +55,6 @@
 | item_price      | double   | 商品价格                  |
 | item_salecount  | int      | 商品销量                  |
 | item_brand      | string   | 商品品牌                  |
+
+## 接口设计
+
