@@ -1,36 +1,25 @@
 package model
 
 import (
+	"github.com/globalsign/mgo/bson"
 	"github.com/somewhere/db"
 )
 
 type TProduct struct {
-	ID      int    `json:"product_id"`
-	StoreID int    `json:"store_id"`
-	Name    string `json:"product_name"`
-	Price   int    `json:"product_price"`
+	ID        bson.ObjectId `json:"item_id" bson:"_id"`
+	StoreID   bson.ObjectId `json:"store_id" bson:"store_id"`
+	Name      string        `json:"item_name" bson:"item_name"`
+	Price     float64       `json:"item_price" bson:"item_price"`
+	Score     float64       `json:"item_score" bson:"item_score"`
+	SaleCount int           `json:"item_salecount" bson:"item_salecount"`
+	Brand     string        `json:"item_brand" bson:"item_brand"`
+	Timestamp int64         `json:"item_timestamp" bson:"item_timestamp"`
 }
 
-func (t *TProduct) AddProduct() (int, error) {
-
-	// Prepare statement for inserting data
-	stmtIns, err := db.SqlDb.Prepare("INSERT INTO products (store_id,name,price) VALUES(?, ?, ? )") // ? = placeholder
-	if err != nil {
-		return -1, err
-	}
-	defer stmtIns.Close()
-
-	rs, err := stmtIns.Exec(t.StoreID, t.Name, t.Price)
-	if err != nil {
-		return -1, err
-	}
-
-	id, err := rs.LastInsertId()
-	if err != nil {
-		return -1, err
-	}
-
-	return int(id), nil
+func (t *TProduct) AddProduct() error {
+	col := db.MgoDb.C("items")
+	err := col.Insert(t)
+	return err
 }
 
 func (t *TProduct) GetProductByName() (Products []*TProduct, err error) {
@@ -64,21 +53,14 @@ func (t *TProduct) GetProductByID() (Products []*TProduct, err error) {
 	return
 }
 
-func GetAllProducts() (Products []*TProduct, err error) {
-
-	rows, err := db.SqlDb.Query("SELECT * from products")
+func GetAllProducts() (Products []TProduct, err error) {
+	col := db.MgoDb.C("items")
+	var ret []TProduct
+	err = col.Find(bson.M{}).All(&ret)
 	if err != nil {
 		return nil, err
 	}
-	for rows.Next() {
-		var aProduct TProduct
-		err = rows.Scan(&aProduct.ID, &aProduct.StoreID, &aProduct.Name, &aProduct.Price)
-		if err != nil {
-			return
-		}
-		Products = append(Products, &aProduct)
-	}
-	return Products, nil
+	return ret, nil
 }
 
 func (t *TProduct) UpdateProduct() (int, error) {

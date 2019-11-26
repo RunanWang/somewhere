@@ -1,6 +1,6 @@
 
 [server]
-Address="0.0.0.0:40001"
+Address="0.0.0.0:40036"
 LogLevel="Release"
 
 [database]

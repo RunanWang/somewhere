@@ -2,7 +2,6 @@ package products
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/go-sql-driver/mysql"
 	log "github.com/sirupsen/logrus"
 	cerror "github.com/somewhere/err"
 	"github.com/somewhere/msg"
@@ -37,12 +36,7 @@ func AddProduct(c *gin.Context) {
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
-
-		if _, isMysql := err.(*mysql.MySQLError); isMysql {
-			service.CommonErrorResp(c, cerror.ErrInternalError)
-		} else {
-			service.CommonErrorResp(c, cerror.ErrInvalidParam)
-		}
+		service.CommonErrorResp(c, cerror.ErrInvalidParam)
 
 		return
 	}

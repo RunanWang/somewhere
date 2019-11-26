@@ -1,47 +1,57 @@
 package service
 
 import (
+	"time"
+
+	"github.com/globalsign/mgo/bson"
+	log "github.com/sirupsen/logrus"
+
 	"github.com/gin-gonic/gin"
 	"github.com/somewhere/model"
 	"github.com/somewhere/msg"
 )
 
-func AddProduct(c *gin.Context, addProductReq *msg.AddProductsReq) (int, error) {
+func AddProduct(c *gin.Context, addProductReq *msg.AddProductsReq) (string, error) {
 	ProductModel := &model.TProduct{
-		Name:    addProductReq.ProductName,
-		Price:   addProductReq.ProductPrice,
-		StoreID: addProductReq.StoreID,
+		ID:        bson.NewObjectId(),
+		Name:      addProductReq.Name,
+		Price:     addProductReq.Price,
+		StoreID:   bson.ObjectIdHex(addProductReq.StoreID),
+		Score:     addProductReq.Score,
+		SaleCount: addProductReq.SaleCount,
+		Brand:     addProductReq.Brand,
+		Timestamp: time.Now().Unix(),
 	}
-
-	return ProductModel.AddProduct()
+	logger := c.MustGet("logger").(*log.Entry)
+	err := ProductModel.AddProduct()
+	logger = logger.WithFields(log.Fields{
+		"add_item_error": err,
+	})
+	c.Set("logger", logger)
+	return ProductModel.ID.Hex(), err
 }
 
-func GetProducts(c *gin.Context, getProductsReq *msg.GetProductsReq) ([]*model.TProduct, error) {
-	if getProductsReq.ProductID <= 0 {
-		return model.GetAllProducts()
-	} else {
-		ProductsModel := &model.TProduct{
-			ID: getProductsReq.ProductID,
-		}
-		return ProductsModel.GetProductByID()
-	}
+func GetProducts(c *gin.Context, getProductsReq *msg.GetProductsReq) ([]model.TProduct, error) {
+	return model.GetAllProducts()
 }
 
 func UpdateProduct(c *gin.Context, updateProductsReq *msg.UpdateProductsReq) (int, error) {
-
 	ProductModel := &model.TProduct{
-		ID:      updateProductsReq.ProductID,
-		Name:    updateProductsReq.ProductName,
-		StoreID: updateProductsReq.StoreID,
-		Price:   updateProductsReq.ProductPrice,
+		ID:        bson.ObjectIdHex(updateProductsReq.ID),
+		Name:      updateProductsReq.Name,
+		Price:     updateProductsReq.Price,
+		StoreID:   bson.ObjectIdHex(updateProductsReq.StoreID),
+		Score:     updateProductsReq.Score,
+		SaleCount: updateProductsReq.SaleCount,
+		Brand:     updateProductsReq.Brand,
+		Timestamp: time.Now().Unix(),
 	}
-
 	return ProductModel.UpdateProduct()
 }
 
 func DeleteProduct(c *gin.Context, delProductReq *msg.DeleteProductsReq) (int, error) {
 	ProductModel := &model.TProduct{
-		ID: delProductReq.ProductID,
+		//ID: delProductReq.ProductID,
 	}
 
 	return ProductModel.DeleteProduct()

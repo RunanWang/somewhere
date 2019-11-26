@@ -11,7 +11,7 @@ import (
 func AddRecord(c *gin.Context, addRecordReq *msg.AddRecordReq) error {
 	startTime := time.Now().Unix()
 	RecordModel := &model.TRecord{
-		ProID:     addRecordReq.ProID,
+		ItemID:    addRecordReq.ProID,
 		Status:    addRecordReq.Status,
 		UserID:    addRecordReq.UserID,
 		Timestamp: startTime,
