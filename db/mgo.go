@@ -42,6 +42,16 @@ func createIndex() error {
 		return err
 	}
 
+	col = MgoDb.C("stores")
+	index = mgo.Index{
+		Key:    []string{"store_name"},
+		Unique: true,
+	}
+	err = col.EnsureIndex(index)
+	if err != nil {
+		return err
+	}
+
 	col = MgoDb.C("items")
 	index = mgo.Index{
 		Key:    []string{"store_id", "item_id"},

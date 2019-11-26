@@ -7,24 +7,26 @@ type GetStoresReq struct {
 }
 
 type GetStoresResp struct {
-	List []*model.TStores `json:"list"`
+	List []model.TStores `json:"list"`
 	StdResp
 }
 
 type AddStoresReq struct {
-	StoreName  string `json:"store_name" binding:"required"`
-	StoreLevel int    `json:"store_level"`
+	StoreName  string  `json:"store_name" binding:"required"`
+	StoreLevel float64 `json:"store_level"`
+	StoreCity  string  `json:"store_city"`
 }
 
 type AddStoresResp struct {
-	StoreID int `json:"store_id"`
+	StoreID string `json:"store_id"`
 	StdResp
 }
 
 type UpdateStoresReq struct {
-	StoreID    int    `json:"store_id"`
-	StoreName  string `json:"store_name" binding:"required"`
-	StoreLevel int    `json:"store_level" binding:"required"`
+	StoreID    string  `json:"store_id"`
+	StoreName  string  `json:"store_name" `
+	StoreLevel float64 `json:"store_level" `
+	StoreCity  string  `json:"store_city"`
 }
 
 type UpdateStoresResp struct {
@@ -33,7 +35,7 @@ type UpdateStoresResp struct {
 }
 
 type DeleteStoresReq struct {
-	StoreID int `form:"store_id" binding:"required"`
+	StoreID string `form:"store_id" binding:"required"`
 }
 
 type DeleteStoresResp struct {

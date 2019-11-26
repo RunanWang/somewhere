@@ -6,7 +6,7 @@ import (
 )
 
 type TUser struct {
-	ID         bson.ObjectId `json:"_id" bson:"user_id"`
+	ID         bson.ObjectId `json:"user_id" bson:"_id"`
 	Name       string        `json:"user_name" bson:"user_name"`
 	Age        int           `json:"user_age" bson:"user_age"`
 	Gender     int           `json:"user_gender" bson:"user_gender"`
