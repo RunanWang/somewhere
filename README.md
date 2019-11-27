@@ -109,3 +109,32 @@
 }
 ```
 
+
+
+
+
+#### 删除某个商户
+
+- Method : HTTP DELETE
+- Request URL: /somewhere/stores
+- Request: form data
+
+|   key    |          value           |
+| :------: | :----------------------: |
+| store_id | 5ddddcf891560069a33cb544 |
+
+
+
+- Response:
+
+```json
+{
+    "delete_success_num": 1,
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574823102.4059"
+}
+```
+
+
+
