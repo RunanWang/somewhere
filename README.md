@@ -67,7 +67,19 @@
 - Response:
 
 ```json
-`{``  ``"token"``:``"xxxx"``,``  ``"error_code"``:``0``,``  ``"error_msg"``:``"xx"``,``  ``"request_id"``:``"xxx"``}`
+{
+    "list": [
+        {
+            "store_id": "5ddd03339156005687913584",
+            "store_name": "素云满湖",
+            "store_level": 2.33,
+            "store_city": "敦煌"
+        }
+    ],
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574821448.8081"
+}
 ```
 
 
@@ -79,12 +91,21 @@
 - Request: raw json
 
 ```json
-`{``  ``"error_code"``:``0``,``  ``"error_msg"``:``"xx"``,``  ``"request_id"``:``"xxx"``}`
+{
+    "store_name": "湖",
+    "store_level": 2.33,
+    "store_city":"敦煌"
+}
 ```
 
 - Response:
 
 ```json
-`{``  ``"error_code"``:``0``,``  ``"error_msg"``:``"xx"``,``  ``"request_id"``:``"xxx"``}`
+{
+    "store_id": "5ddddcf891560069a33cb544",
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574821112.1847"
+}
 ```
 
