@@ -138,3 +138,31 @@
 
 
 
+#### 更新某个商户
+
+- Method : HTTP PUT
+- Request URL: /somewhere/stores
+- Request: raw json
+
+```json
+{
+    "store_id": "5ddddcf891560069a33cb544",
+    "store_name": "湖",
+    "store_level": 2.33,
+    "store_city":"敦煌"
+}
+```
+
+- Response:
+
+```json
+{
+    "update_sucess_num": 1,
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574824271.1847"
+}
+```
+
+
+
