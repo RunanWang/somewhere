@@ -58,3 +58,33 @@
 
 ## 接口设计
 
+### SuperAdmin部分
+
+#### 获得所有商户信息
+
+- Method : HTTP GET
+- Request URL: /somewhere/stores
+- Response:
+
+```json
+`{``  ``"token"``:``"xxxx"``,``  ``"error_code"``:``0``,``  ``"error_msg"``:``"xx"``,``  ``"request_id"``:``"xxx"``}`
+```
+
+
+
+#### 增加某个商户
+
+- Method : HTTP POST
+- Request URL: /somewhere/stores
+- Request: raw json
+
+```json
+`{``  ``"error_code"``:``0``,``  ``"error_msg"``:``"xx"``,``  ``"request_id"``:``"xxx"``}`
+```
+
+- Response:
+
+```json
+`{``  ``"error_code"``:``0``,``  ``"error_msg"``:``"xx"``,``  ``"request_id"``:``"xxx"``}`
+```
+
