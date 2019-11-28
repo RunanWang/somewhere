@@ -420,11 +420,117 @@
 
 #### 更改自己商户的信息
 
+- Method : HTTP PUT
+- Request URL: /somewhere/users
+- Request: raw json
+
+```json
+{
+	"user_id":"5ddf2e449156000de1e03acd",
+    "user_name": "素满湖",
+    "user_gender": 1,
+    "user_age":22,
+    "user_city": "长春",
+    "user_historysum": 2.33
+}
+```
+
+- Response:
+
+```json
+{
+    "update_sucess_num": "5ddf2e449156000de1e03acd",
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574907588.2081"
+}
+```
+
+
+
 #### 在自己的店铺增加某个商品
+
+- Method : HTTP POST
+- Request URL: /somewhere/products
+- Request: raw json
+
+```json
+{
+    "store_id": "5ddb7289e2ea5cecbe4605b6",
+    "item_name": "矿水",
+    "item_price": 2.3,
+    "item_score": 4.5523423,
+    "item_salecount": 345252,
+    "item_brand": "wahaha"
+}
+```
+
+- Response:
+
+```json
+{
+    "item_id": "5ddf300b9156000de1e03acf",
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574907915.694"
+}
+```
+
+
 
 #### 在自己的店铺删除某个商品
 
+- Method : HTTP DELETE
+- Request URL: /somewhere/products
+- Request: form data
+
+|   key   |          value           |
+| :-----: | :----------------------: |
+| item_id | 5ddddcf891560069a33cb544 |
+
+- Response:
+
+```json
+{
+    "delete_success_num": 1,
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574823102.4059"
+}
+```
+
+
+
 #### 在自己的店铺更改某个商品
+
+- Method : HTTP PUT
+- Request URL: /somewhere/products
+- Request: raw json
+
+```json
+{
+	"item_id":"5ddcdb249156004ffaa78b27",
+    "store_id": "5ddb7289e2ea5cecbe4605b6",
+    "item_name": "矿水",
+    "item_price": 2.3,
+    "item_score": 4.5523423,
+    "item_salecount": 345252,
+    "item_brand": "wahaha"
+}
+```
+
+- Response:
+
+```json
+{
+    "update_sucess_num": 0,
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574908012.8162"
+}
+```
+
+
 
 #### 获得自己所有的商品
 
@@ -437,6 +543,34 @@
 
 
 #### 更新自己的信息
+
+- Method : HTTP PUT
+- Request URL: /somewhere/users
+- Request: raw json
+
+```json
+{
+	"user_id":"5ddf2e449156000de1e03acd",
+    "user_name": "素满湖",
+    "user_gender": 1,
+    "user_age":22,
+    "user_city": "长春",
+    "user_historysum": 2.33
+}
+```
+
+- Response:
+
+```json
+{
+    "update_sucess_num": "5ddf2e449156000de1e03acd",
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574907588.2081"
+}
+```
+
+
 
 #### 查看推荐的列表
 
