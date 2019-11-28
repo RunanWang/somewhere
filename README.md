@@ -60,6 +60,8 @@
 
 ### SuperAdmin部分
 
+
+
 #### 获得所有商户信息
 
 - Method : HTTP GET
@@ -123,8 +125,6 @@
 | :------: | :----------------------: |
 | store_id | 5ddddcf891560069a33cb544 |
 
-
-
 - Response:
 
 ```json
@@ -165,4 +165,284 @@
 ```
 
 
+
+ #### 获得所有用户
+
+- Method : HTTP GET
+- Request URL: /somewhere/users
+- Response:
+
+```json
+{
+    "list": [
+        {
+            "user_id": "5ddcfb6425c5b119f58a17c4",
+            "user_name": "素云满湖",
+            "user_age": 22,
+            "user_gender": 1,
+            "user_city": "长春",
+            "user_timestamp": 1574763364,
+            "user_historysum": 2.33
+        }
+    ],
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574907357.7887"
+}
+```
+
+
+
+#### 增加某个用户
+
+- Method : HTTP POST
+- Request URL: /somewhere/users
+- Request: raw json
+
+```json
+{
+    "user_name": "素满湖",
+    "user_gender": 1,
+    "user_age":22,
+    "user_city": "长春",
+    "user_historysum": 2.33
+}
+```
+
+- Response:
+
+```json
+{
+    "user_id": "5ddf2e449156000de1e03acd",
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574907460.1847"
+}
+```
+
+
+
+#### 更改某个用户
+
+- Method : HTTP PUT
+- Request URL: /somewhere/users
+- Request: raw json
+
+```json
+{
+	"user_id":"5ddf2e449156000de1e03acd",
+    "user_name": "素满湖",
+    "user_gender": 1,
+    "user_age":22,
+    "user_city": "长春",
+    "user_historysum": 2.33
+}
+```
+
+- Response:
+
+```json
+{
+    "update_sucess_num": "5ddf2e449156000de1e03acd",
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574907588.2081"
+}
+```
+
+
+
+#### 删除某个用户
+
+- Method : HTTP DELETE
+- Request URL: /somewhere/users
+- Request: form data
+
+|   key   |          value           |
+| :-----: | :----------------------: |
+| user_id | 5ddcfab325c5b119f58a1786 |
+
+- Response:
+
+```json
+{
+    "delete_success_num": "5ddcfab325c5b119f58a1786",
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574907666.4425"
+}
+```
+
+
+
+#### 获得所有商品
+
+- Method : HTTP GET
+- Request URL: /somewhere/products
+- Response:
+
+```json
+{
+    "list": [
+        {
+            "item_id": "5ddcd1f691560037116545cd",
+            "store_id": "5ddb7289e2ea5cecbe4605b6",
+            "item_name": "ssdasxa",
+            "item_price": 2.3,
+            "item_score": 4.5523423,
+            "item_salecount": 345252,
+            "item_brand": "wahaha",
+            "item_timestamp": 1574752758
+        }
+    ],
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574907755.2540"
+}
+```
+
+
+
+#### 增加某个商品
+
+- Method : HTTP POST
+- Request URL: /somewhere/products
+- Request: raw json
+
+```json
+{
+    "store_id": "5ddb7289e2ea5cecbe4605b6",
+    "item_name": "矿水",
+    "item_price": 2.3,
+    "item_score": 4.5523423,
+    "item_salecount": 345252,
+    "item_brand": "wahaha"
+}
+```
+
+- Response:
+
+```json
+{
+    "item_id": "5ddf300b9156000de1e03acf",
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574907915.694"
+}
+```
+
+
+
+#### 删除某个商品
+
+- Method : HTTP DELETE
+- Request URL: /somewhere/products
+- Request: form data
+
+|   key   |          value           |
+| :-----: | :----------------------: |
+| item_id | 5ddddcf891560069a33cb544 |
+
+- Response:
+
+```json
+{
+    "delete_success_num": 1,
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574823102.4059"
+}
+```
+
+
+
+#### 更改某个商品
+
+- Method : HTTP PUT
+- Request URL: /somewhere/products
+- Request: raw json
+
+```json
+{
+	"item_id":"5ddcdb249156004ffaa78b27",
+    "store_id": "5ddb7289e2ea5cecbe4605b6",
+    "item_name": "矿水",
+    "item_price": 2.3,
+    "item_score": 4.5523423,
+    "item_salecount": 345252,
+    "item_brand": "wahaha"
+}
+```
+
+- Response:
+
+```json
+{
+    "update_sucess_num": 0,
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574908012.8162"
+}
+```
+
+
+
+#### 获得所有记录
+
+- Method : HTTP GET
+- Request URL: /somewhere/records
+- Response:
+
+```json
+{
+    "list": [
+        {
+            "record_id": "5ddb7289e2ea5cecbe4605b6",
+            "user_id": "",
+            "item_id": "",
+            "is_trade": 1,
+            "timestamp": 1574662793
+        }
+    ],
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574907853.456"
+}
+```
+
+
+
+
+
+### 商户部分
+
+
+
+#### 更改自己商户的信息
+
+#### 在自己的店铺增加某个商品
+
+#### 在自己的店铺删除某个商品
+
+#### 在自己的店铺更改某个商品
+
+#### 获得自己所有的商品
+
+#### 查看自己某个商品的所有记录
+
+
+
+### 用户部分
+
+
+
+#### 更新自己的信息
+
+#### 查看推荐的列表
+
+#### 查看某个具体的商品
+
+#### 购买某个商品
+
+#### 对购买的商品作出评价
 
