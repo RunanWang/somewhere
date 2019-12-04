@@ -22,35 +22,14 @@ func (t *TProduct) AddProduct() error {
 	return err
 }
 
-func (t *TProduct) GetProductByName() (Products []*TProduct, err error) {
-	row := db.SqlDb.QueryRow("SELECT * FROM products where name = ?", t.Name)
+func (t *TProduct) GetProductByID(id bson.ObjectId) (Product TProduct, err error) {
+	col := db.MgoDb.C("items")
+	var ret TProduct
+	err = col.Find(bson.M{"_id": id}).One(&ret)
 	if err != nil {
-		return
+		return ret, err
 	}
-
-	var aProduct TProduct
-	err = row.Scan(&aProduct.ID, &aProduct.Name, &aProduct.Price)
-	if err != nil {
-		return
-	}
-	Products = append(Products, &aProduct)
-
-	return
-}
-
-func (t *TProduct) GetProductByID() (Products []*TProduct, err error) {
-	row := db.SqlDb.QueryRow("SELECT * FROM products where id = ?", t.ID)
-	if err != nil {
-		return
-	}
-	var aProduct TProduct
-	err = row.Scan(&aProduct.ID, &aProduct.Name, &aProduct.Price)
-	if err != nil {
-		return
-	}
-	Products = append(Products, &aProduct)
-
-	return
+	return ret, nil
 }
 
 func GetAllProducts() (Products []TProduct, err error) {

@@ -16,11 +16,6 @@ func InitRedisDatabase() error {
 		return err
 	}
 
-	_, err = RedisDb.Do("SET", "mykey", "superWang")
-	if err != nil {
-		fmt.Println("redis set failed:", err)
-	}
-
 	username, err := redis.String(RedisDb.Do("GET", "mykey"))
 	if err != nil {
 		fmt.Println("redis get failed:", err)
