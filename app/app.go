@@ -14,6 +14,7 @@ import (
 	"github.com/somewhere/config"
 	"github.com/somewhere/db"
 	"github.com/somewhere/handler/products"
+	"github.com/somewhere/handler/recommend"
 	"github.com/somewhere/handler/records"
 	"github.com/somewhere/handler/stores"
 	"github.com/somewhere/handler/users"
@@ -42,6 +43,7 @@ func (t *App) Initialize() {
 
 	db.InitDatabase()
 	db.InitSQLDatabase()
+	db.InitRedisDatabase()
 	t.initRouter()
 }
 
@@ -86,6 +88,9 @@ func (t *App) initRouter() {
 	recGroup := rootGroup.Group("/records")
 	recGroup.GET("", records.GetRecords)
 	recGroup.POST("", records.AddRecord)
+
+	recoGroup := rootGroup.Group("/recommend")
+	recoGroup.GET("", recommend.GetRecommend)
 }
 
 func (t *App) Run() {

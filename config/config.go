@@ -27,6 +27,7 @@ type TDbConfig struct {
 	SQLName       string
 	SQLPassword   string
 	SQLDbName     string
+	RedisAddress  string `toml:"RedisAddress"`
 }
 
 var Config TConfig
