@@ -576,6 +576,36 @@
 
 #### 查看自己某个商品的所有记录
 
+- Method : HTTP GET
+- Request URL: /somewhere/records
+- Request: form data
+
+
+|   key   |          value           |
+| :-----: | :----------------------: |
+| item_id | 5ddf2e449156000de1e03acd |
+
+- Response:
+
+```json
+{
+    "list": [
+        {
+            "record_id": "5ddb7289e2ea5cecbe4605b6",
+            "user_id": "",
+            "item_id": "",
+            "is_trade": 1,
+            "timestamp": 1574662793
+        }
+    ],
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1574907853.456"
+}
+```
+
+
+
 
 
 ### 用户部分
