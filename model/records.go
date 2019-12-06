@@ -27,3 +27,23 @@ func GetAllRecords() ([]TRecord, error) {
 	}
 	return ret, nil
 }
+
+func (t *TRecord) GetRecordsByItemID() ([]TRecord, error) {
+	col := db.MgoDb.C("records")
+	var ret []TRecord
+	err := col.Find(bson.M{"item_id": t.ItemID}).All(&ret)
+	if err != nil {
+		return nil, err
+	}
+	return ret, nil
+}
+
+func (t *TRecord) GetRecordsByUserID() ([]TRecord, error) {
+	col := db.MgoDb.C("records")
+	var ret []TRecord
+	err := col.Find(bson.M{"user_id": t.UserID}).All(&ret)
+	if err != nil {
+		return nil, err
+	}
+	return ret, nil
+}

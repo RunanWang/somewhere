@@ -6,7 +6,8 @@ import (
 )
 
 type GetRecordsReq struct {
-	RecordID int `form:"Record_id"`
+	ProductID string `form:"product_id"`
+	UserID    string `form:"user_id"`
 }
 
 type GetRecordsResp struct {
