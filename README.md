@@ -56,6 +56,13 @@
 | item_salecount  | int      | 商品销量                  |
 | item_brand      | string   | 商品品牌                  |
 
+### recommend
+
+| name    | type   | meaning                     |
+| ------- | ------ | --------------------------- |
+| user_id | string | 用户id                      |
+| list    | list   | 推荐物品列表，内容是item_id |
+
 ## 接口设计
 
 ### SuperAdmin部分
@@ -536,6 +543,13 @@
 
 - Method : HTTP GET
 - Request URL: /somewhere/products
+- Request: form data
+
+
+|   key    |          value           |
+| :------: | :----------------------: |
+| store_id | 5ddb7289e2ea5cecbe4605b6 |
+
 - Response:
 
 ```json
@@ -599,6 +613,41 @@
 
 
 #### 查看推荐的列表
+
+- Method : HTTP GET
+- Request URL: /somewhere/recommend
+- Request: form data
+
+
+|   key   |          value           |
+| :-----: | :----------------------: |
+| user_id | 5ddf2e449156000de1e03acd |
+
+- Response:
+
+```json
+{
+    "list": [
+        {
+            "item_id": "5ddcd1f691560037116545cd",
+            "store_id": "5ddb7289e2ea5cecbe4605b6",
+            "item_name": "ssdasxa",
+            "item_price": 2.3,
+            "item_score": 4.5523423,
+            "item_salecount": 345252,
+            "item_brand": "wahaha",
+            "item_timestamp": 1574752758
+        }
+    ],
+    "error_code": 0,
+    "error_msg": "",
+    "request_id": "1575625479.8081"
+}
+```
+
+
+
+
 
 #### 查看某个具体的商品
 
