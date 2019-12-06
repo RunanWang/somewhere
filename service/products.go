@@ -32,7 +32,12 @@ func AddProduct(c *gin.Context, addProductReq *msg.AddProductsReq) (string, erro
 }
 
 func GetProducts(c *gin.Context, getProductsReq *msg.GetProductsReq) ([]model.TProduct, error) {
-	return model.GetAllProducts()
+	if getProductsReq.StoreID == "" {
+		return model.GetAllProducts()
+	}
+	var temp model.TProduct
+	temp.StoreID = bson.ObjectIdHex(getProductsReq.StoreID)
+	return temp.GetProductsByStoreID()
 }
 
 func UpdateProduct(c *gin.Context, updateProductsReq *msg.UpdateProductsReq) error {

@@ -5,7 +5,7 @@ import (
 )
 
 type GetProductsReq struct {
-	ProductID int `form:"product_id"`
+	StoreID string `form:"store_id"`
 }
 
 type GetProductsResp struct {

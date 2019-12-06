@@ -32,6 +32,16 @@ func (t *TProduct) GetProductByID() (Product TProduct, err error) {
 	return ret, nil
 }
 
+func (t *TProduct) GetProductsByStoreID() (Products []TProduct, err error) {
+	col := db.MgoDb.C("items")
+	var ret []TProduct
+	err = col.Find(bson.M{"store_id": t.StoreID}).All(&ret)
+	if err != nil {
+		return nil, err
+	}
+	return ret, nil
+}
+
 func GetAllProducts() (Products []TProduct, err error) {
 	col := db.MgoDb.C("items")
 	var ret []TProduct
