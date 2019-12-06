@@ -22,10 +22,10 @@ func (t *TProduct) AddProduct() error {
 	return err
 }
 
-func (t *TProduct) GetProductByID(id bson.ObjectId) (Product TProduct, err error) {
+func (t *TProduct) GetProductByID() (Product TProduct, err error) {
 	col := db.MgoDb.C("items")
 	var ret TProduct
-	err = col.Find(bson.M{"_id": id}).One(&ret)
+	err = col.Find(bson.M{"_id": t.ID}).One(&ret)
 	if err != nil {
 		return ret, err
 	}
