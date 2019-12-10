@@ -10,6 +10,7 @@ type TStores struct {
 	Name  string        `json:"store_name" bson:"store_name"`
 	Level float64       `json:"store_level" bson:"store_level"`
 	City  string        `json:"store_city" bson:"store_city"`
+	Timestamp  int64    `json:"timestamp" bson:"timestamp"`
 }
 
 func (t *TStores) AddStore() error {

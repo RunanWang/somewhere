@@ -13,7 +13,7 @@
           {{ scope.$index+1 }}
         </template>
       </el-table-column>
-      <el-table-column label="商铺ID" width="310" align="center">
+      <el-table-column label="商铺ID" width="250" align="center">
         <template slot-scope="scope">
           {{ scope.row.store_id }}
         </template>
@@ -23,20 +23,20 @@
           <span>{{ scope.row.store_name }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="商铺所在城市" width="250" align="center">
+      <el-table-column label="商铺城市" width="100" align="center">
         <template slot-scope="scope">
           {{ scope.row.store_city }}
         </template>
       </el-table-column>
-      <el-table-column class-name="status-col" label="商铺评分" width="150" align="center">
+      <el-table-column class-name="status-col" label="商铺评分" width="100" align="center">
         <template slot-scope="scope">
           <el-tag :type="scope.row.store_level | statusFilter">{{ scope.row.store_level }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column align="center" prop="created_at" label="创建时间" width="300">
+      <el-table-column align="center" prop="created_at" label="创建时间" width="200">
         <template slot-scope="scope">
           <i class="el-icon-time" />
-          <span>{{ scope.row.DisplayTime }}</span>
+          <span>{{ scope.row.timestamp | formatDate }}</span>
         </template>
       </el-table-column>
     </el-table>
@@ -45,6 +45,7 @@
 
 <script>
 import { getList } from '@/api/table'
+import { parseTime } from '@/utils/index.js'
 
 export default {
   filters: {
@@ -56,12 +57,9 @@ export default {
         return 'gray'
       }
       return 'success'
-      // const statusMap = {
-      //   published: 'success',
-      //   draft: 'gray',
-      //   deleted: 'danger'
-      // }
-      // return statusMap[Status]
+    },
+    formatDate(time) {
+      return parseTime(time)
     }
   },
   data() {
