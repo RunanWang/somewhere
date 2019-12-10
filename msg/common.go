@@ -1,7 +1,7 @@
 package msg
 
 type StdResp struct {
-	ErrorCode int64  `json:"error_code"`
-	ErrorMsg  string `json:"error_msg"`
+	ErrorCode int64  `json:"code"`
+	ErrorMsg  string `json:"message"`
 	RequestID string `json:"request_id"`
 }

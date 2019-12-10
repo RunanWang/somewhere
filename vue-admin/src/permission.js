@@ -34,11 +34,8 @@ router.beforeEach(async(to, from, next) => {
           // get user info
           // await store.dispatch('user/getInfo')
           const { Roles } = await store.dispatch('user/getInfo')
-          console.log(Roles)
           const accessRoutes = await store.dispatch('permission/generateRoutes', Roles)
-          console.log(accessRoutes)
           router.addRoutes(accessRoutes)
-          console.log(router)
           next({ ...to, replace: true })
           // next()
         } catch (error) {

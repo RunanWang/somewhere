@@ -7,7 +7,7 @@ type GetStoresReq struct {
 }
 
 type GetStoresResp struct {
-	List []model.TStores `json:"list"`
+	List []model.TStores `json:"data"`
 	StdResp
 }
 

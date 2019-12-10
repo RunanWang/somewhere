@@ -8,32 +8,32 @@
       fit
       highlight-current-row
     >
-      <el-table-column align="center" label="ID" width="95">
+      <el-table-column align="center" label="序号" width="95">
         <template slot-scope="scope">
           {{ scope.$index+1 }}
         </template>
       </el-table-column>
-      <el-table-column label="Title">
+      <el-table-column label="商铺ID" width="310" align="center">
         <template slot-scope="scope">
-          {{ scope.row.Title }}
+          {{ scope.row.store_id }}
         </template>
       </el-table-column>
-      <el-table-column label="Author" width="110" align="center">
+      <el-table-column label="商铺名称" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.Author }}</span>
+          <span>{{ scope.row.store_name }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Pageviews" width="110" align="center">
+      <el-table-column label="商铺所在城市" width="250" align="center">
         <template slot-scope="scope">
-          {{ scope.row.Pageviews }}
+          {{ scope.row.store_city }}
         </template>
       </el-table-column>
-      <el-table-column class-name="status-col" label="Status" width="110" align="center">
+      <el-table-column class-name="status-col" label="商铺评分" width="150" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.Status | statusFilter">{{ scope.row.Status }}</el-tag>
+          <el-tag :type="scope.row.store_level | statusFilter">{{ scope.row.store_level }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column align="center" prop="created_at" label="Display_time" width="300">
+      <el-table-column align="center" prop="created_at" label="创建时间" width="300">
         <template slot-scope="scope">
           <i class="el-icon-time" />
           <span>{{ scope.row.DisplayTime }}</span>
@@ -49,12 +49,19 @@ import { getList } from '@/api/table'
 export default {
   filters: {
     statusFilter(Status) {
-      const statusMap = {
-        published: 'success',
-        draft: 'gray',
-        deleted: 'danger'
+      if (Status <= 2) {
+        return 'danger'
       }
-      return statusMap[Status]
+      if (Status <= 4) {
+        return 'gray'
+      }
+      return 'success'
+      // const statusMap = {
+      //   published: 'success',
+      //   draft: 'gray',
+      //   deleted: 'danger'
+      // }
+      // return statusMap[Status]
     }
   },
   data() {
