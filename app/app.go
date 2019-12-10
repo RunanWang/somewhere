@@ -7,6 +7,7 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/somewhere/handler"
 	"github.com/somewhere/middleware"
 
 	"github.com/gin-gonic/gin"
@@ -42,7 +43,7 @@ func (t *App) Initialize() {
 	t.initLogger()
 
 	db.InitDatabase()
-	db.InitSQLDatabase()
+	//db.InitSQLDatabase()
 	db.InitRedisDatabase()
 	t.initRouter()
 }
@@ -62,8 +63,23 @@ func (t *App) initLogger() {
 
 func (t *App) initRouter() {
 	r := t.engine
+	r.Use(middleware.CorsHandler())
 	r.Use(gin.Recovery())
 	r.Use(middleware.Common)
+	var authMiddleware = middleware.GinJWTMiddlewareInit(middleware.AllUserAuthorizator)
+	r.POST("/login", authMiddleware.LoginHandler)
+	r.NoRoute(authMiddleware.MiddlewareFunc(), middleware.NoRouteHandler)
+	auth := r.Group("/auth")
+	{
+		// Refresh time can be longer than token timeout
+		auth.GET("/refresh_token", authMiddleware.RefreshHandler)
+	}
+	api := r.Group("/user")
+	api.Use(authMiddleware.MiddlewareFunc())
+	{
+		api.GET("/info", handler.GetUserInfo)
+		api.POST("/logout", handler.Logout)
+	}
 
 	rootGroup := r.Group("somewhere")
 
