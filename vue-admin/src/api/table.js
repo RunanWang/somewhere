@@ -15,3 +15,11 @@ export function getUserList(params) {
     params
   })
 }
+
+export function postUserList(params) {
+  return request({
+    url: '/somewhere/users',
+    method: 'post',
+    params
+  })
+}

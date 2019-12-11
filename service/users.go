@@ -1,6 +1,7 @@
 package service
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -11,6 +12,7 @@ import (
 )
 
 func AddUser(c *gin.Context, addUserReq *msg.AddUsersReq) (string, error) {
+	fmt.Println(addUserReq)
 	UserModel := &model.TUser{
 		ID:         bson.NewObjectId(),
 		Name:       addUserReq.UserName,

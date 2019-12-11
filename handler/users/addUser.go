@@ -1,6 +1,8 @@
 package users
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"github.com/go-sql-driver/mysql"
 	log "github.com/sirupsen/logrus"
@@ -19,7 +21,7 @@ func AddUser(c *gin.Context) {
 
 	logger := c.MustGet("logger").(*log.Entry)
 	logger.Tracef("in add User handler")
-
+	fmt.Println(addUserReq)
 	err = c.Bind(&addUserReq)
 	if err != nil {
 		logger = logger.WithFields(log.Fields{
