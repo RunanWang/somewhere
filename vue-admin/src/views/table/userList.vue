@@ -65,7 +65,7 @@
 
         <el-form-item label="用户性别">
           <el-select v-model="temp.user_gender" clearable class="filter-item" placeholder="-请选择-">
-            <el-option v-for="item in genderOptions" :key="item.key" :label="item.display_name" :value="item.key"></el-option>
+            <el-option v-for="item in genderOptions" :key="item.key" :label="item.display_name" :value="item.key" />
           </el-select>
         </el-form-item>
 
@@ -79,11 +79,38 @@
         <el-button type="primary" @click="handleCreateSubmit(temp)">确 定</el-button>
       </div>
     </el-dialog>
+    <!-- 新增弹窗 -->
+    <el-dialog title="编辑用户" :visible.sync="dialogFormVisible2">
+      <el-form class="small-space" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
+        <el-form-item label="用户名称">
+          <el-input v-model="temp.user_name" />
+        </el-form-item>
+
+        <el-form-item label="用户年龄">
+          <el-input v-model.number="temp.user_age" type="number" />
+        </el-form-item>
+
+        <el-form-item label="用户性别">
+          <el-select v-model="temp.user_gender" clearable class="filter-item" placeholder="-请选择-">
+            <el-option v-for="item in genderOptions" :key="item.key" :label="item.display_name" :value="item.key" />
+          </el-select>
+        </el-form-item>
+
+        <el-form-item label="所在城市">
+          <el-input v-model="temp.user_city" />
+        </el-form-item>
+      </el-form>
+
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible2 = false">取 消</el-button>
+        <el-button type="primary" @click="handleEditSubmit(temp)">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import { getUserList, postUserList, deleteUserList } from '@/api/table'
+import { getUserList, postUserList, deleteUserList, putUserList } from '@/api/table'
 import { parseTime } from '@/utils/index.js'
 
 export default {
@@ -107,6 +134,7 @@ export default {
       list: null,
       listLoading: true,
       temp: {
+        'user_id': '',
         'user_name': '',
         'user_age': 18,
         'user_gender': 0,
@@ -120,7 +148,8 @@ export default {
         { key: 1, display_name: '男' },
         { key: 2, display_name: '女' }
       ],
-      dialogFormVisible: false
+      dialogFormVisible: false,
+      dialogFormVisible2: false
     }
   },
 
@@ -132,6 +161,7 @@ export default {
       const vm = this
 
       vm.temp = {
+        'user_id': '',
         'user_name': '',
         'user_age': 18,
         'user_gender': 0,
@@ -140,10 +170,14 @@ export default {
     },
 
     handleEdit(index, row) {
+      this.dialogFormVisible2 = true
       // const vm = this
       console.log('编辑的row：', index, '-----', row)
-      // 跳页面进行修改
-      // this.$router.push({ path: '/example/form', query: { id: row.chnlId }}) // 带参跳转
+      this.temp.user_id = row.user_id
+      this.temp.user_gender = row.user_gender
+      this.temp.user_city = row.user_city
+      this.temp.user_age = row.user_age
+      this.temp.user_name = row.user_name
     },
 
     handleCreate() {
@@ -169,6 +203,16 @@ export default {
         this.reload()
       })
       this.dialogFormVisible = false
+    },
+
+    handleEditSubmit(temp) {
+      const vm = this
+      console.log('修改用户：', vm.temp)
+      // this.isD
+      putUserList(temp).then(response => {
+        this.reload()
+      })
+      this.dialogFormVisible2 = false
     },
 
     fetchData() {

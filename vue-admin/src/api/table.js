@@ -31,3 +31,11 @@ export function deleteUserList(data) {
     data
   })
 }
+
+export function putUserList(data) {
+  return request({
+    url: '/somewhere/users',
+    method: 'put',
+    data
+  })
+}
