@@ -39,7 +39,7 @@ type UpdateUsersResp struct {
 }
 
 type DeleteUsersReq struct {
-	UserID string `form:"user_id" binding:"required"`
+	UserID string `json:"user_id" binding:"required"`
 }
 
 type DeleteUsersResp struct {

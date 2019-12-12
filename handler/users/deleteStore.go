@@ -1,6 +1,8 @@
 package users
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"github.com/go-sql-driver/mysql"
 	log "github.com/sirupsen/logrus"
@@ -16,7 +18,7 @@ func DeleteUser(c *gin.Context) {
 		DeleteUserResp msg.DeleteUsersResp
 		err            error
 	)
-
+	fmt.Println(DeleteUserReq)
 	logger := c.MustGet("logger").(*log.Entry)
 	logger.Tracef("in Delete User handler")
 	err = c.Bind(&DeleteUserReq)

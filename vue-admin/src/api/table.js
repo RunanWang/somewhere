@@ -16,10 +16,18 @@ export function getUserList(params) {
   })
 }
 
-export function postUserList(params) {
+export function postUserList(data) {
   return request({
     url: '/somewhere/users',
     method: 'post',
-    params
+    data
+  })
+}
+
+export function deleteUserList(data) {
+  return request({
+    url: '/somewhere/users',
+    method: 'delete',
+    data
   })
 }

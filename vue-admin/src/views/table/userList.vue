@@ -44,40 +44,46 @@
             <span>{{ scope.row.user_timestamp | formatDate }}</span>
           </template>
         </el-table-column>
+        <el-table-column align="center" label="操作" width="200">
+          <template scope="scope">
+            <el-button size="small" type="primary" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+            <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+          </template>
+        </el-table-column>
       </el-table>
     </div>
     <!-- 新增弹窗 -->
     <el-dialog title="新建用户" :visible.sync="dialogFormVisible">
       <el-form class="small-space" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
         <el-form-item label="用户名称">
-          <el-input v-model="temp.name" />
+          <el-input v-model="temp.user_name" />
         </el-form-item>
 
         <el-form-item label="用户年龄">
-          <el-input v-model="temp.age" />
+          <el-input v-model.number="temp.user_age" type="number" />
         </el-form-item>
 
         <el-form-item label="用户性别">
-          <el-select v-model="listQuery.gender" clearable class="filter-item" placeholder="-请选择-">
-            <el-option v-for="item in genderOptions" :key="item.key" :label="item.display_name" :value="item.key" />
+          <el-select v-model="temp.user_gender" clearable class="filter-item" placeholder="-请选择-">
+            <el-option v-for="item in genderOptions" :key="item.key" :label="item.display_name" :value="item.key"></el-option>
           </el-select>
         </el-form-item>
 
         <el-form-item label="所在城市">
-          <el-input v-model="temp.city" />
+          <el-input v-model="temp.user_city" />
         </el-form-item>
       </el-form>
 
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="handleCreateSubmit">确 定</el-button>
+        <el-button type="primary" @click="handleCreateSubmit(temp)">确 定</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import { getUserList, postUserList } from '@/api/table'
+import { getUserList, postUserList, deleteUserList } from '@/api/table'
 import { parseTime } from '@/utils/index.js'
 
 export default {
@@ -101,13 +107,13 @@ export default {
       list: null,
       listLoading: true,
       temp: {
-        'name': '',
-        'age': 18,
-        'gender': 1,
-        'city': ''
+        'user_name': '',
+        'user_age': 18,
+        'user_gender': 0,
+        'user_city': ''
       },
       listQuery: {
-        gender: 0
+        user_gender: 0
       },
       genderOptions: [
         { key: 0, display_name: '-请选择-' },
@@ -126,10 +132,10 @@ export default {
       const vm = this
 
       vm.temp = {
-        'name': '',
-        'age': 18,
-        'gender': 1,
-        'city': ''
+        'user_name': '',
+        'user_age': 18,
+        'user_gender': 0,
+        'user_city': ''
       }
     },
 
@@ -146,11 +152,20 @@ export default {
       this.dialogFormVisible = true
     },
 
-    handleCreateSubmit() {
+    handleDelete(index, row) {
+      const vm = this
+      console.log('单个删除选择的row：', index, '-----', row)
+      // 前端删除。
+      deleteUserList(row).then(response => {
+        vm.list.splice(index, 1)
+      })
+    },
+
+    handleCreateSubmit(temp) {
       const vm = this
       console.log('新增用户：', vm.temp)
-      this.isD
-      postUserList({ UserName: vm.temp.name }).then(response => {
+      // this.isD
+      postUserList(temp).then(response => {
         this.reload()
       })
       this.dialogFormVisible = false
