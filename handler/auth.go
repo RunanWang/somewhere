@@ -3,7 +3,12 @@ package handler
 import (
 	"net/http"
 
+	"github.com/go-sql-driver/mysql"
+	log "github.com/sirupsen/logrus"
+	cerror "github.com/somewhere/err"
 	"github.com/somewhere/model"
+	"github.com/somewhere/msg"
+	"github.com/somewhere/service"
 
 	jwt "github.com/appleboy/gin-jwt"
 	"github.com/gin-gonic/gin"
@@ -34,4 +39,54 @@ func Logout(c *gin.Context) {
 		"msg":  "ok",
 		"data": "success",
 	})
+}
+
+func RegisterHandler(c *gin.Context) {
+	var (
+		addAuthReq  msg.AddAuthReq
+		addAuthResp msg.AddAuthResp
+		err         error
+	)
+	logger := c.MustGet("logger").(*log.Entry)
+	logger.Tracef("in register handler")
+	err = c.Bind(&addAuthReq)
+	if err != nil {
+		logger = logger.WithFields(log.Fields{
+			"error": err.Error(),
+		})
+		service.CommonErrorResp(c, cerror.ErrInvalidParam)
+		return
+	}
+	logger = logger.WithFields(log.Fields{
+		"req": addAuthReq,
+	})
+
+	_, err = service.AddAuth(c, &addAuthReq)
+	if err != nil {
+		logger = logger.WithFields(log.Fields{
+			"error": err.Error(),
+		})
+		if _, isMysql := err.(*mysql.MySQLError); isMysql {
+			service.CommonErrorResp(c, cerror.ErrInternalError)
+		} else {
+			service.CommonErrorResp(c, cerror.ErrInvalidParam)
+		}
+		return
+	}
+
+	if addAuthReq.Role == "store" {
+
+	} else if addAuthReq.Role == "user" {
+		var newUser msg.AddUsersReq
+		newUser.Name = addAuthReq.Name
+		_, err = service.AddUser(c, &newUser)
+	}
+
+	addAuthResp.ErrorCode = 0
+	addAuthResp.RequestID = c.MustGet("request_id").(string)
+	logger = logger.WithFields(log.Fields{
+		"resp": addAuthResp,
+	})
+	service.CommonInfoResp(c, addAuthResp)
+
 }

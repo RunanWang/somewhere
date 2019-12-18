@@ -12,6 +12,7 @@ type GetUsersResp struct {
 }
 
 type AddUsersReq struct {
+	Name       string  `json:"name" binding:"required"`
 	UserName   string  `json:"user_name" binding:"required"`
 	UserAge    int     `json:"user_age"`
 	Gender     int     `json:"user_gender"`
@@ -40,6 +41,7 @@ type UpdateUsersResp struct {
 
 type DeleteUsersReq struct {
 	UserID string `json:"user_id" binding:"required"`
+	Name   string `json:"name" binding:"required"`
 }
 
 type DeleteUsersResp struct {

@@ -55,6 +55,10 @@
     <!-- 新增弹窗 -->
     <el-dialog title="新建用户" :visible.sync="dialogFormVisible">
       <el-form class="small-space" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
+        <el-form-item label="用户账号">
+          <el-input v-model="temp.name" />
+        </el-form-item>
+        
         <el-form-item label="用户名称">
           <el-input v-model="temp.user_name" />
         </el-form-item>
@@ -135,6 +139,7 @@ export default {
       listLoading: true,
       temp: {
         'user_id': '',
+        'name': '',
         'user_name': '',
         'user_age': 18,
         'user_gender': 0,

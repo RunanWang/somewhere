@@ -41,7 +41,8 @@
         </span>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登 录</el-button>
+      <el-button :loading="loading" type="info" style="width:100%;margin-bottom:30px;margin:0px" @click.native.prevent="handleRegister">注 册</el-button>
 
       <!-- <div class="tips">
         <span style="margin-right:20px;">username: admin</span>
@@ -110,6 +111,9 @@ export default {
           return false
         }
       })
+    },
+    handleRegister() {
+      
     }
   }
 }

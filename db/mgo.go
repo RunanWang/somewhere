@@ -34,7 +34,7 @@ func createIndex() error {
 
 	col = MgoDb.C("users")
 	index = mgo.Index{
-		Key:    []string{"user_name"},
+		Key:    []string{"name"},
 		Unique: true,
 	}
 	err = col.EnsureIndex(index)
@@ -44,7 +44,7 @@ func createIndex() error {
 
 	col = MgoDb.C("stores")
 	index = mgo.Index{
-		Key:    []string{"store_name"},
+		Key:    []string{"name"},
 		Unique: true,
 	}
 	err = col.EnsureIndex(index)

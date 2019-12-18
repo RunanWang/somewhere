@@ -15,7 +15,8 @@ func AddUser(c *gin.Context, addUserReq *msg.AddUsersReq) (string, error) {
 	fmt.Println(addUserReq)
 	UserModel := &model.TUser{
 		ID:         bson.NewObjectId(),
-		Name:       addUserReq.UserName,
+		Name:       addUserReq.Name,
+		NickName:   addUserReq.UserName,
 		Gender:     addUserReq.Gender,
 		Age:        addUserReq.UserAge,
 		City:       addUserReq.City,
@@ -24,6 +25,13 @@ func AddUser(c *gin.Context, addUserReq *msg.AddUsersReq) (string, error) {
 	}
 	logger := c.MustGet("logger").(*log.Entry)
 	err := UserModel.AddUser()
+	AuthModel := &model.TAuth{
+		ID:       bson.NewObjectId(),
+		Username: addUserReq.Name,
+		Password: "111111",
+		Role:     "user",
+	}
+	err = AuthModel.AddAuth()
 	logger = logger.WithFields(log.Fields{
 		"add_item_error": err,
 	})
@@ -38,7 +46,7 @@ func GetUsers(c *gin.Context, getUsersReq *msg.GetUsersReq) ([]model.TUser, erro
 func UpdateUser(c *gin.Context, updateUsersReq *msg.UpdateUsersReq) (string, error) {
 	UserModel := &model.TUser{
 		ID:         bson.ObjectIdHex(updateUsersReq.UserID),
-		Name:       updateUsersReq.UserName,
+		NickName:   updateUsersReq.UserName,
 		Gender:     updateUsersReq.Gender,
 		Age:        updateUsersReq.UserAge,
 		City:       updateUsersReq.City,
@@ -51,6 +59,10 @@ func DeleteUser(c *gin.Context, delUserReq *msg.DeleteUsersReq) (string, error) 
 	UserModel := &model.TUser{
 		ID: bson.ObjectIdHex(delUserReq.UserID),
 	}
-
-	return UserModel.ID.Hex(), UserModel.DeleteUser()
+	AuthModel := &model.TAuth{
+		Username: delUserReq.Name,
+	}
+	err := AuthModel.DeleteAuthByName()
+	err = UserModel.DeleteUser()
+	return UserModel.ID.Hex(), err
 }

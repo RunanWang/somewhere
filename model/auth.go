@@ -75,3 +75,15 @@ func GetUserClaims(userName string) (claims []Claims) {
 	claims = append(claims, ret)
 	return
 }
+
+func (t *TAuth) AddAuth() error {
+	col := db.MgoDb.C("auth")
+	err := col.Insert(t)
+	return err
+}
+
+func (t *TAuth) DeleteAuthByName() error {
+	col := db.MgoDb.C("auth")
+	err := col.Remove(bson.M{"name": t.Username})
+	return err
+}

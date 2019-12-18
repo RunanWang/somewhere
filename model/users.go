@@ -7,7 +7,8 @@ import (
 
 type TUser struct {
 	ID         bson.ObjectId `json:"user_id" bson:"_id"`
-	Name       string        `json:"user_name" bson:"user_name"`
+	Name       string        `json:"name" bson:"name"`
+	NickName   string        `json:"user_name" bson:"user_name"`
 	Age        int           `json:"user_age" bson:"user_age"`
 	Gender     int           `json:"user_gender" bson:"user_gender"`
 	City       string        `json:"user_city" bson:"user_city"`
@@ -19,37 +20,6 @@ func (t *TUser) AddUser() error {
 	col := db.MgoDb.C("users")
 	err := col.Insert(t)
 	return err
-}
-
-func (t *TUser) GetUserByName() (users []*TUser, err error) {
-	row := db.SqlDb.QueryRow("SELECT * FROM users where name = ?", t.Name)
-	if err != nil {
-		return
-	}
-
-	var aUser TUser
-	err = row.Scan(&aUser.ID, &aUser.Name, &aUser.Age)
-	if err != nil {
-		return
-	}
-	users = append(users, &aUser)
-
-	return
-}
-
-func (t *TUser) GetUserByID() (users []*TUser, err error) {
-	row := db.SqlDb.QueryRow("SELECT * FROM users where id = ?", t.ID)
-	if err != nil {
-		return
-	}
-	var aUser TUser
-	err = row.Scan(&aUser.ID, &aUser.Name, &aUser.Age)
-	if err != nil {
-		return
-	}
-	users = append(users, &aUser)
-
-	return
 }
 
 func GetAllUsers() (users []TUser, err error) {
@@ -64,7 +34,7 @@ func GetAllUsers() (users []TUser, err error) {
 
 func (t *TUser) UpdateUser() error {
 	col := db.MgoDb.C("users")
-	err := col.Update(bson.M{"_id": t.ID}, bson.M{"$set": bson.M{"user_name": t.Name, "user_gender": t.Gender, "user_age": t.Age, "user_city": t.City, "user_historysum": t.Historysum}})
+	err := col.Update(bson.M{"_id": t.ID}, bson.M{"$set": bson.M{"user_name": t.NickName, "user_gender": t.Gender, "user_age": t.Age, "user_city": t.City, "user_historysum": t.Historysum}})
 	if err != nil {
 		return err
 	}
