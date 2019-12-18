@@ -3,6 +3,7 @@ package handler
 import (
 	"net/http"
 
+	"github.com/globalsign/mgo/bson"
 	"github.com/go-sql-driver/mysql"
 	log "github.com/sirupsen/logrus"
 	cerror "github.com/somewhere/err"
@@ -77,9 +78,11 @@ func RegisterHandler(c *gin.Context) {
 	if addAuthReq.Role == "store" {
 
 	} else if addAuthReq.Role == "user" {
-		var newUser msg.AddUsersReq
+		var newUser model.TUser
 		newUser.Name = addAuthReq.Name
-		_, err = service.AddUser(c, &newUser)
+		newUser.NickName = addAuthReq.Name
+		newUser.ID = bson.NewObjectId()
+		err = newUser.AddUser()
 	}
 
 	addAuthResp.ErrorCode = 0

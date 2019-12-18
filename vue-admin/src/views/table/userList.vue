@@ -83,7 +83,7 @@
         <el-button type="primary" @click="handleCreateSubmit(temp)">确 定</el-button>
       </div>
     </el-dialog>
-    <!-- 新增弹窗 -->
+    <!-- 修改弹窗 -->
     <el-dialog title="编辑用户" :visible.sync="dialogFormVisible2">
       <el-form class="small-space" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
         <el-form-item label="用户名称">

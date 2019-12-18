@@ -80,6 +80,7 @@ func (t *App) initRouter() {
 	}
 	//////////////////////////////////////////////////////////////////////////////////////
 	// 普通API接口
+	r.POST("/reg", handler.RegisterHandler)
 	rootGroup := r.Group("somewhere")
 	storesGroup := rootGroup.Group("/stores")
 	storesGroup.GET("", stores.GetStores)
