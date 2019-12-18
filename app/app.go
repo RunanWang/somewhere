@@ -44,6 +44,10 @@ func (t *App) Initialize() {
 	db.InitDatabase()
 	db.InitRedisDatabase()
 	t.initRouter()
+	err := handler.BasicInit()
+	if err != nil {
+		fmt.Println("No basic init!")
+	}
 }
 
 func (t *App) initLogger() {
@@ -81,6 +85,7 @@ func (t *App) initRouter() {
 	//////////////////////////////////////////////////////////////////////////////////////
 	// 普通API接口
 	r.POST("/reg", handler.RegisterHandler)
+	r.GET("/basic", handler.GetBasic)
 	rootGroup := r.Group("somewhere")
 	storesGroup := rootGroup.Group("/stores")
 	storesGroup.GET("", stores.GetStores)

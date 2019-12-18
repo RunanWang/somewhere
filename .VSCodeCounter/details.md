@@ -1,10 +1,10 @@
 # Details
 
-Date : 2019-12-18 16:29:26
+Date : 2019-12-18 20:15:56
 
 Directory /home/sensetime/go/src/github.com/somewhere
 
-Total : 131 files,  6183 codes, 286 comments, 994 blanks, all 7463 lines
+Total : 137 files,  6428 codes, 289 comments, 1027 blanks, all 7744 lines
 
 [summary](results.md)
 
@@ -15,14 +15,15 @@ Total : 131 files,  6183 codes, 286 comments, 994 blanks, all 7463 lines
 | [.VSCodeCounter/results.md](file:///home/sensetime/go/src/github.com/somewhere/.VSCodeCounter/results.md) | Markdown | 72 | 0 | 7 | 79 |
 | [.gitattributes](file:///home/sensetime/go/src/github.com/somewhere/.gitattributes) | Properties | 1 | 1 | 1 | 3 |
 | [README.md](file:///home/sensetime/go/src/github.com/somewhere/README.md) | Markdown | 512 | 0 | 176 | 688 |
-| [app/app.go](file:///home/sensetime/go/src/github.com/somewhere/app/app.go) | Go | 98 | 4 | 19 | 121 |
+| [app/app.go](file:///home/sensetime/go/src/github.com/somewhere/app/app.go) | Go | 104 | 4 | 19 | 127 |
 | [config/config.go](file:///home/sensetime/go/src/github.com/somewhere/config/config.go) | Go | 33 | 0 | 8 | 41 |
 | [db/db_init.sql](file:///home/sensetime/go/src/github.com/somewhere/db/db_init.sql) | SQL | 48 | 0 | 19 | 67 |
-| [db/mgo.go](file:///home/sensetime/go/src/github.com/somewhere/db/mgo.go) | Go | 60 | 0 | 13 | 73 |
+| [db/mgo.go](file:///home/sensetime/go/src/github.com/somewhere/db/mgo.go) | Go | 61 | 0 | 14 | 75 |
 | [db/redigo.go](file:///home/sensetime/go/src/github.com/somewhere/db/redigo.go) | Go | 16 | 0 | 5 | 21 |
 | [db/sql.go](file:///home/sensetime/go/src/github.com/somewhere/db/sql.go) | Go | 29 | 2 | 8 | 39 |
 | [err/error.go](file:///home/sensetime/go/src/github.com/somewhere/err/error.go) | Go | 49 | 2 | 7 | 58 |
-| [handler/auth.go](file:///home/sensetime/go/src/github.com/somewhere/handler/auth.go) | Go | 79 | 0 | 14 | 93 |
+| [handler/auth.go](file:///home/sensetime/go/src/github.com/somewhere/handler/auth.go) | Go | 82 | 0 | 14 | 96 |
+| [handler/basic.go](file:///home/sensetime/go/src/github.com/somewhere/handler/basic.go) | Go | 25 | 0 | 8 | 33 |
 | [handler/products/addProduct.go](file:///home/sensetime/go/src/github.com/somewhere/handler/products/addProduct.go) | Go | 47 | 0 | 8 | 55 |
 | [handler/products/deleteProduct.go](file:///home/sensetime/go/src/github.com/somewhere/handler/products/deleteProduct.go) | Go | 52 | 0 | 7 | 59 |
 | [handler/products/getProduct.go](file:///home/sensetime/go/src/github.com/somewhere/handler/products/getProduct.go) | Go | 52 | 0 | 10 | 62 |
@@ -43,12 +44,14 @@ Total : 131 files,  6183 codes, 286 comments, 994 blanks, all 7463 lines
 | [middleware/cors.go](file:///home/sensetime/go/src/github.com/somewhere/middleware/cors.go) | Go | 37 | 4 | 5 | 46 |
 | [middleware/gin_jwt.go](file:///home/sensetime/go/src/github.com/somewhere/middleware/gin_jwt.go) | Go | 92 | 23 | 17 | 132 |
 | [model/auth.go](file:///home/sensetime/go/src/github.com/somewhere/model/auth.go) | Go | 78 | 0 | 12 | 90 |
+| [model/basic.go](file:///home/sensetime/go/src/github.com/somewhere/model/basic.go) | Go | 54 | 0 | 9 | 63 |
 | [model/products.go](file:///home/sensetime/go/src/github.com/somewhere/model/products.go) | Go | 60 | 0 | 9 | 69 |
 | [model/recommend.go](file:///home/sensetime/go/src/github.com/somewhere/model/recommend.go) | Go | 25 | 0 | 6 | 31 |
 | [model/records.go](file:///home/sensetime/go/src/github.com/somewhere/model/records.go) | Go | 43 | 0 | 7 | 50 |
 | [model/stores.go](file:///home/sensetime/go/src/github.com/somewhere/model/stores.go) | Go | 62 | 0 | 12 | 74 |
-| [model/users.go](file:///home/sensetime/go/src/github.com/somewhere/model/users.go) | Go | 42 | 0 | 7 | 49 |
+| [model/users.go](file:///home/sensetime/go/src/github.com/somewhere/model/users.go) | Go | 50 | 0 | 7 | 57 |
 | [msg/auth.go](file:///home/sensetime/go/src/github.com/somewhere/msg/auth.go) | Go | 9 | 0 | 3 | 12 |
+| [msg/basic.go](file:///home/sensetime/go/src/github.com/somewhere/msg/basic.go) | Go | 8 | 0 | 4 | 12 |
 | [msg/common.go](file:///home/sensetime/go/src/github.com/somewhere/msg/common.go) | Go | 6 | 0 | 2 | 8 |
 | [msg/products.go](file:///home/sensetime/go/src/github.com/somewhere/msg/products.go) | Go | 43 | 0 | 10 | 53 |
 | [msg/recommend.go](file:///home/sensetime/go/src/github.com/somewhere/msg/recommend.go) | Go | 11 | 0 | 4 | 15 |
@@ -56,6 +59,7 @@ Total : 131 files,  6183 codes, 286 comments, 994 blanks, all 7463 lines
 | [msg/stores.go](file:///home/sensetime/go/src/github.com/somewhere/msg/stores.go) | Go | 35 | 0 | 10 | 45 |
 | [msg/users.go](file:///home/sensetime/go/src/github.com/somewhere/msg/users.go) | Go | 41 | 0 | 10 | 51 |
 | [service/auth.go](file:///home/sensetime/go/src/github.com/somewhere/service/auth.go) | Go | 23 | 0 | 3 | 26 |
+| [service/basic.go](file:///home/sensetime/go/src/github.com/somewhere/service/basic.go) | Go | 10 | 0 | 4 | 14 |
 | [service/common.go](file:///home/sensetime/go/src/github.com/somewhere/service/common.go) | Go | 23 | 0 | 6 | 29 |
 | [service/products.go](file:///home/sensetime/go/src/github.com/somewhere/service/products.go) | Go | 55 | 0 | 8 | 63 |
 | [service/recommend.go](file:///home/sensetime/go/src/github.com/somewhere/service/recommend.go) | Go | 26 | 0 | 5 | 31 |
@@ -73,11 +77,13 @@ Total : 131 files,  6183 codes, 286 comments, 994 blanks, all 7463 lines
 | [vue-admin/package.json](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/package.json) | JSON | 64 | 0 | 1 | 65 |
 | [vue-admin/postcss.config.js](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/postcss.config.js) | JavaScript | 5 | 2 | 2 | 9 |
 | [vue-admin/src/App.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/App.vue) | Vue | 28 | 0 | 2 | 30 |
+| [vue-admin/src/api/basic.js](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/api/basic.js) | JavaScript | 8 | 0 | 2 | 10 |
 | [vue-admin/src/api/table.js](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/api/table.js) | JavaScript | 36 | 0 | 6 | 42 |
-| [vue-admin/src/api/user.js](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/api/user.js) | JavaScript | 26 | 0 | 5 | 31 |
+| [vue-admin/src/api/user.js](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/api/user.js) | JavaScript | 33 | 0 | 6 | 39 |
 | [vue-admin/src/components/Breadcrumb/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/components/Breadcrumb/index.vue) | Vue | 70 | 2 | 7 | 79 |
 | [vue-admin/src/components/Hamburger/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/components/Hamburger/index.vue) | Vue | 41 | 0 | 4 | 45 |
 | [vue-admin/src/components/SvgIcon/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/components/SvgIcon/index.vue) | Vue | 57 | 1 | 5 | 63 |
+| [vue-admin/src/components/mixins/infoList.js](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/components/mixins/infoList.js) | JavaScript | 29 | 2 | 1 | 32 |
 | [vue-admin/src/icons/index.js](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/icons/index.js) | JavaScript | 6 | 1 | 3 | 10 |
 | [vue-admin/src/icons/svg/dashboard.svg](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/icons/svg/dashboard.svg) | XML | 1 | 0 | 0 | 1 |
 | [vue-admin/src/icons/svg/example.svg](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/icons/svg/example.svg) | XML | 1 | 0 | 0 | 1 |
@@ -130,7 +136,7 @@ Total : 131 files,  6183 codes, 286 comments, 994 blanks, all 7463 lines
 | [vue-admin/src/views/404.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/404.vue) | Vue | 225 | 0 | 4 | 229 |
 | [vue-admin/src/views/dashboard/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/dashboard/index.vue) | Vue | 29 | 0 | 4 | 33 |
 | [vue-admin/src/views/form/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/form/index.vue) | Vue | 82 | 0 | 4 | 86 |
-| [vue-admin/src/views/login/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/login/index.vue) | Vue | 203 | 3 | 26 | 232 |
+| [vue-admin/src/views/login/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/login/index.vue) | Vue | 272 | 4 | 30 | 306 |
 | [vue-admin/src/views/nested/menu1/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/nested/menu1/index.vue) | Vue | 7 | 0 | 1 | 8 |
 | [vue-admin/src/views/nested/menu1/menu1-1/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/nested/menu1/menu1-1/index.vue) | Vue | 7 | 0 | 1 | 8 |
 | [vue-admin/src/views/nested/menu1/menu1-2/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/nested/menu1/menu1-2/index.vue) | Vue | 7 | 0 | 1 | 8 |
@@ -139,7 +145,7 @@ Total : 131 files,  6183 codes, 286 comments, 994 blanks, all 7463 lines
 | [vue-admin/src/views/nested/menu1/menu1-3/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/nested/menu1/menu1-3/index.vue) | Vue | 5 | 0 | 1 | 6 |
 | [vue-admin/src/views/nested/menu2/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/nested/menu2/index.vue) | Vue | 5 | 0 | 1 | 6 |
 | [vue-admin/src/views/table/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/table/index.vue) | Vue | 82 | 0 | 3 | 85 |
-| [vue-admin/src/views/table/userList.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/table/userList.vue) | Vue | 208 | 5 | 20 | 233 |
+| [vue-admin/src/views/table/userList.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/table/userList.vue) | Vue | 225 | 5 | 19 | 249 |
 | [vue-admin/src/views/tree/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/tree/index.vue) | Vue | 72 | 0 | 7 | 79 |
 | [vue-admin/vue.config.js](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/vue.config.js) | JavaScript | 110 | 21 | 9 | 140 |
 

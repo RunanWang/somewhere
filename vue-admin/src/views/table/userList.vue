@@ -58,7 +58,6 @@
         <el-form-item label="用户账号">
           <el-input v-model="temp.name" />
         </el-form-item>
-        
         <el-form-item label="用户名称">
           <el-input v-model="temp.user_name" />
         </el-form-item>
@@ -110,12 +109,23 @@
         <el-button type="primary" @click="handleEditSubmit(temp)">确 定</el-button>
       </div>
     </el-dialog>
+    <el-pagination
+      :current-page="page"
+      :page-size="pageSize"
+      :page-sizes="[10, 30, 50, 100]"
+      :style="{float:'right',padding:'20px'}"
+      :total="total"
+      layout="total, sizes, prev, pager, next, jumper"
+      @current-change="handleCurrentChange"
+      @size-change="handleSizeChange"
+    />
   </div>
 </template>
 
 <script>
 import { getUserList, postUserList, deleteUserList, putUserList } from '@/api/table'
 import { parseTime } from '@/utils/index.js'
+import { getBasic } from '@/api/basic.js'
 
 export default {
   inject: ['reload'],
@@ -154,7 +164,10 @@ export default {
         { key: 2, display_name: '女' }
       ],
       dialogFormVisible: false,
-      dialogFormVisible2: false
+      dialogFormVisible2: false,
+      page: 1,
+      total: 10,
+      pageSize: 10
     }
   },
 
@@ -222,6 +235,9 @@ export default {
 
     fetchData() {
       this.listLoading = true
+      getBasic().then(response => {
+        this.total = response.user_num
+      })
       getUserList().then(response => {
         this.list = response.list
         this.listLoading = false

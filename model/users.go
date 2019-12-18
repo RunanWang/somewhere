@@ -19,6 +19,10 @@ type TUser struct {
 func (t *TUser) AddUser() error {
 	col := db.MgoDb.C("users")
 	err := col.Insert(t)
+	if err != nil {
+		return err
+	}
+	err = Basic.AddUser()
 	return err
 }
 
@@ -44,5 +48,9 @@ func (t *TUser) UpdateUser() error {
 func (t *TUser) DeleteUser() error {
 	col := db.MgoDb.C("users")
 	err := col.Remove(bson.M{"_id": t.ID})
+	if err != nil {
+		return err
+	}
+	err = Basic.DeleteUser()
 	return err
 }

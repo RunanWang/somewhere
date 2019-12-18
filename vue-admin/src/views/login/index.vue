@@ -157,7 +157,7 @@ export default {
         this.reload()
       })
       this.dialogFormVisible = false
-    },
+    }
   }
 }
 </script>
