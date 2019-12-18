@@ -21,9 +21,11 @@ func GetRecommend(c *gin.Context) {
 
 	err = c.Bind(&getRecommendReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
+		c.Set("logger", logger)
 		service.CommonErrorResp(c, cerror.ErrInvalidParam)
 		return
 	}
@@ -33,9 +35,11 @@ func GetRecommend(c *gin.Context) {
 
 	list, err := service.GetRecommend(c, &getRecommendReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
+		c.Set("logger", logger)
 		service.CommonErrorResp(c, cerror.ErrInvalidParam)
 
 		return

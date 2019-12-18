@@ -22,9 +22,11 @@ func AddStore(c *gin.Context) {
 
 	err = c.Bind(&addStoreReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
+		c.Set("logger", logger)
 		service.CommonErrorResp(c, cerror.ErrInvalidParam)
 		return
 	}
@@ -34,9 +36,11 @@ func AddStore(c *gin.Context) {
 
 	id, err := service.AddStore(c, &addStoreReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
+		c.Set("logger", logger)
 
 		if _, isMysql := err.(*mysql.MySQLError); isMysql {
 			service.CommonErrorResp(c, cerror.ErrInternalError)

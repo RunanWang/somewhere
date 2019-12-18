@@ -1,7 +1,6 @@
 package service
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -12,7 +11,6 @@ import (
 )
 
 func AddUser(c *gin.Context, addUserReq *msg.AddUsersReq) (string, error) {
-	fmt.Println(addUserReq)
 	UserModel := &model.TUser{
 		ID:         bson.NewObjectId(),
 		Name:       addUserReq.Name,
@@ -25,6 +23,14 @@ func AddUser(c *gin.Context, addUserReq *msg.AddUsersReq) (string, error) {
 	}
 	logger := c.MustGet("logger").(*log.Entry)
 	err := UserModel.AddUser()
+	if err != nil {
+		logger = logger.WithFields(log.Fields{
+			"add_user_error": err,
+		})
+		c.Set("logger", logger)
+		return UserModel.ID.Hex(), err
+	}
+
 	AuthModel := &model.TAuth{
 		ID:       bson.NewObjectId(),
 		Username: addUserReq.Name,
@@ -32,10 +38,14 @@ func AddUser(c *gin.Context, addUserReq *msg.AddUsersReq) (string, error) {
 		Role:     "user",
 	}
 	err = AuthModel.AddAuth()
-	logger = logger.WithFields(log.Fields{
-		"add_item_error": err,
-	})
-	c.Set("logger", logger)
+	if err != nil {
+		logger = logger.WithFields(log.Fields{
+			"add_user_auth_error": err,
+		})
+		c.Set("logger", logger)
+		return UserModel.ID.Hex(), err
+	}
+
 	return UserModel.ID.Hex(), err
 }
 
@@ -56,6 +66,7 @@ func UpdateUser(c *gin.Context, updateUsersReq *msg.UpdateUsersReq) (string, err
 }
 
 func DeleteUser(c *gin.Context, delUserReq *msg.DeleteUsersReq) (string, error) {
+	logger := c.MustGet("logger").(*log.Entry)
 	UserModel := &model.TUser{
 		ID: bson.ObjectIdHex(delUserReq.UserID),
 	}
@@ -63,6 +74,22 @@ func DeleteUser(c *gin.Context, delUserReq *msg.DeleteUsersReq) (string, error) 
 		Username: delUserReq.Name,
 	}
 	err := AuthModel.DeleteAuthByName()
+	if err != nil {
+		logger = logger.WithFields(log.Fields{
+			"del_user_error": err,
+		})
+		c.Set("logger", logger)
+		return UserModel.ID.Hex(), err
+	}
+
 	err = UserModel.DeleteUser()
+	if err != nil {
+		logger = logger.WithFields(log.Fields{
+			"del_user_error": err,
+		})
+		c.Set("logger", logger)
+		return UserModel.ID.Hex(), err
+	}
+
 	return UserModel.ID.Hex(), err
 }

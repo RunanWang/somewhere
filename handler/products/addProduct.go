@@ -21,9 +21,11 @@ func AddProduct(c *gin.Context) {
 
 	err = c.Bind(&addProductReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
+		c.Set("logger", logger)
 		service.CommonErrorResp(c, cerror.ErrInvalidParam)
 		return
 	}
@@ -33,11 +35,12 @@ func AddProduct(c *gin.Context) {
 
 	id, err := service.AddProduct(c, &addProductReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
+		c.Set("logger", logger)
 		service.CommonErrorResp(c, cerror.ErrInvalidParam)
-
 		return
 	}
 

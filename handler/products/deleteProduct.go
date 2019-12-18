@@ -21,9 +21,11 @@ func DeleteProduct(c *gin.Context) {
 	logger.Tracef("in Delete Product handler")
 	err = c.Bind(&DeleteProductReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
+		c.Set("logger", logger)
 		service.CommonErrorResp(c, cerror.ErrInvalidParam)
 		return
 	}
@@ -32,10 +34,11 @@ func DeleteProduct(c *gin.Context) {
 	})
 	num, err := service.DeleteProduct(c, &DeleteProductReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
-
+		c.Set("logger", logger)
 		if _, isMysql := err.(*mysql.MySQLError); isMysql {
 			service.CommonErrorResp(c, cerror.ErrInternalError)
 		} else {

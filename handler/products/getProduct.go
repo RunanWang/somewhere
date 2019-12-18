@@ -22,9 +22,11 @@ func GetProducts(c *gin.Context) {
 
 	err = c.Bind(&getProductReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
+		c.Set("logger", logger)
 		service.CommonErrorResp(c, cerror.ErrInvalidParam)
 		return
 	}
@@ -34,9 +36,11 @@ func GetProducts(c *gin.Context) {
 
 	list, err := service.GetProducts(c, &getProductReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
+		c.Set("logger", logger)
 
 		if _, isMysql := err.(*mysql.MySQLError); isMysql {
 			service.CommonErrorResp(c, cerror.ErrInternalError)

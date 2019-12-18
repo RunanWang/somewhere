@@ -24,9 +24,11 @@ func AddUser(c *gin.Context) {
 	fmt.Println(addUserReq)
 	err = c.Bind(&addUserReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
+		c.Set("logger", logger)
 		service.CommonErrorResp(c, cerror.ErrInvalidParam)
 		return
 	}
@@ -36,10 +38,11 @@ func AddUser(c *gin.Context) {
 
 	id, err := service.AddUser(c, &addUserReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
-
+		c.Set("logger", logger)
 		if _, isMysql := err.(*mysql.MySQLError); isMysql {
 			service.CommonErrorResp(c, cerror.ErrInternalError)
 		} else {

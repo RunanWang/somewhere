@@ -1,65 +1,67 @@
 # Details
 
-Date : 2019-12-18 11:13:14
+Date : 2019-12-18 16:29:26
 
 Directory /home/sensetime/go/src/github.com/somewhere
 
-Total : 129 files,  5888 codes, 290 comments, 994 blanks, all 7172 lines
+Total : 131 files,  6183 codes, 286 comments, 994 blanks, all 7463 lines
 
 [summary](results.md)
 
 ## Files
 | filename | language | code | comment | blank | total |
 | :--- | :--- | ---: | ---: | ---: | ---: |
+| [.VSCodeCounter/details.md](file:///home/sensetime/go/src/github.com/somewhere/.VSCodeCounter/details.md) | Markdown | 140 | 0 | 6 | 146 |
+| [.VSCodeCounter/results.md](file:///home/sensetime/go/src/github.com/somewhere/.VSCodeCounter/results.md) | Markdown | 72 | 0 | 7 | 79 |
 | [.gitattributes](file:///home/sensetime/go/src/github.com/somewhere/.gitattributes) | Properties | 1 | 1 | 1 | 3 |
 | [README.md](file:///home/sensetime/go/src/github.com/somewhere/README.md) | Markdown | 512 | 0 | 176 | 688 |
-| [app/app.go](file:///home/sensetime/go/src/github.com/somewhere/app/app.go) | Go | 98 | 2 | 24 | 124 |
+| [app/app.go](file:///home/sensetime/go/src/github.com/somewhere/app/app.go) | Go | 98 | 4 | 19 | 121 |
 | [config/config.go](file:///home/sensetime/go/src/github.com/somewhere/config/config.go) | Go | 33 | 0 | 8 | 41 |
 | [db/db_init.sql](file:///home/sensetime/go/src/github.com/somewhere/db/db_init.sql) | SQL | 48 | 0 | 19 | 67 |
 | [db/mgo.go](file:///home/sensetime/go/src/github.com/somewhere/db/mgo.go) | Go | 60 | 0 | 13 | 73 |
-| [db/redigo.go](file:///home/sensetime/go/src/github.com/somewhere/db/redigo.go) | Go | 16 | 6 | 6 | 28 |
+| [db/redigo.go](file:///home/sensetime/go/src/github.com/somewhere/db/redigo.go) | Go | 16 | 0 | 5 | 21 |
 | [db/sql.go](file:///home/sensetime/go/src/github.com/somewhere/db/sql.go) | Go | 29 | 2 | 8 | 39 |
 | [err/error.go](file:///home/sensetime/go/src/github.com/somewhere/err/error.go) | Go | 49 | 2 | 7 | 58 |
-| [handler/auth.go](file:///home/sensetime/go/src/github.com/somewhere/handler/auth.go) | Go | 75 | 0 | 14 | 89 |
-| [handler/products/addProduct.go](file:///home/sensetime/go/src/github.com/somewhere/handler/products/addProduct.go) | Go | 43 | 0 | 9 | 52 |
-| [handler/products/deleteProduct.go](file:///home/sensetime/go/src/github.com/somewhere/handler/products/deleteProduct.go) | Go | 48 | 0 | 8 | 56 |
-| [handler/products/getProduct.go](file:///home/sensetime/go/src/github.com/somewhere/handler/products/getProduct.go) | Go | 48 | 0 | 10 | 58 |
-| [handler/products/updateProduct.go](file:///home/sensetime/go/src/github.com/somewhere/handler/products/updateProduct.go) | Go | 48 | 0 | 8 | 56 |
-| [handler/recommend/recommend.go](file:///home/sensetime/go/src/github.com/somewhere/handler/recommend/recommend.go) | Go | 43 | 0 | 9 | 52 |
-| [handler/records/addRecord.go](file:///home/sensetime/go/src/github.com/somewhere/handler/records/addRecord.go) | Go | 48 | 0 | 10 | 58 |
-| [handler/records/getRecord.go](file:///home/sensetime/go/src/github.com/somewhere/handler/records/getRecord.go) | Go | 48 | 0 | 10 | 58 |
-| [handler/stores/addStore.go](file:///home/sensetime/go/src/github.com/somewhere/handler/stores/addStore.go) | Go | 48 | 0 | 10 | 58 |
-| [handler/stores/deleteStore.go](file:///home/sensetime/go/src/github.com/somewhere/handler/stores/deleteStore.go) | Go | 48 | 0 | 8 | 56 |
-| [handler/stores/getStore.go](file:///home/sensetime/go/src/github.com/somewhere/handler/stores/getStore.go) | Go | 48 | 0 | 10 | 58 |
-| [handler/stores/updateStore.go](file:///home/sensetime/go/src/github.com/somewhere/handler/stores/updateStore.go) | Go | 48 | 0 | 8 | 56 |
-| [handler/users/addUser.go](file:///home/sensetime/go/src/github.com/somewhere/handler/users/addUser.go) | Go | 50 | 0 | 10 | 60 |
-| [handler/users/deleteStore.go](file:///home/sensetime/go/src/github.com/somewhere/handler/users/deleteStore.go) | Go | 50 | 0 | 8 | 58 |
-| [handler/users/getStore.go](file:///home/sensetime/go/src/github.com/somewhere/handler/users/getStore.go) | Go | 48 | 0 | 10 | 58 |
-| [handler/users/updateStore.go](file:///home/sensetime/go/src/github.com/somewhere/handler/users/updateStore.go) | Go | 48 | 0 | 8 | 56 |
+| [handler/auth.go](file:///home/sensetime/go/src/github.com/somewhere/handler/auth.go) | Go | 79 | 0 | 14 | 93 |
+| [handler/products/addProduct.go](file:///home/sensetime/go/src/github.com/somewhere/handler/products/addProduct.go) | Go | 47 | 0 | 8 | 55 |
+| [handler/products/deleteProduct.go](file:///home/sensetime/go/src/github.com/somewhere/handler/products/deleteProduct.go) | Go | 52 | 0 | 7 | 59 |
+| [handler/products/getProduct.go](file:///home/sensetime/go/src/github.com/somewhere/handler/products/getProduct.go) | Go | 52 | 0 | 10 | 62 |
+| [handler/products/updateProduct.go](file:///home/sensetime/go/src/github.com/somewhere/handler/products/updateProduct.go) | Go | 52 | 0 | 8 | 60 |
+| [handler/recommend/recommend.go](file:///home/sensetime/go/src/github.com/somewhere/handler/recommend/recommend.go) | Go | 47 | 0 | 9 | 56 |
+| [handler/records/addRecord.go](file:///home/sensetime/go/src/github.com/somewhere/handler/records/addRecord.go) | Go | 52 | 0 | 10 | 62 |
+| [handler/records/getRecord.go](file:///home/sensetime/go/src/github.com/somewhere/handler/records/getRecord.go) | Go | 52 | 0 | 9 | 61 |
+| [handler/stores/addStore.go](file:///home/sensetime/go/src/github.com/somewhere/handler/stores/addStore.go) | Go | 52 | 0 | 10 | 62 |
+| [handler/stores/deleteStore.go](file:///home/sensetime/go/src/github.com/somewhere/handler/stores/deleteStore.go) | Go | 52 | 0 | 8 | 60 |
+| [handler/stores/getStore.go](file:///home/sensetime/go/src/github.com/somewhere/handler/stores/getStore.go) | Go | 52 | 0 | 10 | 62 |
+| [handler/stores/updateStore.go](file:///home/sensetime/go/src/github.com/somewhere/handler/stores/updateStore.go) | Go | 52 | 0 | 7 | 59 |
+| [handler/users/addUser.go](file:///home/sensetime/go/src/github.com/somewhere/handler/users/addUser.go) | Go | 54 | 0 | 9 | 63 |
+| [handler/users/deleteUser.go](file:///home/sensetime/go/src/github.com/somewhere/handler/users/deleteUser.go) | Go | 54 | 0 | 7 | 61 |
+| [handler/users/getUser.go](file:///home/sensetime/go/src/github.com/somewhere/handler/users/getUser.go) | Go | 48 | 0 | 10 | 58 |
+| [handler/users/updateUser.go](file:///home/sensetime/go/src/github.com/somewhere/handler/users/updateUser.go) | Go | 52 | 0 | 7 | 59 |
 | [main.go](file:///home/sensetime/go/src/github.com/somewhere/main.go) | Go | 9 | 0 | 3 | 12 |
 | [middleware/common.go](file:///home/sensetime/go/src/github.com/somewhere/middleware/common.go) | Go | 30 | 1 | 7 | 38 |
 | [middleware/cors.go](file:///home/sensetime/go/src/github.com/somewhere/middleware/cors.go) | Go | 37 | 4 | 5 | 46 |
 | [middleware/gin_jwt.go](file:///home/sensetime/go/src/github.com/somewhere/middleware/gin_jwt.go) | Go | 92 | 23 | 17 | 132 |
-| [model/auth.go](file:///home/sensetime/go/src/github.com/somewhere/model/auth.go) | Go | 68 | 0 | 10 | 78 |
+| [model/auth.go](file:///home/sensetime/go/src/github.com/somewhere/model/auth.go) | Go | 78 | 0 | 12 | 90 |
 | [model/products.go](file:///home/sensetime/go/src/github.com/somewhere/model/products.go) | Go | 60 | 0 | 9 | 69 |
 | [model/recommend.go](file:///home/sensetime/go/src/github.com/somewhere/model/recommend.go) | Go | 25 | 0 | 6 | 31 |
 | [model/records.go](file:///home/sensetime/go/src/github.com/somewhere/model/records.go) | Go | 43 | 0 | 7 | 50 |
 | [model/stores.go](file:///home/sensetime/go/src/github.com/somewhere/model/stores.go) | Go | 62 | 0 | 12 | 74 |
-| [model/users.go](file:///home/sensetime/go/src/github.com/somewhere/model/users.go) | Go | 67 | 0 | 12 | 79 |
+| [model/users.go](file:///home/sensetime/go/src/github.com/somewhere/model/users.go) | Go | 42 | 0 | 7 | 49 |
 | [msg/auth.go](file:///home/sensetime/go/src/github.com/somewhere/msg/auth.go) | Go | 9 | 0 | 3 | 12 |
 | [msg/common.go](file:///home/sensetime/go/src/github.com/somewhere/msg/common.go) | Go | 6 | 0 | 2 | 8 |
 | [msg/products.go](file:///home/sensetime/go/src/github.com/somewhere/msg/products.go) | Go | 43 | 0 | 10 | 53 |
 | [msg/recommend.go](file:///home/sensetime/go/src/github.com/somewhere/msg/recommend.go) | Go | 11 | 0 | 4 | 15 |
 | [msg/records.go](file:///home/sensetime/go/src/github.com/somewhere/msg/records.go) | Go | 22 | 0 | 6 | 28 |
 | [msg/stores.go](file:///home/sensetime/go/src/github.com/somewhere/msg/stores.go) | Go | 35 | 0 | 10 | 45 |
-| [msg/users.go](file:///home/sensetime/go/src/github.com/somewhere/msg/users.go) | Go | 39 | 0 | 10 | 49 |
-| [service/auth.go](file:///home/sensetime/go/src/github.com/somewhere/service/auth.go) | Go | 27 | 0 | 4 | 31 |
+| [msg/users.go](file:///home/sensetime/go/src/github.com/somewhere/msg/users.go) | Go | 41 | 0 | 10 | 51 |
+| [service/auth.go](file:///home/sensetime/go/src/github.com/somewhere/service/auth.go) | Go | 23 | 0 | 3 | 26 |
 | [service/common.go](file:///home/sensetime/go/src/github.com/somewhere/service/common.go) | Go | 23 | 0 | 6 | 29 |
 | [service/products.go](file:///home/sensetime/go/src/github.com/somewhere/service/products.go) | Go | 55 | 0 | 8 | 63 |
 | [service/recommend.go](file:///home/sensetime/go/src/github.com/somewhere/service/recommend.go) | Go | 26 | 0 | 5 | 31 |
 | [service/records.go](file:///home/sensetime/go/src/github.com/somewhere/service/records.go) | Go | 30 | 0 | 7 | 37 |
 | [service/stores.go](file:///home/sensetime/go/src/github.com/somewhere/service/stores.go) | Go | 41 | 0 | 8 | 49 |
-| [service/users.go](file:///home/sensetime/go/src/github.com/somewhere/service/users.go) | Go | 49 | 0 | 8 | 57 |
+| [service/users.go](file:///home/sensetime/go/src/github.com/somewhere/service/users.go) | Go | 85 | 0 | 11 | 96 |
 | [templates/index.html](file:///home/sensetime/go/src/github.com/somewhere/templates/index.html) | HTML | 11 | 0 | 1 | 12 |
 | [templates/index.js](file:///home/sensetime/go/src/github.com/somewhere/templates/index.js) | JavaScript | 6 | 0 | 0 | 6 |
 | [vue-admin/.editorconfig](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/.editorconfig) | Properties | 11 | 1 | 3 | 15 |
@@ -137,7 +139,7 @@ Total : 129 files,  5888 codes, 290 comments, 994 blanks, all 7172 lines
 | [vue-admin/src/views/nested/menu1/menu1-3/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/nested/menu1/menu1-3/index.vue) | Vue | 5 | 0 | 1 | 6 |
 | [vue-admin/src/views/nested/menu2/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/nested/menu2/index.vue) | Vue | 5 | 0 | 1 | 6 |
 | [vue-admin/src/views/table/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/table/index.vue) | Vue | 82 | 0 | 3 | 85 |
-| [vue-admin/src/views/table/userList.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/table/userList.vue) | Vue | 204 | 5 | 19 | 228 |
+| [vue-admin/src/views/table/userList.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/table/userList.vue) | Vue | 208 | 5 | 20 | 233 |
 | [vue-admin/src/views/tree/index.vue](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/src/views/tree/index.vue) | Vue | 72 | 0 | 7 | 79 |
 | [vue-admin/vue.config.js](file:///home/sensetime/go/src/github.com/somewhere/vue-admin/vue.config.js) | JavaScript | 110 | 21 | 9 | 140 |
 

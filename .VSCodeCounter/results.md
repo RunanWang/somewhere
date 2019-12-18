@@ -1,20 +1,20 @@
 # Summary
 
-Date : 2019-12-18 11:13:14
+Date : 2019-12-18 16:29:26
 
 Directory /home/sensetime/go/src/github.com/somewhere
 
-Total : 129 files,  5888 codes, 290 comments, 994 blanks, all 7172 lines
+Total : 131 files,  6183 codes, 286 comments, 994 blanks, all 7463 lines
 
 [details](details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| Go | 46 | 1,983 | 40 | 395 | 2,418 |
-| Vue | 27 | 1,738 | 23 | 152 | 1,913 |
+| Go | 46 | 2,062 | 36 | 381 | 2,479 |
+| Vue | 27 | 1,742 | 23 | 153 | 1,918 |
 | JavaScript | 27 | 1,125 | 194 | 138 | 1,457 |
-| Markdown | 2 | 554 | 0 | 200 | 754 |
+| Markdown | 4 | 766 | 0 | 213 | 979 |
 | SCSS | 6 | 329 | 18 | 78 | 425 |
 | JSON | 1 | 64 | 0 | 1 | 65 |
 | SQL | 1 | 48 | 0 | 19 | 67 |
@@ -26,24 +26,25 @@ Total : 129 files,  5888 codes, 290 comments, 994 blanks, all 7172 lines
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 129 | 5,888 | 290 | 994 | 7,172 |
-| app | 1 | 98 | 2 | 24 | 124 |
+| . | 131 | 6,183 | 286 | 994 | 7,463 |
+| .VSCodeCounter | 2 | 212 | 0 | 13 | 225 |
+| app | 1 | 98 | 4 | 19 | 121 |
 | config | 1 | 33 | 0 | 8 | 41 |
-| db | 4 | 153 | 8 | 46 | 207 |
+| db | 4 | 153 | 2 | 45 | 200 |
 | err | 1 | 49 | 2 | 7 | 58 |
-| handler | 16 | 789 | 0 | 150 | 939 |
-| handler/products | 4 | 187 | 0 | 35 | 222 |
-| handler/recommend | 1 | 43 | 0 | 9 | 52 |
-| handler/records | 2 | 96 | 0 | 20 | 116 |
-| handler/stores | 4 | 192 | 0 | 36 | 228 |
-| handler/users | 4 | 196 | 0 | 36 | 232 |
+| handler | 16 | 849 | 0 | 143 | 992 |
+| handler/products | 4 | 203 | 0 | 33 | 236 |
+| handler/recommend | 1 | 47 | 0 | 9 | 56 |
+| handler/records | 2 | 104 | 0 | 19 | 123 |
+| handler/stores | 4 | 208 | 0 | 35 | 243 |
+| handler/users | 4 | 208 | 0 | 33 | 241 |
 | middleware | 3 | 159 | 28 | 29 | 216 |
-| model | 6 | 325 | 0 | 56 | 381 |
-| msg | 7 | 165 | 0 | 45 | 210 |
-| service | 7 | 251 | 0 | 46 | 297 |
+| model | 6 | 310 | 0 | 53 | 363 |
+| msg | 7 | 167 | 0 | 45 | 212 |
+| service | 7 | 283 | 0 | 48 | 331 |
 | templates | 2 | 17 | 0 | 1 | 18 |
-| vue-admin | 78 | 3,327 | 249 | 402 | 3,978 |
-| vue-admin/src | 69 | 2,868 | 221 | 358 | 3,447 |
+| vue-admin | 78 | 3,331 | 249 | 403 | 3,983 |
+| vue-admin/src | 69 | 2,872 | 221 | 359 | 3,452 |
 | vue-admin/src/api | 2 | 62 | 0 | 11 | 73 |
 | vue-admin/src/components | 3 | 168 | 3 | 16 | 187 |
 | vue-admin/src/components/Breadcrumb | 1 | 70 | 2 | 7 | 79 |
@@ -60,7 +61,7 @@ Total : 129 files,  5888 codes, 290 comments, 994 blanks, all 7172 lines
 | vue-admin/src/store/modules | 4 | 226 | 15 | 31 | 272 |
 | vue-admin/src/styles | 6 | 329 | 18 | 78 | 425 |
 | vue-admin/src/utils | 5 | 196 | 55 | 28 | 279 |
-| vue-admin/src/views | 15 | 1,034 | 8 | 78 | 1,120 |
+| vue-admin/src/views | 15 | 1,038 | 8 | 79 | 1,125 |
 | vue-admin/src/views/dashboard | 1 | 29 | 0 | 4 | 33 |
 | vue-admin/src/views/form | 1 | 82 | 0 | 4 | 86 |
 | vue-admin/src/views/login | 1 | 203 | 3 | 26 | 232 |
@@ -72,7 +73,7 @@ Total : 129 files,  5888 codes, 290 comments, 994 blanks, all 7172 lines
 | vue-admin/src/views/nested/menu1/menu1-2/menu1-2-2 | 1 | 5 | 0 | 1 | 6 |
 | vue-admin/src/views/nested/menu1/menu1-3 | 1 | 5 | 0 | 1 | 6 |
 | vue-admin/src/views/nested/menu2 | 1 | 5 | 0 | 1 | 6 |
-| vue-admin/src/views/table | 2 | 286 | 5 | 22 | 313 |
+| vue-admin/src/views/table | 2 | 290 | 5 | 23 | 318 |
 | vue-admin/src/views/tree | 1 | 72 | 0 | 7 | 79 |
 
 [details](details.md)

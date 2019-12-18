@@ -21,9 +21,11 @@ func UpdateProduct(c *gin.Context) {
 	logger.Tracef("in update Product handler")
 	err = c.Bind(&UpdateProductReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
+		c.Set("logger", logger)
 		service.CommonErrorResp(c, cerror.ErrInvalidParam)
 		return
 	}
@@ -32,9 +34,11 @@ func UpdateProduct(c *gin.Context) {
 	})
 	err = service.UpdateProduct(c, &UpdateProductReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
+		c.Set("logger", logger)
 
 		if _, isMysql := err.(*mysql.MySQLError); isMysql {
 			service.CommonErrorResp(c, cerror.ErrInternalError)

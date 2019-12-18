@@ -22,9 +22,11 @@ func GetRecords(c *gin.Context) {
 
 	err = c.Bind(&getRecordReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
+		c.Set("logger", logger)
 		service.CommonErrorResp(c, cerror.ErrInvalidParam)
 		return
 	}
@@ -34,10 +36,11 @@ func GetRecords(c *gin.Context) {
 
 	list, err := service.GetRecords(c, &getRecordReq)
 	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),
 		})
-
+		c.Set("logger", logger)
 		if _, isMysql := err.(*mysql.MySQLError); isMysql {
 			service.CommonErrorResp(c, cerror.ErrInternalError)
 		} else {

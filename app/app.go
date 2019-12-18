@@ -33,7 +33,6 @@ func NewApp() *App {
 }
 
 func (t *App) Initialize() {
-
 	var configPath string
 	flag.StringVar(&configPath, "config", "./conf/config.toml", "config path")
 	flag.Parse()
@@ -43,13 +42,11 @@ func (t *App) Initialize() {
 	t.initLogger()
 
 	db.InitDatabase()
-	//db.InitSQLDatabase()
 	db.InitRedisDatabase()
 	t.initRouter()
 }
 
 func (t *App) initLogger() {
-
 	log.SetFormatter(&log.JSONFormatter{})
 	log.SetOutput(os.Stdout)
 
@@ -58,7 +55,6 @@ func (t *App) initLogger() {
 	} else {
 		log.SetLevel(log.InfoLevel)
 	}
-
 }
 
 func (t *App) initRouter() {
@@ -66,12 +62,14 @@ func (t *App) initRouter() {
 	r.Use(middleware.CorsHandler())
 	r.Use(gin.Recovery())
 	r.Use(middleware.Common)
+
+	///////////////////////////////////////////////////////////////////////////////////////
+	// 鉴权API接口
 	var authMiddleware = middleware.GinJWTMiddlewareInit(middleware.AllUserAuthorizator)
 	r.POST("/login", authMiddleware.LoginHandler)
 	r.NoRoute(authMiddleware.MiddlewareFunc(), middleware.NoRouteHandler)
 	auth := r.Group("/auth")
 	{
-		// Refresh time can be longer than token timeout
 		auth.GET("/refresh_token", authMiddleware.RefreshHandler)
 	}
 	api := r.Group("/user")
@@ -80,9 +78,9 @@ func (t *App) initRouter() {
 		api.GET("/info", handler.GetUserInfo)
 		api.POST("/logout", handler.Logout)
 	}
-
+	//////////////////////////////////////////////////////////////////////////////////////
+	// 普通API接口
 	rootGroup := r.Group("somewhere")
-
 	storesGroup := rootGroup.Group("/stores")
 	storesGroup.GET("", stores.GetStores)
 	storesGroup.POST("", stores.AddStore)
@@ -110,7 +108,6 @@ func (t *App) initRouter() {
 }
 
 func (t *App) Run() {
-
 	err := t.engine.Run(config.Config.ServiceConfig.Address)
 	if err != nil {
 		panic(err)
