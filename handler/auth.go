@@ -75,8 +75,12 @@ func RegisterHandler(c *gin.Context) {
 		return
 	}
 
-	if addAuthReq.Role == "store" {
-
+	if addAuthReq.Role == "shop" {
+		var newStore model.TStores
+		newStore.Name = addAuthReq.Name
+		newStore.NickName = addAuthReq.Name
+		newStore.ID = bson.NewObjectId()
+		err = newStore.AddStore()
 	} else if addAuthReq.Role == "user" {
 		var newUser model.TUser
 		newUser.Name = addAuthReq.Name
@@ -84,7 +88,13 @@ func RegisterHandler(c *gin.Context) {
 		newUser.ID = bson.NewObjectId()
 		err = newUser.AddUser()
 	}
-
+	if err != nil {
+		logger = logger.WithFields(log.Fields{
+			"error": err.Error(),
+		})
+		service.CommonErrorResp(c, cerror.ErrInvalidParam)
+		return
+	}
 	addAuthResp.ErrorCode = 0
 	addAuthResp.RequestID = c.MustGet("request_id").(string)
 	logger = logger.WithFields(log.Fields{

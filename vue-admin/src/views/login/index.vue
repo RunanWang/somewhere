@@ -75,7 +75,7 @@
 
 <script>
 
-import { postAuth } from '@/api/user'
+import { postAuth } from '@/api/auth'
 export default {
   name: 'Login',
   data() {

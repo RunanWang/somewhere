@@ -1,13 +1,13 @@
 <template>
   <div id="app" class="app-container">
     <div class="filter-container" align="right">
-      <el-button class="filter-item" type="primary" icon="edit" @click="handleCreate">新建用户</el-button>
+      <el-button class="filter-item" type="primary" icon="edit" @click="handleCreate">新建商铺</el-button>
       <p />
     </div>
     <div>
       <el-table
         v-loading="listLoading"
-        :data="list"
+        :data="data"
         element-loading-text="Loading"
         border
         fit
@@ -18,30 +18,30 @@
             {{ scope.$index+1 }}
           </template>
         </el-table-column>
-        <el-table-column label="用户ID" width="250" align="center">
+        <el-table-column label="商铺ID" width="250" align="center">
           <template slot-scope="scope">
-            {{ scope.row.user_id }}
+            {{ scope.row.store_id }}
           </template>
         </el-table-column>
-        <el-table-column label="用户名称" align="center">
+        <el-table-column label="商铺名称" align="center">
           <template slot-scope="scope">
-            <span>{{ scope.row.user_name }}</span>
+            <span>{{ scope.row.store_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="用户城市" width="100" align="center">
+        <el-table-column label="商铺城市" width="100" align="center">
           <template slot-scope="scope">
-            {{ scope.row.user_city }}
+            {{ scope.row.store_city }}
           </template>
         </el-table-column>
-        <el-table-column class-name="status-col" label="用户历史消费" width="130" align="center">
+        <el-table-column class-name="status-col" label="商铺评分" width="130" align="center">
           <template slot-scope="scope">
-            <el-tag :type="scope.row.user_historysum | statusFilter">{{ scope.row.user_historysum }}</el-tag>
+            <el-tag :type="scope.row.store_level | statusFilter">{{ scope.row.store_level }}</el-tag>
           </template>
         </el-table-column>
         <el-table-column align="center" prop="created_at" label="创建时间" width="200">
           <template slot-scope="scope">
             <i class="el-icon-time" />
-            <span>{{ scope.row.user_timestamp | formatDate }}</span>
+            <span>{{ scope.row.timestamp | formatDate }}</span>
           </template>
         </el-table-column>
         <el-table-column align="center" label="操作" width="200">
@@ -53,27 +53,21 @@
       </el-table>
     </div>
     <!-- 新增弹窗 -->
-    <el-dialog title="新建用户" :visible.sync="dialogFormVisible">
+    <el-dialog title="新建商铺" :visible.sync="dialogFormVisible">
       <el-form class="small-space" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="用户账号">
+        <el-form-item label="商铺账号">
           <el-input v-model="temp.name" />
         </el-form-item>
-        <el-form-item label="用户名称">
-          <el-input v-model="temp.user_name" />
+        <el-form-item label="商铺名称">
+          <el-input v-model="temp.store_name" />
         </el-form-item>
 
-        <el-form-item label="用户年龄">
-          <el-input v-model.number="temp.user_age" type="number" />
-        </el-form-item>
-
-        <el-form-item label="用户性别">
-          <el-select v-model="temp.user_gender" clearable class="filter-item" placeholder="-请选择-">
-            <el-option v-for="item in genderOptions" :key="item.key" :label="item.display_name" :value="item.key" />
-          </el-select>
+        <el-form-item label="商铺评分">
+          <el-input v-model.number="temp.store_level" type="number" step="0.01" max=5.0 />
         </el-form-item>
 
         <el-form-item label="所在城市">
-          <el-input v-model="temp.user_city" />
+          <el-input v-model="temp.store_city" />
         </el-form-item>
       </el-form>
 
@@ -83,24 +77,18 @@
       </div>
     </el-dialog>
     <!-- 修改弹窗 -->
-    <el-dialog title="编辑用户" :visible.sync="dialogFormVisible2">
+    <el-dialog title="编辑商铺" :visible.sync="dialogFormVisible2">
       <el-form class="small-space" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="用户名称">
-          <el-input v-model="temp.user_name" />
+        <el-form-item label="商铺名称">
+          <el-input v-model="temp.store_name" />
         </el-form-item>
 
-        <el-form-item label="用户年龄">
-          <el-input v-model.number="temp.user_age" type="number" />
-        </el-form-item>
-
-        <el-form-item label="用户性别">
-          <el-select v-model="temp.user_gender" clearable class="filter-item" placeholder="-请选择-">
-            <el-option v-for="item in genderOptions" :key="item.key" :label="item.display_name" :value="item.key" />
-          </el-select>
+        <el-form-item label="商铺评分">
+          <el-input v-model.number="temp.store_level" type="number" step="0.01" max=5.0 />
         </el-form-item>
 
         <el-form-item label="所在城市">
-          <el-input v-model="temp.user_city" />
+          <el-input v-model="temp.store_city" />
         </el-form-item>
       </el-form>
 
@@ -123,7 +111,7 @@
 </template>
 
 <script>
-import { getUserList, getUserListByPage, postUserList, deleteUserList, putUserList } from '@/api/user'
+import { getStoreList, getStoreListByPage, postStoreList, deleteStoreList, putStoreList } from '@/api/store'
 import { parseTime } from '@/utils/index.js'
 import { getBasic } from '@/api/basic.js'
 
@@ -131,11 +119,14 @@ export default {
   inject: ['reload'],
   filters: {
     statusFilter(Status) {
-      if (Status <= 0) {
+      if (Status <= 2) {
         return 'danger'
       }
-      if (Status <= 1000) {
-        return 'gray'
+      if (Status <= 3) {
+        return 'warning'
+      }
+      if (Status <= 4) {
+        return 'primary'
       }
       return 'success'
     },
@@ -145,24 +136,15 @@ export default {
   },
   data() {
     return {
-      list: null,
+      data: null,
       listLoading: true,
       temp: {
-        'user_id': '',
+        'store_id': '',
         'name': '',
-        'user_name': '',
-        'user_age': 18,
-        'user_gender': 0,
-        'user_city': ''
+        'store_name': '',
+        'store_level': 5.0,
+        'store_city': ''
       },
-      listQuery: {
-        user_gender: 0
-      },
-      genderOptions: [
-        { key: 0, display_name: '-请选择-' },
-        { key: 1, display_name: '男' },
-        { key: 2, display_name: '女' }
-      ],
       dialogFormVisible: false,
       dialogFormVisible2: false,
       pageInfo:{
@@ -181,11 +163,10 @@ export default {
       const vm = this
 
       vm.temp = {
-        'user_id': '',
-        'user_name': '',
-        'user_age': 18,
-        'user_gender': 0,
-        'user_city': ''
+        'store_id': '',
+        'store_name': '',
+        'store_level': 5,
+        'store_city': ''
       }
     },
 
@@ -193,11 +174,10 @@ export default {
       this.dialogFormVisible2 = true
       // const vm = this
       console.log('编辑的row：', index, '-----', row)
-      this.temp.user_id = row.user_id
-      this.temp.user_gender = row.user_gender
-      this.temp.user_city = row.user_city
-      this.temp.user_age = row.user_age
-      this.temp.user_name = row.user_name
+      this.temp.store_id = row.store_id
+      this.temp.store_city = row.store_city
+      this.temp.store_level = row.store_level
+      this.temp.store_name = row.store_name
     },
 
     handleCreate() {
@@ -210,9 +190,9 @@ export default {
       const vm = this
       console.log('单个删除选择的row：', index, '-----', row)
       // 前端删除。
-      deleteUserList(row).then(response => {
+      deleteStoreList(row).then(response => {
         this.total--
-        vm.list.splice(index,1)
+        vm.data.splice(index,1)
         // this.reload()
       })
     },
@@ -222,8 +202,8 @@ export default {
       this.pageInfo.page_num = val
       console.log('页面改变：', this.pageInfo.page_num,this.pageInfo.page_size)
       // 前端删除。
-      getUserListByPage(vm.pageInfo).then(response => {
-        this.list = response.list
+      getStoreListByPage(vm.pageInfo).then(response => {
+        this.data = response.data
         this.listLoading = false
       })
     },
@@ -233,17 +213,16 @@ export default {
       this.pageInfo.page_size = val
       console.log('页面改变：', this.pageInfo.page_num,this.pageInfo.page_size)
       // 前端删除。
-      getUserListByPage(vm.pageInfo).then(response => {
-        this.list = response.list
+      getStoreListByPage(vm.pageInfo).then(response => {
+        this.data = response.data
         this.listLoading = false
       })
     },
 
     handleCreateSubmit(temp) {
       const vm = this
-      console.log('新增用户：', vm.temp)
-      // this.isD
-      postUserList(temp).then(response => {
+      console.log('新增商铺：', vm.temp)
+      postStoreList(temp).then(response => {
         this.reload()
       })
       this.dialogFormVisible = false
@@ -253,7 +232,7 @@ export default {
       const vm = this
       console.log('修改用户：', vm.temp)
       // this.isD
-      putUserList(temp).then(response => {
+      putStoreList(temp).then(response => {
         this.reload()
       })
       this.dialogFormVisible2 = false
@@ -262,10 +241,10 @@ export default {
     fetchData(pageInfo) {
       this.listLoading = true
       getBasic().then(response => {
-        this.total = response.user_num
+        this.total = response.shop_num
       })
-      getUserListByPage(pageInfo).then(response => {
-        this.list = response.list
+      getStoreListByPage(pageInfo).then(response => {
+        this.data = response.data
         this.listLoading = false
       })
     }

@@ -60,41 +60,6 @@ export const constantRoutes = [
       meta: { title: '主页', icon: 'dashboard' }
     }]
   }
-
-  // {
-  //   path: '/example',
-  //   component: Layout,
-  //   redirect: '/example/table',
-  //   name: 'Example',
-  //   meta: { title: 'Example', icon: 'example' },
-  //   children: [
-  //     {
-  //       path: 'table',
-  //       name: 'Table',
-  //       component: () => import('@/views/table/index'),
-  //       meta: { title: 'Table', icon: 'table' }
-  //     },
-  //     {
-  //       path: 'tree',
-  //       name: 'Tree',
-  //       component: () => import('@/views/tree/index'),
-  //       meta: { title: 'Tree', icon: 'tree' }
-  //     }
-  //   ]
-  // },
-
-  // {
-  //   path: '/form',
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       name: 'Form',
-  //       component: () => import('@/views/form/index'),
-  //       meta: { title: 'Form', icon: 'form' }
-  //     }
-  //   ]
-  // }
 ]
 
 /**
@@ -109,7 +74,7 @@ export const asyncRoutes = [
     children: [{
       path: 'shoplist',
       name: 'Shoplist',
-      component: () => import('@/views/table/index'),
+      component: () => import('@/views/table/shopList'),
       meta: { title: '商铺列表', icon: 'table', roles: ['admin'] }
     }]
   },
@@ -174,7 +139,7 @@ export const asyncRoutes = [
     children: [
       {
         path: 'https://github.com/RyanMrW/somewhere',
-        meta: { title: '源码链接', icon: 'link', roles: ['admin'] }
+        meta: { title: '源码链接', icon: 'github', roles: ['admin'] }
       }
     ]
   },
