@@ -110,20 +110,20 @@
       </div>
     </el-dialog>
     <el-pagination
-      :current-page="page"
-      :page-size="pageSize"
+      :current-page="pageInfo.page_num"
+      :page-size="pageInfo.page_size"
       :page-sizes="[10, 30, 50, 100]"
       :style="{float:'right',padding:'20px'}"
       :total="total"
       layout="total, sizes, prev, pager, next, jumper"
-      @current-change="handleCurrentChange"
+      @current-change="handlePageChange"
       @size-change="handleSizeChange"
     />
   </div>
 </template>
 
 <script>
-import { getUserList, postUserList, deleteUserList, putUserList } from '@/api/table'
+import { getUserList, getUserListByPage, postUserList, deleteUserList, putUserList } from '@/api/table'
 import { parseTime } from '@/utils/index.js'
 import { getBasic } from '@/api/basic.js'
 
@@ -165,14 +165,16 @@ export default {
       ],
       dialogFormVisible: false,
       dialogFormVisible2: false,
-      page: 1,
-      total: 10,
-      pageSize: 10
+      pageInfo:{
+        'page_num':1,
+        'page_size':10
+      },
+      total: 10
     }
   },
 
   created() {
-    this.fetchData()
+    this.fetchData(this.pageInfo)
   },
   methods: {
     initTemp() {
@@ -209,7 +211,31 @@ export default {
       console.log('单个删除选择的row：', index, '-----', row)
       // 前端删除。
       deleteUserList(row).then(response => {
-        vm.list.splice(index, 1)
+        this.total--
+        vm.list.splice(index,1)
+        // this.reload()
+      })
+    },
+
+    handlePageChange(val) {
+      const vm = this
+      this.pageInfo.page_num = val
+      console.log('页面改变：', this.pageInfo.page_num,this.pageInfo.page_size)
+      // 前端删除。
+      getUserListByPage(vm.pageInfo).then(response => {
+        this.list = response.list
+        this.listLoading = false
+      })
+    },
+
+    handleSizeChange(val) {
+      const vm = this
+      this.pageInfo.page_size = val
+      console.log('页面改变：', this.pageInfo.page_num,this.pageInfo.page_size)
+      // 前端删除。
+      getUserListByPage(vm.pageInfo).then(response => {
+        this.list = response.list
+        this.listLoading = false
       })
     },
 
@@ -233,12 +259,12 @@ export default {
       this.dialogFormVisible2 = false
     },
 
-    fetchData() {
+    fetchData(pageInfo) {
       this.listLoading = true
       getBasic().then(response => {
         this.total = response.user_num
       })
-      getUserList().then(response => {
+      getUserListByPage(pageInfo).then(response => {
         this.list = response.list
         this.listLoading = false
       })

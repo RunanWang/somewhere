@@ -1,6 +1,8 @@
 package users
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"github.com/go-sql-driver/mysql"
 	log "github.com/sirupsen/logrus"
@@ -33,6 +35,53 @@ func GetUsers(c *gin.Context) {
 	})
 
 	list, err := service.GetUsers(c, &getUserReq)
+	if err != nil {
+		logger = logger.WithFields(log.Fields{
+			"error": err.Error(),
+		})
+
+		if _, isMysql := err.(*mysql.MySQLError); isMysql {
+			service.CommonErrorResp(c, cerror.ErrInternalError)
+		} else {
+			service.CommonErrorResp(c, cerror.ErrInvalidParam)
+		}
+
+		return
+	}
+
+	getUserResp.ErrorCode = 0
+	getUserResp.RequestID = c.MustGet("request_id").(string)
+	getUserResp.List = list
+	logger = logger.WithFields(log.Fields{
+		"resp": getUserResp,
+	})
+	service.CommonInfoResp(c, getUserResp)
+}
+
+func GetUsersByPage(c *gin.Context) {
+
+	var (
+		getUserReq  msg.GetUsersByPageReq
+		getUserResp msg.GetUsersResp
+		err         error
+	)
+
+	logger := c.MustGet("logger").(*log.Entry)
+	logger.Tracef("in get User handler")
+
+	err = c.Bind(&getUserReq)
+	if err != nil {
+		logger = logger.WithFields(log.Fields{
+			"error": err.Error(),
+		})
+		service.CommonErrorResp(c, cerror.ErrInvalidParam)
+		return
+	}
+	logger = logger.WithFields(log.Fields{
+		"req": getUserReq,
+	})
+	fmt.Println(getUserReq)
+	list, err := service.GetUsersByPage(c, &getUserReq)
 	if err != nil {
 		logger = logger.WithFields(log.Fields{
 			"error": err.Error(),

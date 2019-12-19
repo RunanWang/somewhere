@@ -53,6 +53,10 @@ func GetUsers(c *gin.Context, getUsersReq *msg.GetUsersReq) ([]model.TUser, erro
 	return model.GetAllUsers()
 }
 
+func GetUsersByPage(c *gin.Context, getUsersByPageReq *msg.GetUsersByPageReq) ([]model.TUser, error) {
+	return model.GetUsersByPage(getUsersByPageReq.PageNum, getUsersByPageReq.PageSize)
+}
+
 func UpdateUser(c *gin.Context, updateUsersReq *msg.UpdateUsersReq) (string, error) {
 	UserModel := &model.TUser{
 		ID:         bson.ObjectIdHex(updateUsersReq.UserID),

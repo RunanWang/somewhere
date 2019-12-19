@@ -16,6 +16,14 @@ export function getUserList(params) {
   })
 }
 
+export function getUserListByPage(data) {
+  return request({
+    url: '/somewhere/userspage',
+    method: 'post',
+    data
+  })
+}
+
 export function postUserList(data) {
   return request({
     url: '/somewhere/users',

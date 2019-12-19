@@ -6,6 +6,11 @@ type GetUsersReq struct {
 	UserID int `form:"user_id"`
 }
 
+type GetUsersByPageReq struct {
+	PageSize int `json:"page_size"`
+	PageNum  int `json:"page_num"`
+}
+
 type GetUsersResp struct {
 	List []model.TUser `json:"list"`
 	StdResp

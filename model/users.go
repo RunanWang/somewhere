@@ -36,6 +36,19 @@ func GetAllUsers() (users []TUser, err error) {
 	return ret, nil
 }
 
+func GetUsersByPage(pageNum int, pageSize int) (users []TUser, err error) {
+	c := db.MgoDb.C("users")
+	pipeM := []bson.M{
+		// {"$match": bson.M{"status": "true"}},
+		{"$skip": (pageNum - 1) * pageSize},
+		{"$limit": pageSize},
+		// {"$sort": bson.M{"height": -1}},
+	}
+	pipe := c.Pipe(pipeM)
+	err = pipe.All(&users)
+	return users, err
+}
+
 func (t *TUser) UpdateUser() error {
 	col := db.MgoDb.C("users")
 	err := col.Update(bson.M{"_id": t.ID}, bson.M{"$set": bson.M{"user_name": t.NickName, "user_gender": t.Gender, "user_age": t.Age, "user_city": t.City, "user_historysum": t.Historysum}})

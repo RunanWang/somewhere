@@ -99,6 +99,9 @@ func (t *App) initRouter() {
 	userGroup.PUT("", users.UpdateUser)
 	userGroup.DELETE("", users.DeleteUser)
 
+	userPageGroup := rootGroup.Group("/userspage")
+	userPageGroup.POST("", users.GetUsersByPage)
+
 	proGroup := rootGroup.Group("/products")
 	proGroup.GET("", products.GetProducts)
 	proGroup.POST("", products.AddProduct)
