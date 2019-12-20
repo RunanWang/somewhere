@@ -9,7 +9,7 @@
       </el-col>
     </el-row>
 
-    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:0px;">
       <line-chart :chart-data="lineChartData" />
     </el-row>
   </div>
@@ -60,18 +60,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .dashboard-editor-container {
-  padding: 32px;
+  padding: 80px;
   background-color: rgb(240, 242, 245);
   position: relative;
-
-  .github-corner {
-    position: absolute;
-    top: 0px;
-    border: 0;
-    right: 0;
-  }
-
   .chart-wrapper {
     background: #fff;
     padding: 16px 16px 0;

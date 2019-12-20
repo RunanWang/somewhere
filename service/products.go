@@ -40,6 +40,17 @@ func GetProducts(c *gin.Context, getProductsReq *msg.GetProductsReq) ([]model.TP
 	return temp.GetProductsByStoreID()
 }
 
+func GetProductsByPage(c *gin.Context, getProductsReq *msg.GetProductsByPageReq) ([]model.TProduct, error) {
+	pageNum := getProductsReq.PageNum
+	pageSize := getProductsReq.PageSize
+	StoreID := getProductsReq.StoreID
+	if StoreID == "" {
+		return model.GetAllProductsByPage(pageNum, pageSize)
+	}
+	tempStoreID := bson.ObjectIdHex(StoreID)
+	return model.GetProductsByPage(pageNum, pageSize, tempStoreID)
+}
+
 func UpdateProduct(c *gin.Context, updateProductsReq *msg.UpdateProductsReq) error {
 	ProductModel := &model.TProduct{
 		ID:        bson.ObjectIdHex(updateProductsReq.ID),

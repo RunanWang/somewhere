@@ -8,6 +8,12 @@ type GetProductsReq struct {
 	StoreID string `form:"store_id"`
 }
 
+type GetProductsByPageReq struct {
+	PageSize int    `json:"page_size"`
+	PageNum  int    `json:"page_num"`
+	StoreID  string `json:"store_id"`
+}
+
 type GetProductsResp struct {
 	List []model.TProduct `json:"list"`
 	StdResp

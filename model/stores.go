@@ -24,37 +24,6 @@ func (t *TStores) AddStore() error {
 	return err
 }
 
-func (t *TStores) GetStoreByName() (stores []*TStores, err error) {
-	row := db.SqlDb.QueryRow("SELECT * FROM stores where name = ?", t.Name)
-	if err != nil {
-		return
-	}
-
-	var aStore TStores
-	err = row.Scan(&aStore.ID, &aStore.Name, &aStore.Level)
-	if err != nil {
-		return
-	}
-	stores = append(stores, &aStore)
-
-	return
-}
-
-func (t *TStores) GetStoreByID() (stores []*TStores, err error) {
-	row := db.SqlDb.QueryRow("SELECT * FROM stores where id = ?", t.ID)
-	if err != nil {
-		return
-	}
-	var aStore TStores
-	err = row.Scan(&aStore.ID, &aStore.Name, &aStore.Level)
-	if err != nil {
-		return
-	}
-	stores = append(stores, &aStore)
-
-	return
-}
-
 func GetAllStores() (stores []TStores, err error) {
 	col := db.MgoDb.C("stores")
 	var ret []TStores
@@ -91,5 +60,11 @@ func (t *TStores) DeleteStore() error {
 		return err
 	}
 	err = Basic.DeleteShop()
+	return err
+}
+
+func (t *TStores) GetStoreByStoreID() error {
+	col := db.MgoDb.C("stores")
+	err := col.Find(bson.M{"_id": t.ID}).One(&t)
 	return err
 }

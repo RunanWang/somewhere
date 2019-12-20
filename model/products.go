@@ -19,6 +19,10 @@ type TProduct struct {
 func (t *TProduct) AddProduct() error {
 	col := db.MgoDb.C("items")
 	err := col.Insert(t)
+	if err != nil {
+		return err
+	}
+	err = Basic.AddItem()
 	return err
 }
 
@@ -52,6 +56,33 @@ func GetAllProducts() (Products []TProduct, err error) {
 	return ret, nil
 }
 
+func GetAllProductsByPage(pageNum int, pageSize int) (stores []TProduct, err error) {
+	c := db.MgoDb.C("items")
+	pipeM := []bson.M{
+		// {"$match": bson.M{"store_id": StoreID}},
+		{"$skip": (pageNum - 1) * pageSize},
+		{"$limit": pageSize},
+		// {"$sort": bson.M{"height": -1}},
+	}
+	pipe := c.Pipe(pipeM)
+
+	err = pipe.All(&stores)
+	return stores, err
+}
+
+func GetProductsByPage(pageNum int, pageSize int, StoreID bson.ObjectId) (stores []TProduct, err error) {
+	c := db.MgoDb.C("items")
+	pipeM := []bson.M{
+		{"$match": bson.M{"store_id": StoreID}},
+		{"$skip": (pageNum - 1) * pageSize},
+		{"$limit": pageSize},
+		// {"$sort": bson.M{"height": -1}},
+	}
+	pipe := c.Pipe(pipeM)
+	err = pipe.All(&stores)
+	return stores, err
+}
+
 func (t *TProduct) UpdateProduct() error {
 	col := db.MgoDb.C("items")
 	err := col.Update(bson.M{"_id": t.ID}, bson.M{"$set": bson.M{"store_id": t.StoreID, "item_name": t.Name, "item_price": t.Price, "item_score": t.Score, "item_salecount": t.SaleCount, "item_brand": t.Brand, "item_timestamp": t.Timestamp}})
@@ -64,5 +95,9 @@ func (t *TProduct) UpdateProduct() error {
 func (t *TProduct) DeleteProduct() error {
 	col := db.MgoDb.C("items")
 	err := col.Remove(bson.M{"_id": t.ID})
+	if err != nil {
+		return err
+	}
+	err = Basic.DeleteItem()
 	return err
 }

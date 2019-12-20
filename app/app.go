@@ -111,6 +111,9 @@ func (t *App) initRouter() {
 	proGroup.PUT("", products.UpdateProduct)
 	proGroup.DELETE("", products.DeleteProduct)
 
+	proPageGroup := rootGroup.Group("/productspage")
+	proPageGroup.POST("", products.GetProductsByPage)
+
 	recGroup := rootGroup.Group("/records")
 	recGroup.GET("", records.GetRecords)
 	recGroup.POST("", records.AddRecord)

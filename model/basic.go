@@ -60,3 +60,23 @@ func (t *TBasic) DeleteShop() error {
 	err = col.Find(bson.M{}).One(&Basic)
 	return nil
 }
+
+func (t *TBasic) AddItem() error {
+	col := db.MgoDb.C("basic")
+	err := col.Update(bson.M{"_id": Basic.ID}, bson.M{"$set": bson.M{"item_num": Basic.ItemNum + 1}})
+	if err != nil {
+		return err
+	}
+	err = col.Find(bson.M{}).One(&Basic)
+	return nil
+}
+
+func (t *TBasic) DeleteItem() error {
+	col := db.MgoDb.C("basic")
+	err := col.Update(bson.M{"_id": Basic.ID}, bson.M{"$set": bson.M{"item_num": Basic.ItemNum - 1}})
+	if err != nil {
+		return err
+	}
+	err = col.Find(bson.M{}).One(&Basic)
+	return nil
+}
