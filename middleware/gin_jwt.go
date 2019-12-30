@@ -9,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/somewhere/model"
 
-	"gin-vue/pkg/e"
+	"github.com/somewhere/err/e"
 )
 
 var identityKey = "aaa"
