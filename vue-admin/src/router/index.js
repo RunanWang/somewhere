@@ -107,7 +107,7 @@ export const asyncRoutes = [
     children: [{
       path: 'recordlist',
       name: 'Recordlist',
-      component: () => import('@/views/table/index'),
+      component: () => import('@/views/table/recordList'),
       meta: { title: '记录列表', icon: 'table', roles: ['admin'] }
     }]
   },
