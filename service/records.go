@@ -1,6 +1,7 @@
 package service
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/globalsign/mgo/bson"
@@ -12,10 +13,13 @@ import (
 
 func AddRecord(c *gin.Context, addRecordReq *msg.AddRecordReq) error {
 	startTime := time.Now().Unix()
+	fmt.Println(addRecordReq)
 	RecordModel := &model.TRecord{
-		ItemID:    addRecordReq.ProID,
+		RecordID:  bson.NewObjectId(),
+		ItemID:    bson.ObjectIdHex(addRecordReq.ProID),
 		Status:    addRecordReq.Status,
-		UserID:    addRecordReq.UserID,
+		UserID:    bson.ObjectIdHex(addRecordReq.UserID),
+		Query:     addRecordReq.Query,
 		Timestamp: startTime,
 	}
 	return RecordModel.AddRecord()

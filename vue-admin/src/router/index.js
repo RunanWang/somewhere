@@ -129,7 +129,7 @@ export const asyncRoutes = [
     children: [{
       path: 'useritemlist',
       name: 'Useritemlist',
-      component: () => import('@/views/table/index'),
+      component: () => import('@/views/table/userItemList'),
       meta: { title: '商品列表', icon: 'table', roles: ['user'] }
     }]
   },

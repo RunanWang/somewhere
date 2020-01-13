@@ -24,7 +24,8 @@ func GetUserInfo(c *gin.Context) {
 
 	code := 200
 	userRoles := auth.GetRoles()
-	data := model.UserMsg{Roles: userRoles, Introduction: "", Avatar: avatar, Name: userName}
+	id := auth.GetAuth()
+	data := model.UserMsg{Roles: userRoles, Introduction: "", Avatar: avatar, Name: userName, ID: id}
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": code,

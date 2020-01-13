@@ -22,6 +22,7 @@ type UserMsg struct {
 	Introduction string
 	Avatar       string
 	Name         string
+	ID           string
 }
 
 type Claims struct {
@@ -58,6 +59,13 @@ func (t *TAuth) GetRoles() []string {
 	}
 	roles = append(roles, ret.Role)
 	return roles
+}
+
+func (t *TAuth) GetAuth() string {
+	col := db.MgoDb.C("auth")
+	var ret TAuth
+	col.Find(bson.M{"name": t.Username}).One(&ret)
+	return ret.ID.Hex()
 }
 
 func GetUserClaims(userName string) (claims []Claims) {

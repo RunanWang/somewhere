@@ -10,6 +10,7 @@ type TRecord struct {
 	UserID    bson.ObjectId `json:"user_id" bson:"user_id"`
 	ItemID    bson.ObjectId `json:"item_id" bson:"item_id"`
 	Status    int           `json:"is_trade" bson:"is_trade"`
+	Query     string        `json:"query" bson:"query"`
 	Timestamp int64         `json:"timestamp" bson:"timestamp"`
 }
 
