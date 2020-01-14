@@ -2,6 +2,7 @@ package model
 
 import (
 	"encoding/json"
+	"errors"
 
 	"github.com/garyburd/redigo/redis"
 	"github.com/somewhere/db"
@@ -27,4 +28,27 @@ func (t *TRecommend) GetRecommend() (TRecommend, error) {
 	err = json.Unmarshal([]byte(userList), ans)
 	userReco.List = ans.List
 	return userReco, nil
+}
+
+func (t *TRecommend) AddRecommend() error {
+	userList, err := GetAllProducts()
+	if err != nil {
+		return err
+	}
+	userID := t.UserID
+	for _, item := range userList {
+		ans, err := json.Marshal(item)
+		if err != nil {
+			return err
+		}
+		_, err = db.RedisDb.Do("lpush", userID, ans)
+		if err != nil {
+			return err
+		}
+	}
+	n, _ := db.RedisDb.Do("EXPIRE", userID, 10*60)
+	if n != int64(1) {
+		return errors.New("error in expire")
+	}
+	return nil
 }

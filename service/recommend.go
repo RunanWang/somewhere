@@ -28,3 +28,10 @@ func GetRecommend(c *gin.Context, getRecommendReq *msg.GetRecommendReq) ([]model
 	}
 	return list, nil
 }
+
+func AddRecommend(c *gin.Context, getRecommendReq *msg.GetRecommendReq) error {
+	var rec model.TRecommend
+	rec.UserID = getRecommendReq.UserID
+	err := rec.AddRecommend()
+	return err
+}
