@@ -119,8 +119,7 @@ func (t *App) initRouter() {
 	recGroup.POST("", records.AddRecord)
 
 	recoGroup := rootGroup.Group("/recommend")
-	recoGroup.GET("", recommend.GetRecommend)
-	recoGroup.POST("", recommend.AddRecommend)
+	recoGroup.POST("", recommend.GetRecommend)
 }
 
 func (t *App) Run() {

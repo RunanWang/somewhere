@@ -1,14 +1,14 @@
-Date : 2020-01-13 18:34:18
+Date : 2020-01-14 16:18:28
 
 Directory /home/sensetime/go/src/github.com/somewhere
 
-Total : 148 files,  7664 codes, 320 comments, 1015 blanks, all 8999 lines
+Total : 148 files,  7701 codes, 320 comments, 1013 blanks, all 9034 lines
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
 | Vue | 28 | 3,158 | 53 | 253 | 3,464 |
-| Go | 53 | 2,634 | 59 | 478 | 3,171 |
+| Go | 53 | 2,671 | 59 | 476 | 3,206 |
 | JavaScript | 33 | 1,347 | 171 | 164 | 1,682 |
 | SCSS | 6 | 329 | 18 | 78 | 425 |
 | JSON | 1 | 66 | 0 | 1 | 67 |
@@ -21,7 +21,7 @@ Total : 148 files,  7664 codes, 320 comments, 1015 blanks, all 8999 lines
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 148 | 7,664 | 320 | 1,015 | 8,999 |
+| . | 148 | 7,701 | 320 | 1,013 | 9,034 |
 | app | 1 | 110 | 4 | 22 | 136 |
 | config | 1 | 33 | 0 | 8 | 41 |
 | db | 4 | 154 | 2 | 46 | 202 |
@@ -34,9 +34,9 @@ Total : 148 files,  7664 codes, 320 comments, 1015 blanks, all 8999 lines
 | handler/stores | 4 | 251 | 0 | 43 | 294 |
 | handler/users | 4 | 249 | 0 | 41 | 290 |
 | middleware | 4 | 305 | 44 | 55 | 404 |
-| model | 7 | 435 | 7 | 66 | 508 |
-| msg | 8 | 190 | 0 | 52 | 242 |
-| service | 8 | 345 | 0 | 56 | 401 |
+| model | 7 | 480 | 7 | 66 | 553 |
+| msg | 8 | 193 | 0 | 52 | 245 |
+| service | 8 | 334 | 0 | 54 | 388 |
 | vue-admin | 92 | 4,974 | 256 | 505 | 5,735 |
 | vue-admin/src | 82 | 4,521 | 228 | 485 | 5,234 |
 | vue-admin/src/api | 7 | 207 | 0 | 36 | 243 |
@@ -105,7 +105,7 @@ Total : 148 files,  7664 codes, 320 comments, 1015 blanks, all 8999 lines
 | [model/auth.go](file:///home/sensetime/go/src/github.com/somewhere/model/auth.go) | Go | 85 | 0 | 13 | 98 |
 | [model/basic.go](file:///home/sensetime/go/src/github.com/somewhere/model/basic.go) | Go | 72 | 0 | 11 | 83 |
 | [model/products.go](file:///home/sensetime/go/src/github.com/somewhere/model/products.go) | Go | 89 | 3 | 12 | 104 |
-| [model/recommend.go](file:///home/sensetime/go/src/github.com/somewhere/model/recommend.go) | Go | 25 | 0 | 6 | 31 |
+| [model/recommend.go](file:///home/sensetime/go/src/github.com/somewhere/model/recommend.go) | Go | 70 | 0 | 6 | 76 |
 | [model/records.go](file:///home/sensetime/go/src/github.com/somewhere/model/records.go) | Go | 44 | 0 | 7 | 51 |
 | [model/stores.go](file:///home/sensetime/go/src/github.com/somewhere/model/stores.go) | Go | 60 | 2 | 9 | 71 |
 | [model/users.go](file:///home/sensetime/go/src/github.com/somewhere/model/users.go) | Go | 60 | 2 | 8 | 70 |
@@ -113,7 +113,7 @@ Total : 148 files,  7664 codes, 320 comments, 1015 blanks, all 8999 lines
 | [msg/basic.go](file:///home/sensetime/go/src/github.com/somewhere/msg/basic.go) | Go | 8 | 0 | 4 | 12 |
 | [msg/common.go](file:///home/sensetime/go/src/github.com/somewhere/msg/common.go) | Go | 6 | 0 | 2 | 8 |
 | [msg/products.go](file:///home/sensetime/go/src/github.com/somewhere/msg/products.go) | Go | 48 | 0 | 11 | 59 |
-| [msg/recommend.go](file:///home/sensetime/go/src/github.com/somewhere/msg/recommend.go) | Go | 11 | 0 | 4 | 15 |
+| [msg/recommend.go](file:///home/sensetime/go/src/github.com/somewhere/msg/recommend.go) | Go | 14 | 0 | 4 | 18 |
 | [msg/records.go](file:///home/sensetime/go/src/github.com/somewhere/msg/records.go) | Go | 22 | 0 | 6 | 28 |
 | [msg/stores.go](file:///home/sensetime/go/src/github.com/somewhere/msg/stores.go) | Go | 41 | 0 | 11 | 52 |
 | [msg/users.go](file:///home/sensetime/go/src/github.com/somewhere/msg/users.go) | Go | 45 | 0 | 11 | 56 |
@@ -121,7 +121,7 @@ Total : 148 files,  7664 codes, 320 comments, 1015 blanks, all 8999 lines
 | [service/basic.go](file:///home/sensetime/go/src/github.com/somewhere/service/basic.go) | Go | 10 | 0 | 4 | 14 |
 | [service/common.go](file:///home/sensetime/go/src/github.com/somewhere/service/common.go) | Go | 23 | 0 | 6 | 29 |
 | [service/products.go](file:///home/sensetime/go/src/github.com/somewhere/service/products.go) | Go | 65 | 0 | 9 | 74 |
-| [service/recommend.go](file:///home/sensetime/go/src/github.com/somewhere/service/recommend.go) | Go | 26 | 0 | 5 | 31 |
+| [service/recommend.go](file:///home/sensetime/go/src/github.com/somewhere/service/recommend.go) | Go | 15 | 0 | 3 | 18 |
 | [service/records.go](file:///home/sensetime/go/src/github.com/somewhere/service/records.go) | Go | 34 | 0 | 7 | 41 |
 | [service/stores.go](file:///home/sensetime/go/src/github.com/somewhere/service/stores.go) | Go | 76 | 0 | 10 | 86 |
 | [service/users.go](file:///home/sensetime/go/src/github.com/somewhere/service/users.go) | Go | 88 | 0 | 12 | 100 |

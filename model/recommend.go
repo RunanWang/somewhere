@@ -3,31 +3,52 @@ package model
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 
 	"github.com/garyburd/redigo/redis"
 	"github.com/somewhere/db"
 )
 
 type TRecommend struct {
-	UserID string             `json:"user_id"`
-	List   []TRecommendDetail `json:"list"`
+	UserID   string `json:"user_id"`
+	Query    string `json:"query"`
+	PageSize int    `json:"page_size"`
+	PageNum  int    `json:"page_num"`
 }
 
-type TRecommendDetail struct {
-	ProductID string `json:"item_id"`
-}
-
-func (t *TRecommend) GetRecommend() (TRecommend, error) {
-	var userReco TRecommend
-	userReco.UserID = t.UserID
-	userList, err := redis.String(db.RedisDb.Do("GET", t.UserID))
+func (t *TRecommend) GetRecommend() ([]TProduct, error) {
+	var ansRec []TProduct
+	key := fmt.Sprint(t.UserID, "_", t.Query)
+	is_key_exit, err := redis.Bool(db.RedisDb.Do("EXISTS", key))
 	if err != nil {
-		return userReco, err
+		return ansRec, err
 	}
-	ans := &TRecommend{}
-	err = json.Unmarshal([]byte(userList), ans)
-	userReco.List = ans.List
-	return userReco, nil
+	if !is_key_exit {
+		err = t.AddRecommend()
+		if err != nil {
+			return ansRec, err
+		}
+	}
+	startNum := (t.PageNum - 1) * t.PageSize
+	endNum := (t.PageNum) * t.PageSize
+	userList, err := redis.Values(db.RedisDb.Do("lrange", t.UserID, startNum, endNum))
+	if err != nil {
+		return ansRec, err
+	}
+	for _, byteRec := range userList {
+		ans := &TProduct{}
+		v, ok := byteRec.([]byte)
+		if ok {
+			err = json.Unmarshal([]byte(v), ans)
+			if err != nil {
+				return ansRec, err
+			}
+			ansRec = append(ansRec, *ans)
+		} else {
+			return ansRec, err
+		}
+	}
+	return ansRec, nil
 }
 
 func (t *TRecommend) AddRecommend() error {
