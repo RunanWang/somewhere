@@ -1,0 +1,1 @@
+C:/APP/Anaconda/python.exe C:\APP\Anaconda\Scripts\tensorboard-script.py --logdir=C:\Users\Ryanw\Desktop\毕设\算法\src\mytensorboard\
