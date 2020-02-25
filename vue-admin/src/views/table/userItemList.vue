@@ -91,7 +91,7 @@
       </el-form>
 
       <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible2 = false">取 消</el-button>
+        <el-button @click="handleEditCancel(temp)">取 消</el-button>
         <el-button type="primary" @click="handleEditSubmit(temp)">购 买</el-button>
       </div>
     </el-dialog>
@@ -109,7 +109,8 @@
 </template>
 
 <script>
-import { getProductListByPage } from '@/api/product'
+// import { getProductListByPage } from '@/api/product'
+import { getRecommendListByPage } from '@/api/useraction'
 import { getStoreList } from '@/api/store'
 import { parseTime } from '@/utils/index.js'
 import { getBasic } from '@/api/basic.js'
@@ -157,7 +158,7 @@ export default {
       storeOptions: [],
       dialogFormVisible2: false,
       pageInfo: {
-        'store_id': '',
+        'user_id': '',
         'page_num': 1,
         'page_size': 10
       },
@@ -174,6 +175,7 @@ export default {
   },
 
   created() {
+    this.pageInfo.user_id = this.id
     this.fetchData(this.pageInfo)
     console.log('userid：', this.id, this.name)
   },
@@ -204,8 +206,6 @@ export default {
       this.temp.item_brand = row.item_brand
       this.temp.store_id = row.store_id
       this.temp.item_salecount = row.item_salecount
-      postRecord(this.record).then(response => {
-      })
     },
 
     handlePageChange(val) {
@@ -213,7 +213,7 @@ export default {
       this.pageInfo.page_num = val
       console.log('页面改变：', this.pageInfo.page_num, this.pageInfo.page_size)
       // 前端删除。
-      getProductListByPage(vm.pageInfo).then(response => {
+      getRecommendListByPage(vm.pageInfo).then(response => {
         this.list = response.list
         this.listLoading = false
       })
@@ -224,7 +224,7 @@ export default {
       const vm = this
       console.log('页面改变：', this.pageInfo.store_id, this.pageInfo.page_num, this.pageInfo.page_size)
       // 前端删除。
-      getProductListByPage(vm.pageInfo).then(response => {
+      getRecommendListByPage(vm.pageInfo).then(response => {
         this.list = response.list
         this.listLoading = false
       })
@@ -235,7 +235,7 @@ export default {
       this.pageInfo.page_size = val
       console.log('页面改变：', this.pageInfo.page_num, this.pageInfo.page_size)
       // 前端删除。
-      getProductListByPage(vm.pageInfo).then(response => {
+      getRecommendListByPage(vm.pageInfo).then(response => {
         this.list = response.list
         this.listLoading = false
       })
@@ -250,12 +250,21 @@ export default {
       this.dialogFormVisible2 = false
     },
 
+    handleEditCancel(temp) {
+      const vm = this
+      console.log('取消：', vm.temp)
+      this.record.is_trade = 0
+      postRecord(this.record).then(response => {
+      })
+      this.dialogFormVisible2 = false
+    },
+
     fetchData(pageInfo) {
       this.listLoading = true
       getBasic().then(response => {
         this.total = response.item_num
       })
-      getProductListByPage(pageInfo).then(response => {
+      getRecommendListByPage(pageInfo).then(response => {
         this.list = response.list
       })
       getStoreList().then(response => {

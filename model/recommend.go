@@ -3,7 +3,6 @@ package model
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 
 	"github.com/garyburd/redigo/redis"
 	"github.com/somewhere/db"
@@ -18,8 +17,9 @@ type TRecommend struct {
 
 func (t *TRecommend) GetRecommend() ([]TProduct, error) {
 	var ansRec []TProduct
-	key := fmt.Sprint(t.UserID, "_", t.Query)
-	is_key_exit, err := redis.Bool(db.RedisDb.Do("EXISTS", key))
+	// key := fmt.Sprint(t.UserID, "_", t.Query)
+	db.InitRedisDatabase()
+	is_key_exit, err := redis.Bool(db.RedisDb.Do("EXISTS", t.UserID))
 	if err != nil {
 		return ansRec, err
 	}

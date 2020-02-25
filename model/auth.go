@@ -49,16 +49,15 @@ func GetUserID(username string) string {
 	return "https://zbj-bucket1.oss-cn-shenzhen.aliyuncs.com/avatar.JPG"
 }
 
-func (t *TAuth) GetRoles() []string {
-	var roles []string
+func (t *TAuth) GetRoles() string {
+	var roles string
 	col := db.MgoDb.C("auth")
 	var ret TAuth
 	err := col.Find(bson.M{"name": t.Username}).One(&ret)
 	if err != nil {
 		return roles
 	}
-	roles = append(roles, ret.Role)
-	return roles
+	return ret.Role
 }
 
 func (t *TAuth) GetAuth() string {

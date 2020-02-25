@@ -1,6 +1,8 @@
 package model
 
 import (
+	"fmt"
+
 	"github.com/globalsign/mgo/bson"
 	"github.com/somewhere/db"
 )
@@ -66,4 +68,23 @@ func (t *TUser) DeleteUser() error {
 	}
 	err = Basic.DeleteUser()
 	return err
+}
+
+func GetUserIDByName(userName string) (userID string) {
+	var user TUser
+	c := db.MgoDb.C("users")
+	pipeM := []bson.M{
+		{"$match": bson.M{"name": userName}},
+		// {"$skip": (pageNum - 1) * pageSize},
+		// {"$limit": pageSize},
+		// {"$sort": bson.M{"height": -1}},
+	}
+	pipe := c.Pipe(pipeM)
+	err := pipe.One(&user)
+	if err != nil {
+		fmt.Println(err)
+		fmt.Println(userName)
+		return ""
+	}
+	return user.ID.Hex()
 }

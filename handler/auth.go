@@ -17,6 +17,7 @@ import (
 
 func GetUserInfo(c *gin.Context) {
 	var auth model.TAuth
+	var roleslist []string
 	claims := jwt.ExtractClaims(c)
 	userName := claims["userName"].(string)
 	auth.Username = userName
@@ -25,7 +26,11 @@ func GetUserInfo(c *gin.Context) {
 	code := 200
 	userRoles := auth.GetRoles()
 	id := auth.GetAuth()
-	data := model.UserMsg{Roles: userRoles, Introduction: "", Avatar: avatar, Name: userName, ID: id}
+	if userRoles == "user" {
+		id = model.GetUserIDByName(userName)
+	}
+	roleslist = append(roleslist, userRoles)
+	data := model.UserMsg{Roles: roleslist, Introduction: "", Avatar: avatar, Name: userName, ID: id}
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": code,
