@@ -1,16 +1,17 @@
-Date : 2020-02-18 15:34:21
+Date : 2020-02-28 18:27:01
 
 Directory c:\Users\Ryanw\go\src\github.com\somewhere
 
-Total : 182 files,  9196 codes, 486 comments, 1246 blanks, all 10928 lines
+Total : 188 files,  9922 codes, 538 comments, 1306 blanks, all 11766 lines
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| Vue.js | 28 | 3,158 | 53 | 253 | 3,464 |
-| Go | 53 | 2,671 | 59 | 476 | 3,206 |
-| JavaScript | 45 | 1,771 | 203 | 220 | 2,194 |
-| Python | 19 | 1,050 | 133 | 175 | 1,358 |
+| Vue.js | 28 | 3,165 | 54 | 254 | 3,473 |
+| Go | 53 | 2,690 | 63 | 478 | 3,231 |
+| JavaScript | 46 | 1,779 | 203 | 222 | 2,204 |
+| Python | 23 | 1,274 | 180 | 229 | 1,683 |
+| Jupyter | 2 | 472 | 0 | 2 | 474 |
 | SCSS | 6 | 329 | 18 | 78 | 425 |
 | JSON | 1 | 66 | 0 | 1 | 67 |
 | SQL | 1 | 48 | 0 | 19 | 67 |
@@ -19,38 +20,39 @@ Total : 182 files,  9196 codes, 486 comments, 1246 blanks, all 10928 lines
 | HTML | 1 | 16 | 1 | 1 | 18 |
 | Dockerfile | 2 | 11 | 4 | 12 | 27 |
 | YAML | 2 | 10 | 13 | 6 | 29 |
-| Ignore | 1 | 4 | 0 | 1 | 5 |
 | Shell Script | 1 | 1 | 0 | 0 | 1 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 182 | 9,196 | 486 | 1,246 | 10,928 |
-| algo | 20 | 1,051 | 133 | 175 | 1,359 |
+| . | 188 | 9,922 | 538 | 1,306 | 11,766 |
+| algo | 26 | 1,747 | 180 | 231 | 2,158 |
 | algo\data | 9 | 521 | 35 | 87 | 643 |
 | algo\data\movielens | 9 | 521 | 35 | 87 | 643 |
 | algo\src | 11 | 530 | 98 | 88 | 716 |
+| algo\src-go | 6 | 696 | 47 | 56 | 799 |
+| algo\src-go\.ipynb_checkpoints | 1 | 161 | 0 | 1 | 162 |
 | app | 1 | 110 | 4 | 22 | 136 |
 | config | 1 | 33 | 0 | 8 | 41 |
 | db | 4 | 154 | 2 | 46 | 202 |
 | err | 3 | 84 | 2 | 16 | 102 |
 | err\e | 2 | 35 | 0 | 9 | 44 |
-| handler | 17 | 1,017 | 0 | 173 | 1,190 |
+| handler | 17 | 1,022 | 0 | 173 | 1,195 |
 | handler\products | 4 | 246 | 0 | 41 | 287 |
 | handler\recommend | 1 | 47 | 0 | 9 | 56 |
 | handler\records | 2 | 104 | 0 | 19 | 123 |
 | handler\stores | 4 | 251 | 0 | 43 | 294 |
 | handler\users | 4 | 249 | 0 | 41 | 290 |
 | middleware | 4 | 305 | 44 | 55 | 404 |
-| model | 7 | 480 | 7 | 66 | 553 |
+| model | 7 | 494 | 11 | 68 | 573 |
 | msg | 8 | 193 | 0 | 52 | 245 |
 | service | 8 | 334 | 0 | 54 | 388 |
-| vue-admin | 106 | 5,418 | 289 | 563 | 6,270 |
+| vue-admin | 106 | 5,429 | 290 | 565 | 6,284 |
 | vue-admin\build | 1 | 28 | 0 | 8 | 36 |
 | vue-admin\mock | 4 | 200 | 18 | 33 | 251 |
 | vue-admin\public | 1 | 16 | 1 | 1 | 18 |
-| vue-admin\src | 82 | 4,521 | 228 | 485 | 5,234 |
-| vue-admin\src\api | 7 | 207 | 0 | 36 | 243 |
+| vue-admin\src | 83 | 4,536 | 229 | 488 | 5,253 |
+| vue-admin\src\api | 8 | 215 | 0 | 38 | 253 |
 | vue-admin\src\components | 5 | 297 | 6 | 30 | 333 |
 | vue-admin\src\components\Breadcrumb | 1 | 70 | 2 | 7 | 79 |
 | vue-admin\src\components\Hamburger | 1 | 41 | 0 | 4 | 45 |
@@ -68,14 +70,14 @@ Total : 182 files,  9196 codes, 486 comments, 1246 blanks, all 10928 lines
 | vue-admin\src\store\modules | 4 | 233 | 15 | 31 | 279 |
 | vue-admin\src\styles | 6 | 329 | 18 | 78 | 425 |
 | vue-admin\src\utils | 5 | 196 | 55 | 28 | 279 |
-| vue-admin\src\views | 16 | 2,404 | 41 | 168 | 2,613 |
+| vue-admin\src\views | 16 | 2,411 | 42 | 169 | 2,622 |
 | vue-admin\src\views\dashboard | 6 | 534 | 4 | 43 | 581 |
 | vue-admin\src\views\dashboard\admin | 5 | 508 | 4 | 40 | 552 |
 | vue-admin\src\views\dashboard\admin\components | 4 | 435 | 4 | 32 | 471 |
 | vue-admin\src\views\dashboard\admin\components\mixins | 1 | 50 | 4 | 2 | 56 |
 | vue-admin\src\views\form | 1 | 82 | 0 | 4 | 86 |
 | vue-admin\src\views\login | 1 | 272 | 4 | 30 | 306 |
-| vue-admin\src\views\table | 6 | 1,195 | 33 | 83 | 1,311 |
+| vue-admin\src\views\table | 6 | 1,202 | 34 | 84 | 1,320 |
 | vue-admin\tests | 7 | 196 | 14 | 15 | 225 |
 | vue-admin\tests\unit | 7 | 196 | 14 | 15 | 225 |
 | vue-admin\tests\unit\components | 3 | 120 | 14 | 7 | 141 |
@@ -95,6 +97,12 @@ Total : 182 files,  9196 codes, 486 comments, 1246 blanks, all 10928 lines
 | [algo/data/movielens/ml_data_process_movies.py](/algo/data/movielens/ml_data_process_movies.py) | Python | 34 | 1 | 5 | 40 |
 | [algo/data/movielens/ml_data_process_sort.py](/algo/data/movielens/ml_data_process_sort.py) | Python | 46 | 2 | 9 | 57 |
 | [algo/data/movielens/ml_data_process_user_ratings.py](/algo/data/movielens/ml_data_process_user_ratings.py) | Python | 22 | 2 | 6 | 30 |
+| [algo/src-go/.ipynb_checkpoints/load_data-checkpoint.ipynb](/algo/src-go/.ipynb_checkpoints/load_data-checkpoint.ipynb) | Jupyter | 161 | 0 | 1 | 162 |
+| [algo/src-go/data_process.py](/algo/src-go/data_process.py) | Python | 15 | 0 | 0 | 15 |
+| [algo/src-go/load_data.ipynb](/algo/src-go/load_data.ipynb) | Jupyter | 311 | 0 | 1 | 312 |
+| [algo/src-go/test.py](/algo/src-go/test.py) | Python | 76 | 17 | 7 | 100 |
+| [algo/src-go/train.py](/algo/src-go/train.py) | Python | 104 | 29 | 34 | 167 |
+| [algo/src-go/utils.py](/algo/src-go/utils.py) | Python | 29 | 1 | 13 | 43 |
 | [algo/src/LSTM1.py](/algo/src/LSTM1.py) | Python | 33 | 0 | 1 | 34 |
 | [algo/src/bash.sh](/algo/src/bash.sh) | Shell Script | 1 | 0 | 0 | 1 |
 | [algo/src/deep_n_wide.py](/algo/src/deep_n_wide.py) | Python | 64 | 10 | 10 | 84 |
@@ -115,7 +123,7 @@ Total : 182 files,  9196 codes, 486 comments, 1246 blanks, all 10928 lines
 | [err/e/code.go](/err/e/code.go) | Go | 14 | 0 | 5 | 19 |
 | [err/e/msg.go](/err/e/msg.go) | Go | 21 | 0 | 4 | 25 |
 | [err/error.go](/err/error.go) | Go | 49 | 2 | 7 | 58 |
-| [handler/auth.go](/handler/auth.go) | Go | 95 | 0 | 12 | 107 |
+| [handler/auth.go](/handler/auth.go) | Go | 100 | 0 | 12 | 112 |
 | [handler/basic.go](/handler/basic.go) | Go | 25 | 0 | 8 | 33 |
 | [handler/products/addProduct.go](/handler/products/addProduct.go) | Go | 47 | 0 | 8 | 55 |
 | [handler/products/deleteProduct.go](/handler/products/deleteProduct.go) | Go | 52 | 0 | 7 | 59 |
@@ -137,13 +145,13 @@ Total : 182 files,  9196 codes, 486 comments, 1246 blanks, all 10928 lines
 | [middleware/cors.go](/middleware/cors.go) | Go | 37 | 4 | 5 | 46 |
 | [middleware/gin_jwt.go](/middleware/gin_jwt.go) | Go | 92 | 23 | 17 | 132 |
 | [middleware/logger.go](/middleware/logger.go) | Go | 146 | 16 | 26 | 188 |
-| [model/auth.go](/model/auth.go) | Go | 85 | 0 | 13 | 98 |
+| [model/auth.go](/model/auth.go) | Go | 84 | 0 | 13 | 97 |
 | [model/basic.go](/model/basic.go) | Go | 72 | 0 | 11 | 83 |
 | [model/products.go](/model/products.go) | Go | 89 | 3 | 12 | 104 |
-| [model/recommend.go](/model/recommend.go) | Go | 70 | 0 | 6 | 76 |
+| [model/recommend.go](/model/recommend.go) | Go | 69 | 1 | 6 | 76 |
 | [model/records.go](/model/records.go) | Go | 44 | 0 | 7 | 51 |
 | [model/stores.go](/model/stores.go) | Go | 60 | 2 | 9 | 71 |
-| [model/users.go](/model/users.go) | Go | 60 | 2 | 8 | 70 |
+| [model/users.go](/model/users.go) | Go | 76 | 5 | 10 | 91 |
 | [msg/auth.go](/msg/auth.go) | Go | 9 | 0 | 3 | 12 |
 | [msg/basic.go](/msg/basic.go) | Go | 8 | 0 | 4 | 12 |
 | [msg/common.go](/msg/common.go) | Go | 6 | 0 | 2 | 8 |
@@ -161,7 +169,6 @@ Total : 182 files,  9196 codes, 486 comments, 1246 blanks, all 10928 lines
 | [service/stores.go](/service/stores.go) | Go | 76 | 0 | 10 | 86 |
 | [service/users.go](/service/users.go) | Go | 88 | 0 | 12 | 100 |
 | [vue-admin/.editorconfig](/vue-admin/.editorconfig) | Properties | 11 | 1 | 3 | 15 |
-| [vue-admin/.eslintignore](/vue-admin/.eslintignore) | Ignore | 4 | 0 | 1 | 5 |
 | [vue-admin/.eslintrc.js](/vue-admin/.eslintrc.js) | JavaScript | 195 | 2 | 2 | 199 |
 | [vue-admin/.travis.yml](/vue-admin/.travis.yml) | YAML | 5 | 0 | 1 | 6 |
 | [vue-admin/Dockerfile](/vue-admin/Dockerfile) | Dockerfile | 4 | 0 | 0 | 4 |
@@ -184,6 +191,7 @@ Total : 182 files,  9196 codes, 486 comments, 1246 blanks, all 10928 lines
 | [vue-admin/src/api/store.js](/vue-admin/src/api/store.js) | JavaScript | 36 | 0 | 6 | 42 |
 | [vue-admin/src/api/table.js](/vue-admin/src/api/table.js) | JavaScript | 43 | 0 | 7 | 50 |
 | [vue-admin/src/api/user.js](/vue-admin/src/api/user.js) | JavaScript | 36 | 0 | 6 | 42 |
+| [vue-admin/src/api/useraction.js](/vue-admin/src/api/useraction.js) | JavaScript | 8 | 0 | 2 | 10 |
 | [vue-admin/src/components/Breadcrumb/index.vue](/vue-admin/src/components/Breadcrumb/index.vue) | Vue.js | 70 | 2 | 7 | 79 |
 | [vue-admin/src/components/Hamburger/index.vue](/vue-admin/src/components/Hamburger/index.vue) | Vue.js | 41 | 0 | 4 | 45 |
 | [vue-admin/src/components/SvgIcon/index.vue](/vue-admin/src/components/SvgIcon/index.vue) | Vue.js | 57 | 1 | 5 | 63 |
@@ -256,7 +264,7 @@ Total : 182 files,  9196 codes, 486 comments, 1246 blanks, all 10928 lines
 | [vue-admin/src/views/table/productList.vue](/vue-admin/src/views/table/productList.vue) | Vue.js | 278 | 9 | 19 | 306 |
 | [vue-admin/src/views/table/recordList.vue](/vue-admin/src/views/table/recordList.vue) | Vue.js | 109 | 6 | 7 | 122 |
 | [vue-admin/src/views/table/shopList.vue](/vue-admin/src/views/table/shopList.vue) | Vue.js | 228 | 7 | 19 | 254 |
-| [vue-admin/src/views/table/userItemList.vue](/vue-admin/src/views/table/userItemList.vue) | Vue.js | 252 | 3 | 14 | 269 |
+| [vue-admin/src/views/table/userItemList.vue](/vue-admin/src/views/table/userItemList.vue) | Vue.js | 259 | 4 | 15 | 278 |
 | [vue-admin/src/views/table/userList.vue](/vue-admin/src/views/table/userList.vue) | Vue.js | 246 | 8 | 21 | 275 |
 | [vue-admin/tests/unit/.eslintrc.js](/vue-admin/tests/unit/.eslintrc.js) | JavaScript | 5 | 0 | 1 | 6 |
 | [vue-admin/tests/unit/components/Breadcrumb.spec.js](/vue-admin/tests/unit/components/Breadcrumb.spec.js) | JavaScript | 80 | 14 | 5 | 99 |
