@@ -1,14 +1,14 @@
-Date : 2020-02-28 18:27:01
+Date : 2020-02-28 19:09:24
 
 Directory c:\Users\Ryanw\go\src\github.com\somewhere
 
-Total : 188 files,  9922 codes, 538 comments, 1306 blanks, all 11766 lines
+Total : 191 files,  9979 codes, 556 comments, 1319 blanks, all 11854 lines
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
 | Vue.js | 28 | 3,165 | 54 | 254 | 3,473 |
-| Go | 53 | 2,690 | 63 | 478 | 3,231 |
+| Go | 56 | 2,747 | 81 | 491 | 3,319 |
 | JavaScript | 46 | 1,779 | 203 | 222 | 2,204 |
 | Python | 23 | 1,274 | 180 | 229 | 1,683 |
 | Jupyter | 2 | 472 | 0 | 2 | 474 |
@@ -25,7 +25,7 @@ Total : 188 files,  9922 codes, 538 comments, 1306 blanks, all 11766 lines
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 188 | 9,922 | 538 | 1,306 | 11,766 |
+| . | 191 | 9,979 | 556 | 1,319 | 11,854 |
 | algo | 26 | 1,747 | 180 | 231 | 2,158 |
 | algo\data | 9 | 521 | 35 | 87 | 643 |
 | algo\data\movielens | 9 | 521 | 35 | 87 | 643 |
@@ -33,7 +33,7 @@ Total : 188 files,  9922 codes, 538 comments, 1306 blanks, all 11766 lines
 | algo\src-go | 6 | 696 | 47 | 56 | 799 |
 | algo\src-go\.ipynb_checkpoints | 1 | 161 | 0 | 1 | 162 |
 | app | 1 | 110 | 4 | 22 | 136 |
-| config | 1 | 33 | 0 | 8 | 41 |
+| config | 1 | 37 | 0 | 9 | 46 |
 | db | 4 | 154 | 2 | 46 | 202 |
 | err | 3 | 84 | 2 | 16 | 102 |
 | err\e | 2 | 35 | 0 | 9 | 44 |
@@ -45,8 +45,9 @@ Total : 188 files,  9922 codes, 538 comments, 1306 blanks, all 11766 lines
 | handler\users | 4 | 249 | 0 | 41 | 290 |
 | middleware | 4 | 305 | 44 | 55 | 404 |
 | model | 7 | 494 | 11 | 68 | 573 |
-| msg | 8 | 193 | 0 | 52 | 245 |
+| msg | 9 | 204 | 0 | 56 | 260 |
 | service | 8 | 334 | 0 | 54 | 388 |
+| utils | 1 | 42 | 0 | 4 | 46 |
 | vue-admin | 106 | 5,429 | 290 | 565 | 6,284 |
 | vue-admin\build | 1 | 28 | 0 | 8 | 36 |
 | vue-admin\mock | 4 | 200 | 18 | 33 | 251 |
@@ -115,7 +116,7 @@ Total : 188 files,  9922 codes, 538 comments, 1306 blanks, all 11766 lines
 | [algo/src/preprocess.py](/algo/src/preprocess.py) | Python | 87 | 11 | 19 | 117 |
 | [algo/src/utils.py](/algo/src/utils.py) | Python | 29 | 1 | 13 | 43 |
 | [app/app.go](/app/app.go) | Go | 110 | 4 | 22 | 136 |
-| [config/config.go](/config/config.go) | Go | 33 | 0 | 8 | 41 |
+| [config/config.go](/config/config.go) | Go | 37 | 0 | 9 | 46 |
 | [db/db_init.sql](/db/db_init.sql) | SQL | 48 | 0 | 19 | 67 |
 | [db/mgo.go](/db/mgo.go) | Go | 61 | 0 | 14 | 75 |
 | [db/redigo.go](/db/redigo.go) | Go | 16 | 0 | 5 | 21 |
@@ -158,6 +159,7 @@ Total : 188 files,  9922 codes, 538 comments, 1306 blanks, all 11766 lines
 | [msg/products.go](/msg/products.go) | Go | 48 | 0 | 11 | 59 |
 | [msg/recommend.go](/msg/recommend.go) | Go | 14 | 0 | 4 | 18 |
 | [msg/records.go](/msg/records.go) | Go | 22 | 0 | 6 | 28 |
+| [msg/score.go](/msg/score.go) | Go | 11 | 0 | 4 | 15 |
 | [msg/stores.go](/msg/stores.go) | Go | 41 | 0 | 11 | 52 |
 | [msg/users.go](/msg/users.go) | Go | 45 | 0 | 11 | 56 |
 | [service/auth.go](/service/auth.go) | Go | 23 | 0 | 3 | 26 |
@@ -168,6 +170,8 @@ Total : 188 files,  9922 codes, 538 comments, 1306 blanks, all 11766 lines
 | [service/records.go](/service/records.go) | Go | 34 | 0 | 7 | 41 |
 | [service/stores.go](/service/stores.go) | Go | 76 | 0 | 10 | 86 |
 | [service/users.go](/service/users.go) | Go | 88 | 0 | 12 | 100 |
+| [test.go](/test.go) | Go | 0 | 18 | 4 | 22 |
+| [utils/net.go](/utils/net.go) | Go | 42 | 0 | 4 | 46 |
 | [vue-admin/.editorconfig](/vue-admin/.editorconfig) | Properties | 11 | 1 | 3 | 15 |
 | [vue-admin/.eslintrc.js](/vue-admin/.eslintrc.js) | JavaScript | 195 | 2 | 2 | 199 |
 | [vue-admin/.travis.yml](/vue-admin/.travis.yml) | YAML | 5 | 0 | 1 | 6 |

@@ -6,12 +6,17 @@ import (
 
 type TConfig struct {
 	ServiceConfig TServiceConfig `toml:"server"`
+	AlgoConfig    TAlgoConfig    `toml:"algo"`
 	DbConfig      TDbConfig      `toml:"database"`
 }
 
 type TServiceConfig struct {
 	Address  string
 	LogLevel string
+}
+
+type TAlgoConfig struct {
+	Address string
 }
 
 type TDbConfig struct {
