@@ -3,9 +3,12 @@ package model
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
+	"sort"
 
 	"github.com/garyburd/redigo/redis"
 	"github.com/somewhere/db"
+	"github.com/somewhere/utils"
 )
 
 type TRecommend struct {
@@ -52,6 +55,48 @@ func (t *TRecommend) GetRecommend() ([]TProduct, error) {
 }
 
 func (t *TRecommend) AddRecommend() error {
+	var userList []TProduct
+	originList, err := GetAllProducts()
+	if err != nil {
+		return err
+	}
+	score, err := utils.GetItemScoreFromUserID(t.UserID)
+	if err != nil {
+		return err
+	}
+
+	sort.Slice(score.List, func(i, j int) bool {
+		return score.List[i].Score < score.List[j].Score
+	})
+	for _, item := range score.List {
+		for _, detail := range originList {
+			if item.ItemID == detail.ID.Hex() {
+				userList = append(userList, detail)
+				break
+			}
+		}
+	}
+	fmt.Println(userList)
+
+	userID := t.UserID
+	for _, item := range userList {
+		ans, err := json.Marshal(item)
+		if err != nil {
+			return err
+		}
+		_, err = db.RedisDb.Do("lpush", userID, ans)
+		if err != nil {
+			return err
+		}
+	}
+	n, _ := db.RedisDb.Do("EXPIRE", userID, 10*60)
+	if n != int64(1) {
+		return errors.New("error in expire")
+	}
+	return nil
+}
+
+func (t *TRecommend) AddRecommendByOrder() error {
 	userList, err := GetAllProducts()
 	if err != nil {
 		return err

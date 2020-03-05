@@ -1,14 +1,14 @@
-Date : 2020-02-28 19:09:24
+Date : 2020-03-05 10:49:11
 
 Directory c:\Users\Ryanw\go\src\github.com\somewhere
 
-Total : 191 files,  9979 codes, 556 comments, 1319 blanks, all 11854 lines
+Total : 192 files,  10021 codes, 584 comments, 1325 blanks, all 11930 lines
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
 | Vue.js | 28 | 3,165 | 54 | 254 | 3,473 |
-| Go | 56 | 2,747 | 81 | 491 | 3,319 |
+| Go | 57 | 2,789 | 109 | 497 | 3,395 |
 | JavaScript | 46 | 1,779 | 203 | 222 | 2,204 |
 | Python | 23 | 1,274 | 180 | 229 | 1,683 |
 | Jupyter | 2 | 472 | 0 | 2 | 474 |
@@ -25,7 +25,7 @@ Total : 191 files,  9979 codes, 556 comments, 1319 blanks, all 11854 lines
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 191 | 9,979 | 556 | 1,319 | 11,854 |
+| . | 192 | 10,021 | 584 | 1,325 | 11,930 |
 | algo | 26 | 1,747 | 180 | 231 | 2,158 |
 | algo\data | 9 | 521 | 35 | 87 | 643 |
 | algo\data\movielens | 9 | 521 | 35 | 87 | 643 |
@@ -44,10 +44,10 @@ Total : 191 files,  9979 codes, 556 comments, 1319 blanks, all 11854 lines
 | handler\stores | 4 | 251 | 0 | 43 | 294 |
 | handler\users | 4 | 249 | 0 | 41 | 290 |
 | middleware | 4 | 305 | 44 | 55 | 404 |
-| model | 7 | 494 | 11 | 68 | 573 |
-| msg | 9 | 204 | 0 | 56 | 260 |
+| model | 7 | 536 | 11 | 71 | 618 |
+| msg | 9 | 194 | 0 | 53 | 247 |
 | service | 8 | 334 | 0 | 54 | 388 |
-| utils | 1 | 42 | 0 | 4 | 46 |
+| utils | 2 | 52 | 19 | 9 | 80 |
 | vue-admin | 106 | 5,429 | 290 | 565 | 6,284 |
 | vue-admin\build | 1 | 28 | 0 | 8 | 36 |
 | vue-admin\mock | 4 | 200 | 18 | 33 | 251 |
@@ -149,7 +149,7 @@ Total : 191 files,  9979 codes, 556 comments, 1319 blanks, all 11854 lines
 | [model/auth.go](/model/auth.go) | Go | 84 | 0 | 13 | 97 |
 | [model/basic.go](/model/basic.go) | Go | 72 | 0 | 11 | 83 |
 | [model/products.go](/model/products.go) | Go | 89 | 3 | 12 | 104 |
-| [model/recommend.go](/model/recommend.go) | Go | 69 | 1 | 6 | 76 |
+| [model/recommend.go](/model/recommend.go) | Go | 111 | 1 | 9 | 121 |
 | [model/records.go](/model/records.go) | Go | 44 | 0 | 7 | 51 |
 | [model/stores.go](/model/stores.go) | Go | 60 | 2 | 9 | 71 |
 | [model/users.go](/model/users.go) | Go | 76 | 5 | 10 | 91 |
@@ -159,7 +159,7 @@ Total : 191 files,  9979 codes, 556 comments, 1319 blanks, all 11854 lines
 | [msg/products.go](/msg/products.go) | Go | 48 | 0 | 11 | 59 |
 | [msg/recommend.go](/msg/recommend.go) | Go | 14 | 0 | 4 | 18 |
 | [msg/records.go](/msg/records.go) | Go | 22 | 0 | 6 | 28 |
-| [msg/score.go](/msg/score.go) | Go | 11 | 0 | 4 | 15 |
+| [msg/score.go](/msg/score.go) | Go | 1 | 0 | 1 | 2 |
 | [msg/stores.go](/msg/stores.go) | Go | 41 | 0 | 11 | 52 |
 | [msg/users.go](/msg/users.go) | Go | 45 | 0 | 11 | 56 |
 | [service/auth.go](/service/auth.go) | Go | 23 | 0 | 3 | 26 |
@@ -170,8 +170,9 @@ Total : 191 files,  9979 codes, 556 comments, 1319 blanks, all 11854 lines
 | [service/records.go](/service/records.go) | Go | 34 | 0 | 7 | 41 |
 | [service/stores.go](/service/stores.go) | Go | 76 | 0 | 10 | 86 |
 | [service/users.go](/service/users.go) | Go | 88 | 0 | 12 | 100 |
-| [test.go](/test.go) | Go | 0 | 18 | 4 | 22 |
-| [utils/net.go](/utils/net.go) | Go | 42 | 0 | 4 | 46 |
+| [test.go](/test.go) | Go | 0 | 27 | 5 | 32 |
+| [utils/net.go](/utils/net.go) | Go | 51 | 0 | 7 | 58 |
+| [utils/sort.go](/utils/sort.go) | Go | 1 | 19 | 2 | 22 |
 | [vue-admin/.editorconfig](/vue-admin/.editorconfig) | Properties | 11 | 1 | 3 | 15 |
 | [vue-admin/.eslintrc.js](/vue-admin/.eslintrc.js) | JavaScript | 195 | 2 | 2 | 199 |
 | [vue-admin/.travis.yml](/vue-admin/.travis.yml) | YAML | 5 | 0 | 1 | 6 |

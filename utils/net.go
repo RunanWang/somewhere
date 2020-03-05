@@ -9,12 +9,24 @@ import (
 	"time"
 
 	"github.com/somewhere/config"
-	"github.com/somewhere/msg"
 )
 
-func GetItemScoreFromUserID(UserID string) (msg.ScoreResp, error) {
-	var reqCont msg.ScoreReq
-	var respCont msg.ScoreResp
+type ScoreDetail struct {
+	ItemID string  `json:"item_id"`
+	Score  float64 `json:"score"`
+}
+
+type ScoreResp struct {
+	List []ScoreDetail `json:"msg"`
+}
+
+type ScoreReq struct {
+	UserID string `json:"user_id"`
+}
+
+func GetItemScoreFromUserID(UserID string) (ScoreResp, error) {
+	var reqCont ScoreReq
+	var respCont ScoreResp
 	reqCont.UserID = UserID
 	jsonStr, err := json.Marshal(reqCont)
 	if err != nil {
