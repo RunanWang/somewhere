@@ -90,7 +90,7 @@ def basic_data_process():
 
     # 将结果存盘
     df_result = pd.concat([df_id, X, df_time, y], axis=1)
-    df_result.to_csv("./train_data.csv",encoding='gbk')
+    # df_result.to_csv("./train_data.csv",encoding='gbk')
     return X, y
 
 

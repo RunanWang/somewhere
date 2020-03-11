@@ -61,9 +61,9 @@ def get_data(user_id):
     X = pd.concat(frame, axis=1)
     return X, df_item
        
-model = load_model("C://Users/Ryanw/go/src/github.com/somewhere/algo/src-go/mlr_model.h5")
+model = load_model("C://Users/Ryanw/go/src/github.com/somewhere/algo/src-go/deep_wide_model.h5")
 X, df_item=get_data("5df9e1fe91560048ad6fb730")
-predicted = model.predict(X)
+predicted = model.predict([X, X])
 
 app = Flask(__name__)
 @app.route('/test', methods=['GET','POST'])
@@ -82,7 +82,7 @@ def index():
         # unknown = np.array([[1.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,1,0,1,0,1,0,1,0 ]])
         # print(model)
         # print("加载模型：",time.time()-begin)       
-        predicted = model.predict(X)
+        predicted = model.predict([X, X])
         # print("模型预测：",time.time()-begin)
         i = 0
         for _, row in df_item.iterrows():
