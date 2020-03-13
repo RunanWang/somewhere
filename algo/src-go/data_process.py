@@ -82,7 +82,12 @@ def basic_data_process():
     df_cont = pd.DataFrame(scaled)
 
     # 对cate类型进行独热编码
-    df_cate = pd.get_dummies(df_cate)
+    enc = preprocessing.OneHotEncoder()
+    enc.fit(df_cate)
+    arr = enc.transform(df_cate).toarray()
+    df_cate = pd.DataFrame(arr)
+    # print(df_arr)
+    # df_cate = pd.get_dummies(df_cate)
 
     frame = [df_cont, df_cont_user, df_cate]
     X = pd.concat(frame, axis=1)
@@ -91,6 +96,7 @@ def basic_data_process():
     # 将结果存盘
     df_result = pd.concat([df_id, X, df_time, y], axis=1)
     # df_result.to_csv("./train_data.csv",encoding='gbk')
+    print(X.shape[0])
     return X, y
 
 
@@ -134,11 +140,11 @@ def get_ml_data(timestamp=2):
 
 
 def main():
-    # X, y = basic_data_process()
-    X, train_X, y = get_ml_data(timestamp=2)
-    print(X)
-    print(train_X)
-    print(y)
+    X, y = basic_data_process()
+    # X, train_X, y = get_ml_data(timestamp=2)
+    # print(X)
+    # print(train_X)
+    # print(y)
 
 if __name__ == '__main__':
     main()

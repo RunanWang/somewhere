@@ -1,8 +1,8 @@
-Date : 2020-03-05 10:49:11
+Date : 2020-03-11 12:35:39
 
 Directory c:\Users\Ryanw\go\src\github.com\somewhere
 
-Total : 192 files,  10021 codes, 584 comments, 1325 blanks, all 11930 lines
+Total : 194 files,  10205 codes, 633 comments, 1368 blanks, all 12206 lines
 
 ## Languages
 | language | files | code | comment | blank | total |
@@ -10,7 +10,7 @@ Total : 192 files,  10021 codes, 584 comments, 1325 blanks, all 11930 lines
 | Vue.js | 28 | 3,165 | 54 | 254 | 3,473 |
 | Go | 57 | 2,789 | 109 | 497 | 3,395 |
 | JavaScript | 46 | 1,779 | 203 | 222 | 2,204 |
-| Python | 23 | 1,274 | 180 | 229 | 1,683 |
+| Python | 25 | 1,458 | 229 | 272 | 1,959 |
 | Jupyter | 2 | 472 | 0 | 2 | 474 |
 | SCSS | 6 | 329 | 18 | 78 | 425 |
 | JSON | 1 | 66 | 0 | 1 | 67 |
@@ -25,13 +25,14 @@ Total : 192 files,  10021 codes, 584 comments, 1325 blanks, all 11930 lines
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 192 | 10,021 | 584 | 1,325 | 11,930 |
-| algo | 26 | 1,747 | 180 | 231 | 2,158 |
+| . | 194 | 10,205 | 633 | 1,368 | 12,206 |
+| algo | 28 | 1,931 | 229 | 274 | 2,434 |
 | algo\data | 9 | 521 | 35 | 87 | 643 |
 | algo\data\movielens | 9 | 521 | 35 | 87 | 643 |
 | algo\src | 11 | 530 | 98 | 88 | 716 |
-| algo\src-go | 6 | 696 | 47 | 56 | 799 |
+| algo\src-go | 8 | 880 | 96 | 99 | 1,075 |
 | algo\src-go\.ipynb_checkpoints | 1 | 161 | 0 | 1 | 162 |
+| algo\src-go\archive | 4 | 490 | 41 | 57 | 588 |
 | app | 1 | 110 | 4 | 22 | 136 |
 | config | 1 | 37 | 0 | 9 | 46 |
 | db | 4 | 154 | 2 | 46 | 202 |
@@ -99,11 +100,13 @@ Total : 192 files,  10021 codes, 584 comments, 1325 blanks, all 11930 lines
 | [algo/data/movielens/ml_data_process_sort.py](/algo/data/movielens/ml_data_process_sort.py) | Python | 46 | 2 | 9 | 57 |
 | [algo/data/movielens/ml_data_process_user_ratings.py](/algo/data/movielens/ml_data_process_user_ratings.py) | Python | 22 | 2 | 6 | 30 |
 | [algo/src-go/.ipynb_checkpoints/load_data-checkpoint.ipynb](/algo/src-go/.ipynb_checkpoints/load_data-checkpoint.ipynb) | Jupyter | 161 | 0 | 1 | 162 |
-| [algo/src-go/data_process.py](/algo/src-go/data_process.py) | Python | 15 | 0 | 0 | 15 |
-| [algo/src-go/load_data.ipynb](/algo/src-go/load_data.ipynb) | Jupyter | 311 | 0 | 1 | 312 |
-| [algo/src-go/test.py](/algo/src-go/test.py) | Python | 76 | 17 | 7 | 100 |
-| [algo/src-go/train.py](/algo/src-go/train.py) | Python | 104 | 29 | 34 | 167 |
-| [algo/src-go/utils.py](/algo/src-go/utils.py) | Python | 29 | 1 | 13 | 43 |
+| [algo/src-go/archive/load_data.ipynb](/algo/src-go/archive/load_data.ipynb) | Jupyter | 311 | 0 | 1 | 312 |
+| [algo/src-go/archive/mlr_4_lstm_24-16-4_d0.2.py](/algo/src-go/archive/mlr_4_lstm_24-16-4_d0.2.py) | Python | 46 | 11 | 9 | 66 |
+| [algo/src-go/archive/train.py](/algo/src-go/archive/train.py) | Python | 104 | 29 | 34 | 167 |
+| [algo/src-go/archive/utils.py](/algo/src-go/archive/utils.py) | Python | 29 | 1 | 13 | 43 |
+| [algo/src-go/data_process.py](/algo/src-go/data_process.py) | Python | 103 | 21 | 20 | 144 |
+| [algo/src-go/model_server.py](/algo/src-go/model_server.py) | Python | 76 | 17 | 7 | 100 |
+| [algo/src-go/train_deep_wide.py](/algo/src-go/train_deep_wide.py) | Python | 50 | 17 | 14 | 81 |
 | [algo/src/LSTM1.py](/algo/src/LSTM1.py) | Python | 33 | 0 | 1 | 34 |
 | [algo/src/bash.sh](/algo/src/bash.sh) | Shell Script | 1 | 0 | 0 | 1 |
 | [algo/src/deep_n_wide.py](/algo/src/deep_n_wide.py) | Python | 64 | 10 | 10 | 84 |

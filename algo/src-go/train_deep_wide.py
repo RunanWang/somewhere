@@ -24,7 +24,7 @@ def keras_sum_layer(x):
 
 # 这个函数搭建了wide&deep模型
 # wide_m是MLR的分区数，默认为4，论文中是12,1时是LR。
-def build_wide_n_deep(path, wide_m=4, epoch=20):
+def build_wide_n_deep(path, wide_m=2, epoch=20):
     X, y = data_process.basic_data_process()
     ## 构建wide部分，是一个MLR
     # 第一层为输入层
@@ -42,15 +42,15 @@ def build_wide_n_deep(path, wide_m=4, epoch=20):
     # 第一层是输入层
     input_deep = Input(shape=(X.shape[1], ))
     # 然后是深度网络，可以叠加多层，可以加一些dropout
-    deep_layer1 = Dense(32,
+    deep_layer1 = Dense(16,
                         activation='relu',
                         bias_regularizer=regularizers.l2(0.01))(input_deep)
     deep_layer2 = Dropout(0.2)(deep_layer1)
-    deep_layer3 = Dense(16,
+    deep_layer3 = Dense(4,
                         activation='relu',
                         bias_regularizer=regularizers.l2(0.01))(deep_layer2)
     deep_layer4 = Dropout(0.2)(deep_layer3)
-    deep = Dense(4, activation='sigmoid',
+    deep = Dense(2, activation='sigmoid',
                 bias_regularizer=regularizers.l2(0.01))(deep_layer4)
     
 
