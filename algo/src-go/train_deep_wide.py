@@ -1,8 +1,8 @@
-from keras.models import Model
-from keras.layers import Input, Dense, Lambda, multiply, concatenate
-from keras.layers import Dropout
-from keras import backend as K
-from keras import regularizers
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Input, Dense, Lambda, multiply, concatenate
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras import backend as K
+from tensorflow.keras import regularizers
 import data_process as data_process
 import h5py
 
@@ -24,7 +24,56 @@ def keras_sum_layer(x):
 
 # 这个函数搭建了wide&deep模型
 # wide_m是MLR的分区数，默认为4，论文中是12,1时是LR。
-def build_wide_n_deep(path, wide_m=2, epoch=20):
+def build_wide_n_deep(path, wide_m=4, epoch=40):
+    X, y = data_process.basic_data_process()
+    ## 构建wide部分，是一个MLR
+    # 第一层为输入层
+    input_wide = Input(shape=(X.shape[1], ))
+    # 第二层为LR和权重层，采用l2正则化项
+    wide_divide = Dense(wide_m, activation='softmax')(input_wide)
+    wide_fit = Dense(wide_m, activation='sigmoid')(input_wide)
+    # 第三层是LR和权重的乘积
+    wide_ele = multiply([wide_divide, wide_fit])
+    wide = Lambda(keras_sum_layer,
+                output_shape=keras_sum_layer_output_shape)(wide_ele)
+
+
+    ## 构建deep部分，是一个DNN
+    # 第一层是输入层
+    input_deep = Input(shape=(X.shape[1], ))
+    # 然后是深度网络，可以叠加多层，可以加一些dropout
+    deep_layer1 = Dense(32,
+                        activation='relu',
+                        bias_regularizer=regularizers.l2(0.01))(input_deep)
+    deep_layer2 = Dropout(0.2)(deep_layer1)
+    deep_layer3 = Dense(8,
+                        activation='relu',
+                        bias_regularizer=regularizers.l2(0.01))(deep_layer2)
+    deep_layer4 = Dropout(0.2)(deep_layer3)
+    deep = Dense(4, activation='sigmoid',
+                bias_regularizer=regularizers.l2(0.01))(deep_layer4)
+    
+
+    ## 组合deep&wide
+    coned = concatenate([wide, deep])
+    # coned = concatenate([wide, wide])
+    # 最后用一个神经元将wide和deep部分组合
+    out = Dense(1, activation='sigmoid')(coned)
+    model = Model(inputs=[input_wide, input_deep], outputs=out)
+    # 编译模型，选择优化函数、损失函数
+    model.compile(optimizer='adam',
+                loss='mean_squared_error',
+                metrics=['accuracy'])
+    # 进行训练并保存
+    model.fit([X, X],
+            y,
+            epochs=epoch,
+            batch_size=1)
+    model.save(path)
+    print("训练完毕")
+
+
+def build_serve(path, app, wide_m=2, epoch=20):
     X, y = data_process.basic_data_process()
     ## 构建wide部分，是一个MLR
     # 第一层为输入层
@@ -52,7 +101,7 @@ def build_wide_n_deep(path, wide_m=2, epoch=20):
     deep_layer4 = Dropout(0.2)(deep_layer3)
     deep = Dense(2, activation='sigmoid',
                 bias_regularizer=regularizers.l2(0.01))(deep_layer4)
-    
+        
 
     ## 组合deep&wide
     coned = concatenate([wide, deep])
@@ -60,20 +109,29 @@ def build_wide_n_deep(path, wide_m=2, epoch=20):
     out = Dense(1, activation='sigmoid')(coned)
     model = Model(inputs=[input_wide, input_deep], outputs=out)
     # 编译模型，选择优化函数、损失函数
-    model.compile(optimizer='adam',
-                loss='mean_squared_error',
-                metrics=['accuracy'])
+    model.compile(optimizer='adam', loss='mean_squared_error', metrics=['accuracy'])
     # 进行训练并保存
     model.fit([X, X],
-            y,
-            epochs=epoch,
-            batch_size=1)
+                y,
+                epochs=epoch,
+                batch_size=1)
     model.save(path)
     print("训练完毕")
+    # 将模型放进model中
+    app.model = model
+    # 重置训练状态为False，改到change模型之后再更改
+    # app.lock.acquire()
+    # app.is_training = False
+    # app.lock.release()
+    # 重置更新状态为True
+    app.model_lock.acquire()
+    app.exist_new_model = True
+    app.model_lock.release()
+
 
 
 def main():
-    model_path = './deep_wide_model.h5'
+    model_path = './deep_wide_model_new.h5'
     build_wide_n_deep(model_path)
 
 

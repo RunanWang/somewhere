@@ -1,16 +1,16 @@
-Date : 2020-03-11 12:35:39
+Date : 2020-03-15 23:07:07
 
 Directory c:\Users\Ryanw\go\src\github.com\somewhere
 
-Total : 194 files,  10205 codes, 633 comments, 1368 blanks, all 12206 lines
+Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
 | Vue.js | 28 | 3,165 | 54 | 254 | 3,473 |
-| Go | 57 | 2,789 | 109 | 497 | 3,395 |
+| Go | 57 | 2,784 | 109 | 497 | 3,390 |
 | JavaScript | 46 | 1,779 | 203 | 222 | 2,204 |
-| Python | 25 | 1,458 | 229 | 272 | 1,959 |
+| Python | 26 | 1,623 | 303 | 307 | 2,233 |
 | Jupyter | 2 | 472 | 0 | 2 | 474 |
 | SCSS | 6 | 329 | 18 | 78 | 425 |
 | JSON | 1 | 66 | 0 | 1 | 67 |
@@ -25,17 +25,17 @@ Total : 194 files,  10205 codes, 633 comments, 1368 blanks, all 12206 lines
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 194 | 10,205 | 633 | 1,368 | 12,206 |
-| algo | 28 | 1,931 | 229 | 274 | 2,434 |
+| . | 195 | 10,365 | 707 | 1,403 | 12,475 |
+| algo | 29 | 2,096 | 303 | 309 | 2,708 |
 | algo\data | 9 | 521 | 35 | 87 | 643 |
 | algo\data\movielens | 9 | 521 | 35 | 87 | 643 |
 | algo\src | 11 | 530 | 98 | 88 | 716 |
-| algo\src-go | 8 | 880 | 96 | 99 | 1,075 |
+| algo\src-go | 9 | 1,045 | 170 | 134 | 1,349 |
 | algo\src-go\.ipynb_checkpoints | 1 | 161 | 0 | 1 | 162 |
 | algo\src-go\archive | 4 | 490 | 41 | 57 | 588 |
 | app | 1 | 110 | 4 | 22 | 136 |
 | config | 1 | 37 | 0 | 9 | 46 |
-| db | 4 | 154 | 2 | 46 | 202 |
+| db | 4 | 149 | 2 | 46 | 197 |
 | err | 3 | 84 | 2 | 16 | 102 |
 | err\e | 2 | 35 | 0 | 9 | 44 |
 | handler | 17 | 1,022 | 0 | 173 | 1,195 |
@@ -104,9 +104,10 @@ Total : 194 files,  10205 codes, 633 comments, 1368 blanks, all 12206 lines
 | [algo/src-go/archive/mlr_4_lstm_24-16-4_d0.2.py](/algo/src-go/archive/mlr_4_lstm_24-16-4_d0.2.py) | Python | 46 | 11 | 9 | 66 |
 | [algo/src-go/archive/train.py](/algo/src-go/archive/train.py) | Python | 104 | 29 | 34 | 167 |
 | [algo/src-go/archive/utils.py](/algo/src-go/archive/utils.py) | Python | 29 | 1 | 13 | 43 |
-| [algo/src-go/data_process.py](/algo/src-go/data_process.py) | Python | 103 | 21 | 20 | 144 |
-| [algo/src-go/model_server.py](/algo/src-go/model_server.py) | Python | 76 | 17 | 7 | 100 |
-| [algo/src-go/train_deep_wide.py](/algo/src-go/train_deep_wide.py) | Python | 50 | 17 | 14 | 81 |
+| [algo/src-go/data_process.py](/algo/src-go/data_process.py) | Python | 104 | 26 | 20 | 150 |
+| [algo/src-go/model_server.py](/algo/src-go/model_server.py) | Python | 180 | 34 | 28 | 242 |
+| [algo/src-go/train_deep_wide.py](/algo/src-go/train_deep_wide.py) | Python | 83 | 35 | 21 | 139 |
+| [algo/src-go/try.py](/algo/src-go/try.py) | Python | 27 | 34 | 7 | 68 |
 | [algo/src/LSTM1.py](/algo/src/LSTM1.py) | Python | 33 | 0 | 1 | 34 |
 | [algo/src/bash.sh](/algo/src/bash.sh) | Shell Script | 1 | 0 | 0 | 1 |
 | [algo/src/deep_n_wide.py](/algo/src/deep_n_wide.py) | Python | 64 | 10 | 10 | 84 |
@@ -121,7 +122,7 @@ Total : 194 files,  10205 codes, 633 comments, 1368 blanks, all 12206 lines
 | [app/app.go](/app/app.go) | Go | 110 | 4 | 22 | 136 |
 | [config/config.go](/config/config.go) | Go | 37 | 0 | 9 | 46 |
 | [db/db_init.sql](/db/db_init.sql) | SQL | 48 | 0 | 19 | 67 |
-| [db/mgo.go](/db/mgo.go) | Go | 61 | 0 | 14 | 75 |
+| [db/mgo.go](/db/mgo.go) | Go | 56 | 0 | 14 | 70 |
 | [db/redigo.go](/db/redigo.go) | Go | 16 | 0 | 5 | 21 |
 | [db/sql.go](/db/sql.go) | Go | 29 | 2 | 8 | 39 |
 | [err/e/code.go](/err/e/code.go) | Go | 14 | 0 | 5 | 19 |

@@ -1,3 +1,4 @@
 *.exe
 main
 __pycache__
+deep_wide.h5

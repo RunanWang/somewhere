@@ -7,6 +7,7 @@
 ### 算法
 
 - keras 学习框架
+- 使用flask框架提供服务
 
 ### 后端
 
@@ -20,11 +21,31 @@
 
 ## 启动
 
+- 算法
+
+    cd algo
+
+    cd src-go
+
+    - 训练模型
+
+      python.exe train_deep_wide.py
+
+    - 启动算法服务
+
+      python.exe model_server.py
+
+    - 验证
+
+      算法端占用端口localhost:5000/test提供预测服务
+
 - 后端
 
     go run main.go
 
 - 前端
+
+    cd vue-admin
 
     npm install --registry=https://registry.npm.taobao.org
 
@@ -35,7 +56,7 @@
 - 示例
 
     示例 [搭建在阿里云上](http://182.92.196.182)
-    
+
 
 ## 文件组织
 
@@ -48,9 +69,9 @@
        目前只有demo，处理的是movielens数据集，在./algo中:
        ./algo/data 数据处理
        ./algo/src 几种常见的模型实验
+       ./algo/src-go 服务端
 
 - 后端部分
-        
         ./main.go 启动文件
         ./app gin框架启动
         ./conf config.toml文件
@@ -68,6 +89,6 @@
 
         ./vue-admin
 
-- docker
+- 部署-docker
 
 ## 效果展示
