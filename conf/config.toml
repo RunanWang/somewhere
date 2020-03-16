@@ -3,7 +3,7 @@ Address="0.0.0.0:40036"
 LogLevel="Release"
 
 [algo]
-Address="http://0.0.0.0:5000/test"
+Address="http://0.0.0.0:5000"
 
 [database]
 uri = "mongodb://182.92.196.182:27017"

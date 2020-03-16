@@ -24,6 +24,11 @@ type ScoreReq struct {
 	UserID string `json:"user_id"`
 }
 
+type StdResp struct {
+	ErrCode int    `json:"err_code"`
+	ErrMsg  string `json:"err_msg"`
+}
+
 func GetItemScoreFromUserID(UserID string) (ScoreResp, error) {
 	var reqCont ScoreReq
 	var respCont ScoreResp
@@ -32,7 +37,7 @@ func GetItemScoreFromUserID(UserID string) (ScoreResp, error) {
 	if err != nil {
 		return respCont, err
 	}
-	url := config.Config.AlgoConfig.Address
+	url := fmt.Sprint(config.Config.AlgoConfig.Address, "/test")
 	client := &http.Client{Timeout: 10 * time.Second}
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
 	if err != nil {
@@ -54,4 +59,31 @@ func GetItemScoreFromUserID(UserID string) (ScoreResp, error) {
 		return respCont, err
 	}
 	return respCont, nil
+}
+
+func TrainModel() error {
+	var respCont StdResp
+	var jsonStr []byte
+	url := fmt.Sprint(config.Config.AlgoConfig.Address, "/train")
+	client := &http.Client{Timeout: 10 * time.Second}
+	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
+	if err != nil {
+		return err
+	}
+	req.Header.Add("Content-Type", "application/json")
+	resp, err := client.Do(req)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+	b, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println(b)
+		return err
+	}
+	err = json.Unmarshal(b, &respCont)
+	if err != nil {
+		return err
+	}
+	return nil
 }

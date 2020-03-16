@@ -14,6 +14,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/somewhere/config"
 	"github.com/somewhere/db"
+	"github.com/somewhere/handler/algo"
 	"github.com/somewhere/handler/products"
 	"github.com/somewhere/handler/recommend"
 	"github.com/somewhere/handler/records"
@@ -120,6 +121,9 @@ func (t *App) initRouter() {
 
 	recoGroup := rootGroup.Group("/recommend")
 	recoGroup.POST("", recommend.GetRecommend)
+
+	algoGroup := rootGroup.Group("/algo")
+	algoGroup.POST("/train", algo.TrainModel)
 }
 
 func (t *App) Run() {
