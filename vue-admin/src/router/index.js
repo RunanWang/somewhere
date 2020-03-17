@@ -112,6 +112,17 @@ export const asyncRoutes = [
     }]
   },
   {
+    path: '/algo',
+    component: Layout,
+    redirect: '/algo',
+    children: [{
+      path: 'algorithm',
+      name: 'Algorithm',
+      component: () => import('@/views/algo/algo'),
+      meta: { title: '模型算法', icon: 'skill', roles: ['admin'] }
+    }]
+  },
+  {
     path: '/shopitemlist',
     component: Layout,
     redirect: '/shopitemlist',
