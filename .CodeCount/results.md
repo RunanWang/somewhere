@@ -1,15 +1,15 @@
-Date : 2020-03-15 23:07:07
+Date : 2020-03-20 22:08:39
 
 Directory c:\Users\Ryanw\go\src\github.com\somewhere
 
-Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
+Total : 199 files,  10699 codes, 734 comments, 1441 blanks, all 12874 lines
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| Vue.js | 28 | 3,165 | 54 | 254 | 3,473 |
-| Go | 57 | 2,784 | 109 | 497 | 3,390 |
-| JavaScript | 46 | 1,779 | 203 | 222 | 2,204 |
+| Vue.js | 30 | 3,331 | 56 | 266 | 3,653 |
+| Go | 58 | 2,915 | 134 | 521 | 3,570 |
+| JavaScript | 47 | 1,816 | 203 | 224 | 2,243 |
 | Python | 26 | 1,623 | 303 | 307 | 2,233 |
 | Jupyter | 2 | 472 | 0 | 2 | 474 |
 | SCSS | 6 | 329 | 18 | 78 | 425 |
@@ -25,7 +25,7 @@ Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 195 | 10,365 | 707 | 1,403 | 12,475 |
+| . | 199 | 10,699 | 734 | 1,441 | 12,874 |
 | algo | 29 | 2,096 | 303 | 309 | 2,708 |
 | algo\data | 9 | 521 | 35 | 87 | 643 |
 | algo\data\movielens | 9 | 521 | 35 | 87 | 643 |
@@ -33,28 +33,29 @@ Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
 | algo\src-go | 9 | 1,045 | 170 | 134 | 1,349 |
 | algo\src-go\.ipynb_checkpoints | 1 | 161 | 0 | 1 | 162 |
 | algo\src-go\archive | 4 | 490 | 41 | 57 | 588 |
-| app | 1 | 110 | 4 | 22 | 136 |
+| app | 1 | 115 | 4 | 24 | 143 |
 | config | 1 | 37 | 0 | 9 | 46 |
 | db | 4 | 149 | 2 | 46 | 197 |
 | err | 3 | 84 | 2 | 16 | 102 |
 | err\e | 2 | 35 | 0 | 9 | 44 |
-| handler | 17 | 1,022 | 0 | 173 | 1,195 |
+| handler | 18 | 1,094 | 1 | 187 | 1,282 |
+| handler\algo | 1 | 33 | 0 | 7 | 40 |
 | handler\products | 4 | 246 | 0 | 41 | 287 |
 | handler\recommend | 1 | 47 | 0 | 9 | 56 |
 | handler\records | 2 | 104 | 0 | 19 | 123 |
 | handler\stores | 4 | 251 | 0 | 43 | 294 |
-| handler\users | 4 | 249 | 0 | 41 | 290 |
+| handler\users | 4 | 288 | 1 | 48 | 337 |
 | middleware | 4 | 305 | 44 | 55 | 404 |
-| model | 7 | 536 | 11 | 71 | 618 |
-| msg | 9 | 194 | 0 | 53 | 247 |
-| service | 8 | 334 | 0 | 54 | 388 |
-| utils | 2 | 52 | 19 | 9 | 80 |
-| vue-admin | 106 | 5,429 | 290 | 565 | 6,284 |
+| model | 7 | 546 | 11 | 72 | 629 |
+| msg | 9 | 201 | 0 | 55 | 256 |
+| service | 8 | 337 | 0 | 55 | 392 |
+| utils | 2 | 86 | 43 | 13 | 142 |
+| vue-admin | 109 | 5,632 | 292 | 579 | 6,503 |
 | vue-admin\build | 1 | 28 | 0 | 8 | 36 |
 | vue-admin\mock | 4 | 200 | 18 | 33 | 251 |
 | vue-admin\public | 1 | 16 | 1 | 1 | 18 |
-| vue-admin\src | 83 | 4,536 | 229 | 488 | 5,253 |
-| vue-admin\src\api | 8 | 215 | 0 | 38 | 253 |
+| vue-admin\src | 86 | 4,739 | 231 | 502 | 5,472 |
+| vue-admin\src\api | 9 | 230 | 0 | 40 | 270 |
 | vue-admin\src\components | 5 | 297 | 6 | 30 | 333 |
 | vue-admin\src\components\Breadcrumb | 1 | 70 | 2 | 7 | 79 |
 | vue-admin\src\components\Hamburger | 1 | 41 | 0 | 4 | 45 |
@@ -67,17 +68,18 @@ Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
 | vue-admin\src\layout\components | 9 | 449 | 14 | 50 | 513 |
 | vue-admin\src\layout\components\Sidebar | 6 | 292 | 12 | 27 | 331 |
 | vue-admin\src\layout\mixin | 1 | 40 | 2 | 4 | 46 |
-| vue-admin\src\router | 1 | 121 | 30 | 14 | 165 |
+| vue-admin\src\router | 1 | 143 | 30 | 14 | 187 |
 | vue-admin\src\store | 6 | 262 | 15 | 36 | 313 |
 | vue-admin\src\store\modules | 4 | 233 | 15 | 31 | 279 |
 | vue-admin\src\styles | 6 | 329 | 18 | 78 | 425 |
 | vue-admin\src\utils | 5 | 196 | 55 | 28 | 279 |
-| vue-admin\src\views | 16 | 2,411 | 42 | 169 | 2,622 |
+| vue-admin\src\views | 18 | 2,577 | 44 | 181 | 2,802 |
+| vue-admin\src\views\algo | 1 | 41 | 1 | 3 | 45 |
 | vue-admin\src\views\dashboard | 6 | 534 | 4 | 43 | 581 |
 | vue-admin\src\views\dashboard\admin | 5 | 508 | 4 | 40 | 552 |
 | vue-admin\src\views\dashboard\admin\components | 4 | 435 | 4 | 32 | 471 |
 | vue-admin\src\views\dashboard\admin\components\mixins | 1 | 50 | 4 | 2 | 56 |
-| vue-admin\src\views\form | 1 | 82 | 0 | 4 | 86 |
+| vue-admin\src\views\form | 2 | 207 | 1 | 13 | 221 |
 | vue-admin\src\views\login | 1 | 272 | 4 | 30 | 306 |
 | vue-admin\src\views\table | 6 | 1,202 | 34 | 84 | 1,320 |
 | vue-admin\tests | 7 | 196 | 14 | 15 | 225 |
@@ -119,7 +121,7 @@ Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
 | [algo/src/mlr_8_lstm_32-16-8_d0.2.py](/algo/src/mlr_8_lstm_32-16-8_d0.2.py) | Python | 57 | 12 | 8 | 77 |
 | [algo/src/preprocess.py](/algo/src/preprocess.py) | Python | 87 | 11 | 19 | 117 |
 | [algo/src/utils.py](/algo/src/utils.py) | Python | 29 | 1 | 13 | 43 |
-| [app/app.go](/app/app.go) | Go | 110 | 4 | 22 | 136 |
+| [app/app.go](/app/app.go) | Go | 115 | 4 | 24 | 143 |
 | [config/config.go](/config/config.go) | Go | 37 | 0 | 9 | 46 |
 | [db/db_init.sql](/db/db_init.sql) | SQL | 48 | 0 | 19 | 67 |
 | [db/mgo.go](/db/mgo.go) | Go | 56 | 0 | 14 | 70 |
@@ -128,6 +130,7 @@ Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
 | [err/e/code.go](/err/e/code.go) | Go | 14 | 0 | 5 | 19 |
 | [err/e/msg.go](/err/e/msg.go) | Go | 21 | 0 | 4 | 25 |
 | [err/error.go](/err/error.go) | Go | 49 | 2 | 7 | 58 |
+| [handler/algo/algo.go](/handler/algo/algo.go) | Go | 33 | 0 | 7 | 40 |
 | [handler/auth.go](/handler/auth.go) | Go | 100 | 0 | 12 | 112 |
 | [handler/basic.go](/handler/basic.go) | Go | 25 | 0 | 8 | 33 |
 | [handler/products/addProduct.go](/handler/products/addProduct.go) | Go | 47 | 0 | 8 | 55 |
@@ -143,7 +146,7 @@ Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
 | [handler/stores/updateStore.go](/handler/stores/updateStore.go) | Go | 52 | 0 | 7 | 59 |
 | [handler/users/addUser.go](/handler/users/addUser.go) | Go | 54 | 0 | 9 | 63 |
 | [handler/users/deleteUser.go](/handler/users/deleteUser.go) | Go | 54 | 0 | 7 | 61 |
-| [handler/users/getUser.go](/handler/users/getUser.go) | Go | 89 | 0 | 18 | 107 |
+| [handler/users/getUser.go](/handler/users/getUser.go) | Go | 128 | 1 | 25 | 154 |
 | [handler/users/updateUser.go](/handler/users/updateUser.go) | Go | 52 | 0 | 7 | 59 |
 | [main.go](/main.go) | Go | 9 | 0 | 3 | 12 |
 | [middleware/common.go](/middleware/common.go) | Go | 30 | 1 | 7 | 38 |
@@ -156,7 +159,7 @@ Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
 | [model/recommend.go](/model/recommend.go) | Go | 111 | 1 | 9 | 121 |
 | [model/records.go](/model/records.go) | Go | 44 | 0 | 7 | 51 |
 | [model/stores.go](/model/stores.go) | Go | 60 | 2 | 9 | 71 |
-| [model/users.go](/model/users.go) | Go | 76 | 5 | 10 | 91 |
+| [model/users.go](/model/users.go) | Go | 86 | 5 | 11 | 102 |
 | [msg/auth.go](/msg/auth.go) | Go | 9 | 0 | 3 | 12 |
 | [msg/basic.go](/msg/basic.go) | Go | 8 | 0 | 4 | 12 |
 | [msg/common.go](/msg/common.go) | Go | 6 | 0 | 2 | 8 |
@@ -165,7 +168,7 @@ Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
 | [msg/records.go](/msg/records.go) | Go | 22 | 0 | 6 | 28 |
 | [msg/score.go](/msg/score.go) | Go | 1 | 0 | 1 | 2 |
 | [msg/stores.go](/msg/stores.go) | Go | 41 | 0 | 11 | 52 |
-| [msg/users.go](/msg/users.go) | Go | 45 | 0 | 11 | 56 |
+| [msg/users.go](/msg/users.go) | Go | 52 | 0 | 13 | 65 |
 | [service/auth.go](/service/auth.go) | Go | 23 | 0 | 3 | 26 |
 | [service/basic.go](/service/basic.go) | Go | 10 | 0 | 4 | 14 |
 | [service/common.go](/service/common.go) | Go | 23 | 0 | 6 | 29 |
@@ -173,9 +176,9 @@ Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
 | [service/recommend.go](/service/recommend.go) | Go | 15 | 0 | 3 | 18 |
 | [service/records.go](/service/records.go) | Go | 34 | 0 | 7 | 41 |
 | [service/stores.go](/service/stores.go) | Go | 76 | 0 | 10 | 86 |
-| [service/users.go](/service/users.go) | Go | 88 | 0 | 12 | 100 |
+| [service/users.go](/service/users.go) | Go | 91 | 0 | 13 | 104 |
 | [test.go](/test.go) | Go | 0 | 27 | 5 | 32 |
-| [utils/net.go](/utils/net.go) | Go | 51 | 0 | 7 | 58 |
+| [utils/net.go](/utils/net.go) | Go | 85 | 24 | 11 | 120 |
 | [utils/sort.go](/utils/sort.go) | Go | 1 | 19 | 2 | 22 |
 | [vue-admin/.editorconfig](/vue-admin/.editorconfig) | Properties | 11 | 1 | 3 | 15 |
 | [vue-admin/.eslintrc.js](/vue-admin/.eslintrc.js) | JavaScript | 195 | 2 | 2 | 199 |
@@ -193,13 +196,14 @@ Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
 | [vue-admin/postcss.config.js](/vue-admin/postcss.config.js) | JavaScript | 5 | 2 | 2 | 9 |
 | [vue-admin/public/index.html](/vue-admin/public/index.html) | HTML | 16 | 1 | 1 | 18 |
 | [vue-admin/src/App.vue](/vue-admin/src/App.vue) | Vue.js | 28 | 0 | 2 | 30 |
+| [vue-admin/src/api/algo.js](/vue-admin/src/api/algo.js) | JavaScript | 8 | 0 | 1 | 9 |
 | [vue-admin/src/api/auth.js](/vue-admin/src/api/auth.js) | JavaScript | 33 | 0 | 6 | 39 |
 | [vue-admin/src/api/basic.js](/vue-admin/src/api/basic.js) | JavaScript | 8 | 0 | 2 | 10 |
 | [vue-admin/src/api/product.js](/vue-admin/src/api/product.js) | JavaScript | 36 | 0 | 6 | 42 |
 | [vue-admin/src/api/record.js](/vue-admin/src/api/record.js) | JavaScript | 15 | 0 | 3 | 18 |
 | [vue-admin/src/api/store.js](/vue-admin/src/api/store.js) | JavaScript | 36 | 0 | 6 | 42 |
 | [vue-admin/src/api/table.js](/vue-admin/src/api/table.js) | JavaScript | 43 | 0 | 7 | 50 |
-| [vue-admin/src/api/user.js](/vue-admin/src/api/user.js) | JavaScript | 36 | 0 | 6 | 42 |
+| [vue-admin/src/api/user.js](/vue-admin/src/api/user.js) | JavaScript | 43 | 0 | 7 | 50 |
 | [vue-admin/src/api/useraction.js](/vue-admin/src/api/useraction.js) | JavaScript | 8 | 0 | 2 | 10 |
 | [vue-admin/src/components/Breadcrumb/index.vue](/vue-admin/src/components/Breadcrumb/index.vue) | Vue.js | 70 | 2 | 7 | 79 |
 | [vue-admin/src/components/Hamburger/index.vue](/vue-admin/src/components/Hamburger/index.vue) | Vue.js | 41 | 0 | 4 | 45 |
@@ -240,7 +244,7 @@ Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
 | [vue-admin/src/layout/mixin/ResizeHandler.js](/vue-admin/src/layout/mixin/ResizeHandler.js) | JavaScript | 40 | 2 | 4 | 46 |
 | [vue-admin/src/main.js](/vue-admin/src/main.js) | JavaScript | 19 | 13 | 10 | 42 |
 | [vue-admin/src/permission.js](/vue-admin/src/permission.js) | JavaScript | 48 | 12 | 9 | 69 |
-| [vue-admin/src/router/index.js](/vue-admin/src/router/index.js) | JavaScript | 121 | 30 | 14 | 165 |
+| [vue-admin/src/router/index.js](/vue-admin/src/router/index.js) | JavaScript | 143 | 30 | 14 | 187 |
 | [vue-admin/src/settings.js](/vue-admin/src/settings.js) | JavaScript | 5 | 8 | 4 | 17 |
 | [vue-admin/src/store/getters.js](/vue-admin/src/store/getters.js) | JavaScript | 11 | 0 | 1 | 12 |
 | [vue-admin/src/store/index.js](/vue-admin/src/store/index.js) | JavaScript | 18 | 0 | 4 | 22 |
@@ -261,6 +265,7 @@ Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
 | [vue-admin/src/utils/validate.js](/vue-admin/src/utils/validate.js) | JavaScript | 7 | 11 | 3 | 21 |
 | [vue-admin/src/views/403.vue](/vue-admin/src/views/403.vue) | Vue.js | 96 | 0 | 4 | 100 |
 | [vue-admin/src/views/404.vue](/vue-admin/src/views/404.vue) | Vue.js | 225 | 0 | 4 | 229 |
+| [vue-admin/src/views/algo/algo.vue](/vue-admin/src/views/algo/algo.vue) | Vue.js | 41 | 1 | 3 | 45 |
 | [vue-admin/src/views/dashboard/admin/components/BoxCard.vue](/vue-admin/src/views/dashboard/admin/components/BoxCard.vue) | Vue.js | 89 | 0 | 4 | 93 |
 | [vue-admin/src/views/dashboard/admin/components/LineChart.vue](/vue-admin/src/views/dashboard/admin/components/LineChart.vue) | Vue.js | 133 | 0 | 3 | 136 |
 | [vue-admin/src/views/dashboard/admin/components/PanelGroup.vue](/vue-admin/src/views/dashboard/admin/components/PanelGroup.vue) | Vue.js | 163 | 0 | 23 | 186 |
@@ -268,6 +273,7 @@ Total : 195 files,  10365 codes, 707 comments, 1403 blanks, all 12475 lines
 | [vue-admin/src/views/dashboard/admin/index.vue](/vue-admin/src/views/dashboard/admin/index.vue) | Vue.js | 73 | 0 | 8 | 81 |
 | [vue-admin/src/views/dashboard/index.vue](/vue-admin/src/views/dashboard/index.vue) | Vue.js | 26 | 0 | 3 | 29 |
 | [vue-admin/src/views/form/index.vue](/vue-admin/src/views/form/index.vue) | Vue.js | 82 | 0 | 4 | 86 |
+| [vue-admin/src/views/form/userinfo.vue](/vue-admin/src/views/form/userinfo.vue) | Vue.js | 125 | 1 | 9 | 135 |
 | [vue-admin/src/views/login/index.vue](/vue-admin/src/views/login/index.vue) | Vue.js | 272 | 4 | 30 | 306 |
 | [vue-admin/src/views/table/index.vue](/vue-admin/src/views/table/index.vue) | Vue.js | 82 | 0 | 3 | 85 |
 | [vue-admin/src/views/table/productList.vue](/vue-admin/src/views/table/productList.vue) | Vue.js | 278 | 9 | 19 | 306 |

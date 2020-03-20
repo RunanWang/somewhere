@@ -8,6 +8,14 @@ export function getUserList(params) {
   })
 }
 
+export function getUserInfo(data) {
+  return request({
+    url: '/somewhere/userinfo',
+    method: 'post',
+    data
+  })
+}
+
 export function getUserListByPage(data) {
   return request({
     url: '/somewhere/userspage',

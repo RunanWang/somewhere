@@ -53,3 +53,12 @@ type DeleteUsersResp struct {
 	UserID string `json:"delete_success_num"`
 	StdResp
 }
+
+type GetUserInfoReq struct {
+	UserID string `json:"user_id"`
+}
+
+type GetUserInfoResp struct {
+	model.TUser
+	StdResp
+}

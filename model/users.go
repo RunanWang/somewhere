@@ -38,6 +38,17 @@ func GetAllUsers() (users []TUser, err error) {
 	return ret, nil
 }
 
+func GetUserByID(userID string) (user TUser, err error) {
+	col := db.MgoDb.C("users")
+	var ret TUser
+	err = col.Find(bson.M{"_id": bson.ObjectIdHex(userID)}).One(&ret)
+	if err != nil {
+		fmt.Println(err)
+		return ret, err
+	}
+	return ret, nil
+}
+
 func GetUsersByPage(pageNum int, pageSize int) (users []TUser, err error) {
 	c := db.MgoDb.C("users")
 	pipeM := []bson.M{

@@ -145,6 +145,17 @@ export const asyncRoutes = [
     }]
   },
   {
+    path: '/userinfo',
+    component: Layout,
+    redirect: '/userinfo',
+    children: [{
+      path: 'userinfo',
+      name: 'Userinfo',
+      component: () => import('@/views/form/userinfo'),
+      meta: { title: '个人信息', icon: 'form', roles: ['user'] }
+    }]
+  },
+  {
     path: 'external-link',
     component: Layout,
     children: [

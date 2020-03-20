@@ -53,6 +53,10 @@ func GetUsers(c *gin.Context, getUsersReq *msg.GetUsersReq) ([]model.TUser, erro
 	return model.GetAllUsers()
 }
 
+func GetUserInfo(c *gin.Context, getUsersReq *msg.GetUserInfoReq) (model.TUser, error) {
+	return model.GetUserByID(getUsersReq.UserID)
+}
+
 func GetUsersByPage(c *gin.Context, getUsersByPageReq *msg.GetUsersByPageReq) ([]model.TUser, error) {
 	return model.GetUsersByPage(getUsersByPageReq.PageNum, getUsersByPageReq.PageSize)
 }
