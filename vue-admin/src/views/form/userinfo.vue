@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-form ref="form" :model="form" label-width="120px">
       <el-form-item label="用户名称">
-        <el-input v-model="form.name" />
+        <el-input v-model="form.user_name" />
       </el-form-item>
       <el-form-item label="用户年龄">
         <el-input v-model.number="form.user_age" type="number" />
@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import { getUserInfo } from '@/api/user.js'
+import { getUserInfo, putUserList } from '@/api/user.js'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -68,7 +68,8 @@ export default {
   data() {
     return {
       form: {
-        name: '',
+        user_id: '',
+        user_name: '',
         user_age: 18,
         user_gender: 0,
         user_city: ''
@@ -97,11 +98,17 @@ export default {
 
   created() {
     this.pageInfo.user_id = this.id
+    this.form.user_id = this.id
     this.fetchData(this.pageInfo)
   },
   methods: {
     onSubmit() {
-      this.$message('submit!')
+      const vm = this
+      console.log('修改用户：', vm.form)
+      this.$message('提交更改')
+      putUserList(this.form).then(response => {
+        this.reload()
+      })
     },
     onCancel() {
       this.reload()
@@ -115,7 +122,7 @@ export default {
       console.log(this.id)
       getUserInfo(pageInfo).then(response => {
         console.log(pageInfo)
-        this.form.name = response.user_name
+        this.form.user_name = response.user_name
         this.form.user_age = response.user_age
         this.form.user_gender = response.user_gender
         this.form.user_city = response.user_city
