@@ -8,6 +8,14 @@ export function getStoreList(params) {
   })
 }
 
+export function getStoreInfo(data) {
+  return request({
+    url: '/somewhere/storeinfo',
+    method: 'post',
+    data
+  })
+}
+
 export function getStoreListByPage(data) {
   return request({
     url: '/somewhere/storespage',

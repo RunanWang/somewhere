@@ -34,6 +34,16 @@ func GetAllStores() (stores []TStores, err error) {
 	return ret, nil
 }
 
+func GetStoreInfo(storeID string) (stores TStores, err error) {
+	col := db.MgoDb.C("stores")
+	var ret TStores
+	err = col.Find(bson.M{"_id": bson.ObjectIdHex(storeID)}).One(&ret)
+	if err != nil {
+		return ret, err
+	}
+	return ret, nil
+}
+
 func GetStoresByPage(pageNum int, pageSize int) (stores []TStores, err error) {
 	c := db.MgoDb.C("stores")
 	pipeM := []bson.M{
@@ -67,4 +77,11 @@ func (t *TStores) GetStoreByStoreID() error {
 	col := db.MgoDb.C("stores")
 	err := col.Find(bson.M{"_id": t.ID}).One(&t)
 	return err
+}
+
+func GetStoreIDByStoreName(name string) (string, error) {
+	col := db.MgoDb.C("stores")
+	var t TStores
+	err := col.Find(bson.M{"name": name}).One(&t)
+	return t.ID.Hex(), err
 }

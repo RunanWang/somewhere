@@ -49,6 +49,10 @@ func GetStores(c *gin.Context, getStoresReq *msg.GetStoresReq) ([]model.TStores,
 	return model.GetAllStores()
 }
 
+func GetStoreInfo(c *gin.Context, getStoresReq *msg.GetStoreInfoReq) (model.TStores, error) {
+	return model.GetStoreInfo(getStoresReq.StoreID)
+}
+
 func GetStoresByPage(c *gin.Context, getStoresByPageReq *msg.GetStoresByPageReq) ([]model.TStores, error) {
 	return model.GetStoresByPage(getStoresByPageReq.PageNum, getStoresByPageReq.PageSize)
 }

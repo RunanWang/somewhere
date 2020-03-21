@@ -156,6 +156,17 @@ export const asyncRoutes = [
     }]
   },
   {
+    path: '/shopinfo',
+    component: Layout,
+    redirect: '/shopinfo',
+    children: [{
+      path: 'shopinfo',
+      name: 'Shopinfo',
+      component: () => import('@/views/form/shopinfo'),
+      meta: { title: '商户信息', icon: 'form', roles: ['shop'] }
+    }]
+  },
+  {
     path: 'external-link',
     component: Layout,
     children: [

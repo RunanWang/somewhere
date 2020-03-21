@@ -60,6 +60,57 @@ func GetStores(c *gin.Context) {
 	service.CommonInfoResp(c, getStoreResp)
 }
 
+func GetStoreInfo(c *gin.Context) {
+
+	var (
+		getStoreReq  msg.GetStoreInfoReq
+		getStoreResp msg.GetStoreInfoResp
+		err          error
+	)
+
+	logger := c.MustGet("logger").(*log.Entry)
+	logger.Tracef("in get store handler")
+
+	err = c.Bind(&getStoreReq)
+	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
+		logger = logger.WithFields(log.Fields{
+			"error": err.Error(),
+		})
+		c.Set("logger", logger)
+		service.CommonErrorResp(c, cerror.ErrInvalidParam)
+		return
+	}
+	logger = logger.WithFields(log.Fields{
+		"req": getStoreReq,
+	})
+
+	list, err := service.GetStoreInfo(c, &getStoreReq)
+	if err != nil {
+		logger = c.MustGet("logger").(*log.Entry)
+		logger = logger.WithFields(log.Fields{
+			"error": err.Error(),
+		})
+		c.Set("logger", logger)
+
+		if _, isMysql := err.(*mysql.MySQLError); isMysql {
+			service.CommonErrorResp(c, cerror.ErrInternalError)
+		} else {
+			service.CommonErrorResp(c, cerror.ErrInvalidParam)
+		}
+
+		return
+	}
+
+	getStoreResp.ErrorCode = 0
+	getStoreResp.RequestID = c.MustGet("request_id").(string)
+	getStoreResp.TStores = list
+	logger = logger.WithFields(log.Fields{
+		"resp": getStoreResp,
+	})
+	service.CommonInfoResp(c, getStoreResp)
+}
+
 func GetStoresByPage(c *gin.Context) {
 
 	var (

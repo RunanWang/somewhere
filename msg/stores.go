@@ -49,3 +49,12 @@ type DeleteStoresResp struct {
 	StoreID int `json:"delete_success_num"`
 	StdResp
 }
+
+type GetStoreInfoReq struct {
+	StoreID string `json:"store_id"`
+}
+
+type GetStoreInfoResp struct {
+	model.TStores
+	StdResp
+}

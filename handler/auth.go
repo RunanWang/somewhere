@@ -29,6 +29,9 @@ func GetUserInfo(c *gin.Context) {
 	if userRoles == "user" {
 		id = model.GetUserIDByName(userName)
 	}
+	if userRoles == "shop" {
+		id, _ = model.GetStoreIDByStoreName(userName)
+	}
 	roleslist = append(roleslist, userRoles)
 	data := model.UserMsg{Roles: roleslist, Introduction: "", Avatar: avatar, Name: userName, ID: id}
 

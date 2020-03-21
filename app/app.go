@@ -97,6 +97,9 @@ func (t *App) initRouter() {
 	userStoresGroup := rootGroup.Group("/storespage")
 	userStoresGroup.POST("", stores.GetStoresByPage)
 
+	storeInfoGroup := rootGroup.Group("/storeinfo")
+	storeInfoGroup.POST("", stores.GetStoreInfo)
+
 	userGroup := rootGroup.Group("/users")
 	userGroup.GET("", users.GetUsers)
 	userGroup.POST("", users.AddUser)
