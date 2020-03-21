@@ -29,7 +29,10 @@ func (t *TRecommend) GetRecommend() ([]TProduct, error) {
 	if !is_key_exit {
 		err = t.AddRecommend()
 		if err != nil {
-			return ansRec, err
+			err = t.AddRecommendByOrder()
+			if err != nil {
+				return ansRec, err
+			}
 		}
 	}
 	startNum := (t.PageNum - 1) * t.PageSize
