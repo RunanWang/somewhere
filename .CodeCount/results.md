@@ -1,16 +1,16 @@
-Date : 2020-03-21 19:54:32
+Date : 2020-04-12 21:18:30
 
 Directory c:\Users\Ryanw\go\src\github.com\somewhere
 
-Total : 200 files,  10917 codes, 735 comments, 1465 blanks, all 13117 lines
+Total : 201 files,  11071 codes, 751 comments, 1506 blanks, all 13328 lines
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| Vue.js | 31 | 3,458 | 57 | 275 | 3,790 |
-| Go | 58 | 2,988 | 134 | 535 | 3,657 |
+| Vue.js | 31 | 3,459 | 57 | 275 | 3,791 |
+| Go | 58 | 2,991 | 142 | 537 | 3,670 |
 | JavaScript | 47 | 1,834 | 203 | 225 | 2,262 |
-| Python | 26 | 1,623 | 303 | 307 | 2,233 |
+| Python | 27 | 1,773 | 311 | 346 | 2,430 |
 | Jupyter | 2 | 472 | 0 | 2 | 474 |
 | SCSS | 6 | 329 | 18 | 78 | 425 |
 | JSON | 1 | 66 | 0 | 1 | 67 |
@@ -25,12 +25,12 @@ Total : 200 files,  10917 codes, 735 comments, 1465 blanks, all 13117 lines
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 200 | 10,917 | 735 | 1,465 | 13,117 |
-| algo | 29 | 2,096 | 303 | 309 | 2,708 |
+| . | 201 | 11,071 | 751 | 1,506 | 13,328 |
+| algo | 30 | 2,246 | 311 | 348 | 2,905 |
 | algo\data | 9 | 521 | 35 | 87 | 643 |
 | algo\data\movielens | 9 | 521 | 35 | 87 | 643 |
 | algo\src | 11 | 530 | 98 | 88 | 716 |
-| algo\src-go | 9 | 1,045 | 170 | 134 | 1,349 |
+| algo\src-go | 10 | 1,195 | 178 | 173 | 1,546 |
 | algo\src-go\.ipynb_checkpoints | 1 | 161 | 0 | 1 | 162 |
 | algo\src-go\archive | 4 | 490 | 41 | 57 | 588 |
 | app | 1 | 117 | 4 | 25 | 146 |
@@ -46,15 +46,15 @@ Total : 200 files,  10917 codes, 735 comments, 1465 blanks, all 13117 lines
 | handler\stores | 4 | 294 | 0 | 51 | 345 |
 | handler\users | 4 | 288 | 1 | 48 | 337 |
 | middleware | 4 | 305 | 44 | 55 | 404 |
-| model | 7 | 561 | 11 | 74 | 646 |
+| model | 7 | 564 | 19 | 76 | 659 |
 | msg | 9 | 208 | 0 | 57 | 265 |
 | service | 8 | 340 | 0 | 56 | 396 |
 | utils | 2 | 86 | 43 | 13 | 142 |
-| vue-admin | 110 | 5,777 | 293 | 589 | 6,659 |
+| vue-admin | 110 | 5,778 | 293 | 589 | 6,660 |
 | vue-admin\build | 1 | 28 | 0 | 8 | 36 |
 | vue-admin\mock | 4 | 200 | 18 | 33 | 251 |
 | vue-admin\public | 1 | 16 | 1 | 1 | 18 |
-| vue-admin\src | 87 | 4,884 | 232 | 512 | 5,628 |
+| vue-admin\src | 87 | 4,885 | 232 | 512 | 5,629 |
 | vue-admin\src\api | 9 | 237 | 0 | 41 | 278 |
 | vue-admin\src\components | 5 | 297 | 6 | 30 | 333 |
 | vue-admin\src\components\Breadcrumb | 1 | 70 | 2 | 7 | 79 |
@@ -73,7 +73,7 @@ Total : 200 files,  10917 codes, 735 comments, 1465 blanks, all 13117 lines
 | vue-admin\src\store\modules | 4 | 233 | 15 | 31 | 279 |
 | vue-admin\src\styles | 6 | 329 | 18 | 78 | 425 |
 | vue-admin\src\utils | 5 | 196 | 55 | 28 | 279 |
-| vue-admin\src\views | 19 | 2,704 | 45 | 190 | 2,939 |
+| vue-admin\src\views | 19 | 2,705 | 45 | 190 | 2,940 |
 | vue-admin\src\views\algo | 1 | 41 | 1 | 3 | 45 |
 | vue-admin\src\views\dashboard | 6 | 534 | 4 | 43 | 581 |
 | vue-admin\src\views\dashboard\admin | 5 | 508 | 4 | 40 | 552 |
@@ -81,7 +81,7 @@ Total : 200 files,  10917 codes, 735 comments, 1465 blanks, all 13117 lines
 | vue-admin\src\views\dashboard\admin\components\mixins | 1 | 50 | 4 | 2 | 56 |
 | vue-admin\src\views\form | 3 | 334 | 2 | 22 | 358 |
 | vue-admin\src\views\login | 1 | 272 | 4 | 30 | 306 |
-| vue-admin\src\views\table | 6 | 1,202 | 34 | 84 | 1,320 |
+| vue-admin\src\views\table | 6 | 1,203 | 34 | 84 | 1,321 |
 | vue-admin\tests | 7 | 196 | 14 | 15 | 225 |
 | vue-admin\tests\unit | 7 | 196 | 14 | 15 | 225 |
 | vue-admin\tests\unit\components | 3 | 120 | 14 | 7 | 141 |
@@ -102,12 +102,13 @@ Total : 200 files,  10917 codes, 735 comments, 1465 blanks, all 13117 lines
 | [algo/data/movielens/ml_data_process_sort.py](/algo/data/movielens/ml_data_process_sort.py) | Python | 46 | 2 | 9 | 57 |
 | [algo/data/movielens/ml_data_process_user_ratings.py](/algo/data/movielens/ml_data_process_user_ratings.py) | Python | 22 | 2 | 6 | 30 |
 | [algo/src-go/.ipynb_checkpoints/load_data-checkpoint.ipynb](/algo/src-go/.ipynb_checkpoints/load_data-checkpoint.ipynb) | Jupyter | 161 | 0 | 1 | 162 |
+| [algo/src-go/ItemCF.py](/algo/src-go/ItemCF.py) | Python | 76 | 4 | 21 | 101 |
 | [algo/src-go/archive/load_data.ipynb](/algo/src-go/archive/load_data.ipynb) | Jupyter | 311 | 0 | 1 | 312 |
 | [algo/src-go/archive/mlr_4_lstm_24-16-4_d0.2.py](/algo/src-go/archive/mlr_4_lstm_24-16-4_d0.2.py) | Python | 46 | 11 | 9 | 66 |
 | [algo/src-go/archive/train.py](/algo/src-go/archive/train.py) | Python | 104 | 29 | 34 | 167 |
 | [algo/src-go/archive/utils.py](/algo/src-go/archive/utils.py) | Python | 29 | 1 | 13 | 43 |
 | [algo/src-go/data_process.py](/algo/src-go/data_process.py) | Python | 104 | 26 | 20 | 150 |
-| [algo/src-go/model_server.py](/algo/src-go/model_server.py) | Python | 180 | 34 | 28 | 242 |
+| [algo/src-go/model_server.py](/algo/src-go/model_server.py) | Python | 254 | 38 | 46 | 338 |
 | [algo/src-go/train_deep_wide.py](/algo/src-go/train_deep_wide.py) | Python | 83 | 35 | 21 | 139 |
 | [algo/src-go/try.py](/algo/src-go/try.py) | Python | 27 | 34 | 7 | 68 |
 | [algo/src/LSTM1.py](/algo/src/LSTM1.py) | Python | 33 | 0 | 1 | 34 |
@@ -156,7 +157,7 @@ Total : 200 files,  10917 codes, 735 comments, 1465 blanks, all 13117 lines
 | [model/auth.go](/model/auth.go) | Go | 84 | 0 | 13 | 97 |
 | [model/basic.go](/model/basic.go) | Go | 72 | 0 | 11 | 83 |
 | [model/products.go](/model/products.go) | Go | 89 | 3 | 12 | 104 |
-| [model/recommend.go](/model/recommend.go) | Go | 111 | 1 | 9 | 121 |
+| [model/recommend.go](/model/recommend.go) | Go | 114 | 9 | 11 | 134 |
 | [model/records.go](/model/records.go) | Go | 44 | 0 | 7 | 51 |
 | [model/stores.go](/model/stores.go) | Go | 75 | 2 | 11 | 88 |
 | [model/users.go](/model/users.go) | Go | 86 | 5 | 11 | 102 |
@@ -280,7 +281,7 @@ Total : 200 files,  10917 codes, 735 comments, 1465 blanks, all 13117 lines
 | [vue-admin/src/views/table/productList.vue](/vue-admin/src/views/table/productList.vue) | Vue.js | 278 | 9 | 19 | 306 |
 | [vue-admin/src/views/table/recordList.vue](/vue-admin/src/views/table/recordList.vue) | Vue.js | 109 | 6 | 7 | 122 |
 | [vue-admin/src/views/table/shopList.vue](/vue-admin/src/views/table/shopList.vue) | Vue.js | 228 | 7 | 19 | 254 |
-| [vue-admin/src/views/table/userItemList.vue](/vue-admin/src/views/table/userItemList.vue) | Vue.js | 259 | 4 | 15 | 278 |
+| [vue-admin/src/views/table/userItemList.vue](/vue-admin/src/views/table/userItemList.vue) | Vue.js | 260 | 4 | 15 | 279 |
 | [vue-admin/src/views/table/userList.vue](/vue-admin/src/views/table/userList.vue) | Vue.js | 246 | 8 | 21 | 275 |
 | [vue-admin/tests/unit/.eslintrc.js](/vue-admin/tests/unit/.eslintrc.js) | JavaScript | 5 | 0 | 1 | 6 |
 | [vue-admin/tests/unit/components/Breadcrumb.spec.js](/vue-admin/tests/unit/components/Breadcrumb.spec.js) | JavaScript | 80 | 14 | 5 | 99 |

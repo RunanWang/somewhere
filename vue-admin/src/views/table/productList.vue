@@ -37,17 +37,17 @@
             <span>{{ scope.row.item_brand }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="价格" width="100" align="center">
+        <el-table-column label="价格" width="50" align="center">
           <template slot-scope="scope">
             <span>{{ scope.row.item_price }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="销量" width="100" align="center">
+        <el-table-column label="销量" width="80" align="center">
           <template slot-scope="scope">
             {{ scope.row.item_salecount }}
           </template>
         </el-table-column>
-        <el-table-column class-name="status-col" label="评价" width="100" align="center">
+        <el-table-column class-name="status-col" label="评价" width="80" align="center">
           <template slot-scope="scope">
             <el-tag :type="scope.row.item_score | statusFilter">{{ scope.row.item_score }}</el-tag>
           </template>

@@ -121,3 +121,13 @@ func (t *TRecommend) AddRecommendByOrder() error {
 	}
 	return nil
 }
+
+// func CalItemCF() error {
+// 	mIDtoInt := make(map[string]int)
+// 	rec, err := GetAllRecords()
+// 	item, err := GetAllProducts()
+// 	for k, v := range item {
+// 		mIDtoInt[v.ID.Hex()] = k
+// 	}
+
+// }

@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="app-container">
+    <div>你好，{{ name }}</div>
     <div class="filter-container" align="right">
       <el-select v-model="pageInfo.store_id" align="left" clearable class="filter-item" placeholder="-请选择商铺-">
         <el-option v-for="item in storeOptions" :key="item.store_id" :label="item.store_name" :value="item.store_id" />
