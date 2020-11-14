@@ -24,12 +24,12 @@
             <span>{{ scope.row.user_id }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="商品ID" width="200" align="center">
+        <el-table-column label="广告ID" width="200" align="center">
           <template slot-scope="scope">
             {{ scope.row.item_id }}
           </template>
         </el-table-column>
-        <el-table-column class-name="status-col" label="购买情况" width="130" align="center">
+        <el-table-column class-name="status-col" label="点击情况" width="130" align="center">
           <template slot-scope="scope">
             <el-tag :type="scope.row.is_trade | statusFilter">{{ scope.row.is_trade }}</el-tag>
           </template>

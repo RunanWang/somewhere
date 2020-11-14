@@ -93,7 +93,7 @@
 
       <div slot="footer" class="dialog-footer">
         <el-button @click="handleEditCancel(temp)">取 消</el-button>
-        <el-button type="primary" @click="handleEditSubmit(temp)">购 买</el-button>
+        <el-button type="primary" @click="handleEditSubmit(temp)">查 看</el-button>
       </div>
     </el-dialog>
     <el-pagination
@@ -145,7 +145,8 @@ export default {
         'item_score': 0,
         'item_brand': '',
         'store_id': '',
-        'item_salecount': 0
+        'item_salecount': 0,
+        'index': 0
       },
       record: {
         'pro_id': '',
@@ -191,7 +192,8 @@ export default {
         'item_score': 5.0,
         'item_brand': '',
         'store_id': '',
-        'item_salecount': 0
+        'item_salecount': 0,
+        'index': 0
       }
     },
 
@@ -207,6 +209,7 @@ export default {
       this.temp.item_brand = row.item_brand
       this.temp.store_id = row.store_id
       this.temp.item_salecount = row.item_salecount
+      this.temp.index = index
     },
 
     handlePageChange(val) {

@@ -1,11 +1,11 @@
 <template>
   <div id="app" class="app-container">
     <div class="filter-container" align="right" >
-      <el-select align="left" v-model="pageInfo.store_id" clearable class="filter-item" placeholder="-请选择商铺-">
+      <el-select align="left" v-model="pageInfo.store_id" clearable class="filter-item" placeholder="-请选择广告主-">
             <el-option v-for="item in storeOptions" :key="item.store_id" :label="item.store_name" :value="item.store_id" />
       </el-select>
       <el-button  class="filter-item" type="primary" icon="edit" @click="handleRefresh">刷新列表</el-button>
-      <el-button  class="filter-item" type="primary" icon="edit" @click="handleCreate">新建商品</el-button>
+      <el-button  class="filter-item" type="primary" icon="edit" @click="handleCreate">新建广告</el-button>
       <p />
     </div>
     <div>
@@ -22,17 +22,17 @@
             {{ scope.$index+1 }}
           </template>
         </el-table-column>
-        <el-table-column label="商品ID" width="250" align="center">
+        <el-table-column label="广告ID" width="250" align="center">
           <template slot-scope="scope">
             {{ scope.row.item_id }}
           </template>
         </el-table-column>
-        <el-table-column label="商品名称" align="center">
+        <el-table-column label="广告名称" align="center">
           <template slot-scope="scope">
             <span>{{ scope.row.item_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="商品品牌" align="center">
+        <el-table-column label="广告品牌" align="center">
           <template slot-scope="scope">
             <span>{{ scope.row.item_brand }}</span>
           </template>
@@ -67,20 +67,20 @@
       </el-table>
     </div>
     <!-- 新增弹窗 -->
-    <el-dialog title="新建商品" :visible.sync="dialogFormVisible">
-      <el-form class="small-space" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="商品名称">
+    <el-dialog title="新建广告" :visible.sync="dialogFormVisible">
+      <el-form class="small-space" :model="temp" label-position="left" label-width="90px" style="width: 400px; margin-left:50px;">
+        <el-form-item label="广告名称">
           <el-input v-model="temp.item_name" />
         </el-form-item>
-        <el-form-item label="商品品牌">
+        <el-form-item label="广告品牌">
           <el-input v-model="temp.item_brand" />
         </el-form-item>
 
-        <el-form-item label="商品价格">
+        <el-form-item label="广告价格">
           <el-input v-model.number="temp.item_price" type="number" step="0.01" />
         </el-form-item>
 
-        <el-form-item label="所属商铺">
+        <el-form-item label="所属广告主">
           <el-select v-model="temp.store_id" clearable class="filter-item" placeholder="-请选择-">
             <el-option v-for="item in storeOptions" :key="item.store_id" :label="item.store_name" :value="item.store_id" />
           </el-select>
@@ -93,25 +93,25 @@
       </div>
     </el-dialog>
     <!-- 修改弹窗 -->
-    <el-dialog title="编辑商品" :visible.sync="dialogFormVisible2">
-      <el-form class="small-space" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="商品名称">
+    <el-dialog title="编辑广告" :visible.sync="dialogFormVisible2">
+      <el-form class="small-space" :model="temp" label-position="left" label-width="90px" style="width: 400px; margin-left:50px;">
+        <el-form-item label="广告名称">
           <el-input v-model="temp.item_name" />
         </el-form-item>
-        <el-form-item label="商品品牌">
+        <el-form-item label="广告品牌">
           <el-input v-model="temp.item_brand" />
         </el-form-item>
 
-        <el-form-item label="商品价格">
+        <el-form-item label="广告价格">
           <el-input v-model.number="temp.item_price" type="number" step="0.01" />
         </el-form-item>
-        <el-form-item label="商品评价">
+        <el-form-item label="广告评价">
           <el-input v-model.number="temp.item_score" type="number" step="0.01" max=5.0 />
         </el-form-item>
-        <el-form-item label="商品销量">
+        <el-form-item label="广告销量">
           <el-input v-model.number="temp.item_salecount" type="number" step="1" />
         </el-form-item>
-        <el-form-item label="所属商铺">
+        <el-form-item label="所属广告主">
           <el-select v-model="temp.store_id" clearable class="filter-item" placeholder="-请选择-">
             <el-option v-for="item in storeOptions" :key="item.store_id" :label="item.store_name" :value="item.store_id" />
           </el-select>

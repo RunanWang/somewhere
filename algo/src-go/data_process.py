@@ -25,7 +25,7 @@ header_label=[
 # 从数据库汇总获取数据，并进行基础的归一化和独热处理
 def basic_data_process():
     # 连接数据库，获取record、item、store、user四个表的信息
-    myclient = pymongo.MongoClient("mongodb://182.92.196.182:27017/")
+    myclient = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
     mydb = myclient["kit"]
     rec_col = mydb["records"]
     item_col = mydb["items"]
@@ -95,7 +95,7 @@ def basic_data_process():
 
     # 将结果存盘
     df_result = pd.concat([df_id, X, df_time, y], axis=1)
-    # df_result.to_csv("./train_data.csv",encoding='gbk')
+    df_result.to_csv("./algo/src-go/train_data1.csv",encoding='gbk')
     print(X.shape[0])
     return X, y
 

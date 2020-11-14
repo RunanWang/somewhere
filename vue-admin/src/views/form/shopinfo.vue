@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-form ref="form" :model="form" label-width="120px">
-      <el-form-item label="商户名称">
+      <el-form-item label="广告主名称">
         <el-input v-model="form.store_name" />
       </el-form-item>
       <!-- <el-form-item label="用户年龄">

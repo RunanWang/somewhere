@@ -131,7 +131,7 @@ def build_serve(path, app, wide_m=2, epoch=20):
 
 
 def main():
-    model_path = './deep_wide_model_new.h5'
+    model_path = './algo/src-go/deep_wide_model_new.h5'
     build_wide_n_deep(model_path)
 
 

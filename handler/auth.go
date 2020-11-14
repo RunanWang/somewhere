@@ -2,6 +2,7 @@ package handler
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/globalsign/mgo/bson"
 	"github.com/go-sql-driver/mysql"
@@ -89,12 +90,14 @@ func RegisterHandler(c *gin.Context) {
 		newStore.Name = addAuthReq.Name
 		newStore.NickName = addAuthReq.Name
 		newStore.ID = bson.NewObjectId()
+		newStore.Timestamp = time.Now().Unix()
 		err = newStore.AddStore()
 	} else if addAuthReq.Role == "user" {
 		var newUser model.TUser
 		newUser.Name = addAuthReq.Name
 		newUser.NickName = addAuthReq.Name
 		newUser.ID = bson.NewObjectId()
+		newUser.Timestamp = time.Now().Unix()
 		err = newUser.AddUser()
 	}
 	if err != nil {

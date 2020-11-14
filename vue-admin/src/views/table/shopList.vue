@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app-container">
     <div class="filter-container" align="right">
-      <el-button class="filter-item" type="primary" icon="edit" @click="handleCreate">新建商铺</el-button>
+      <el-button class="filter-item" type="primary" icon="edit" @click="handleCreate">新建广告主</el-button>
       <p />
     </div>
     <div>
@@ -18,22 +18,22 @@
             {{ scope.$index+1 }}
           </template>
         </el-table-column>
-        <el-table-column label="商铺ID" width="250" align="center">
+        <el-table-column label="广告主ID" width="250" align="center">
           <template slot-scope="scope">
             {{ scope.row.store_id }}
           </template>
         </el-table-column>
-        <el-table-column label="商铺名称" align="center">
+        <el-table-column label="广告主名称" align="center">
           <template slot-scope="scope">
             <span>{{ scope.row.store_name }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="商铺城市" width="100" align="center">
+        <el-table-column label="广告主城市" width="100" align="center">
           <template slot-scope="scope">
             {{ scope.row.store_city }}
           </template>
         </el-table-column>
-        <el-table-column class-name="status-col" label="商铺评分" width="130" align="center">
+        <el-table-column class-name="status-col" label="广告主评分" width="130" align="center">
           <template slot-scope="scope">
             <el-tag :type="scope.row.store_level | statusFilter">{{ scope.row.store_level }}</el-tag>
           </template>
@@ -53,16 +53,16 @@
       </el-table>
     </div>
     <!-- 新增弹窗 -->
-    <el-dialog title="新建商铺" :visible.sync="dialogFormVisible">
-      <el-form class="small-space" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="商铺账号">
+    <el-dialog title="新建广告主" :visible.sync="dialogFormVisible">
+      <el-form class="small-space" :model="temp" label-position="left" label-width="90px" style="width: 400px; margin-left:50px;">
+        <el-form-item label="广告主账号">
           <el-input v-model="temp.name" />
         </el-form-item>
-        <el-form-item label="商铺名称">
+        <el-form-item label="广告主名称">
           <el-input v-model="temp.store_name" />
         </el-form-item>
 
-        <el-form-item label="商铺评分">
+        <el-form-item label="广告主评分">
           <el-input v-model.number="temp.store_level" type="number" step="0.01" max=5.0 />
         </el-form-item>
 
@@ -77,13 +77,13 @@
       </div>
     </el-dialog>
     <!-- 修改弹窗 -->
-    <el-dialog title="编辑商铺" :visible.sync="dialogFormVisible2">
-      <el-form class="small-space" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="商铺名称">
+    <el-dialog title="编辑广告主" :visible.sync="dialogFormVisible2">
+      <el-form class="small-space" :model="temp" label-position="left" label-width="90px" style="width: 400px; margin-left:50px;">
+        <el-form-item label="广告主名称">
           <el-input v-model="temp.store_name" />
         </el-form-item>
 
-        <el-form-item label="商铺评分">
+        <el-form-item label="广告主评分">
           <el-input v-model.number="temp.store_level" type="number" step="0.01" max=5.0 />
         </el-form-item>
 
@@ -221,7 +221,7 @@ export default {
 
     handleCreateSubmit(temp) {
       const vm = this
-      console.log('新增商铺：', vm.temp)
+      console.log('新增广告主：', vm.temp)
       postStoreList(temp).then(response => {
         this.reload()
       })

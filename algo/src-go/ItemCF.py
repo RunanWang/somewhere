@@ -4,7 +4,7 @@ from bson.objectid import ObjectId
 
 
 def getItemCFMatrix():
-    myclient = pymongo.MongoClient("mongodb://182.92.196.182:27017/")
+    myclient = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
     mydb = myclient["kit"]
     item_col = mydb["items"]
     rec_col = mydb["records"]
@@ -52,7 +52,7 @@ def getItemCFMatrix():
 
 
 def getUserScore(user_id, m):
-    myclient = pymongo.MongoClient("mongodb://182.92.196.182:27017/")
+    myclient = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
     mydb = myclient["kit"]
     rec_col = mydb["records"]
     item_col = mydb["items"]
@@ -69,12 +69,13 @@ def getUserScore(user_id, m):
     for _, item in df_item.iterrows():
         idToFreq[item['_id']] = 0
         idToScore[item['_id']] = 0
-
+    
     for _, item in df_rec.iterrows():
+        print(item['item_id'])
         if item['is_trade'] == 1:
             idToFreq[item['item_id']] = idToFreq[item['item_id']] + 1
             total = total + 1
-
+    
     for k in idToFreq.keys():
         idToFreq[k] = idToFreq[k]/total
     
@@ -97,4 +98,5 @@ def getUserScore(user_id, m):
 
 
 m = getItemCFMatrix()
-getUserScore("5df9e2e191560048ad6fb734", m)
+# print(m)
+getUserScore("5e9bf462b599f94b7a941436", m)

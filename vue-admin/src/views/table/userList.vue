@@ -33,7 +33,7 @@
             {{ scope.row.user_city }}
           </template>
         </el-table-column>
-        <el-table-column class-name="status-col" label="用户历史消费" width="130" align="center">
+        <el-table-column class-name="status-col" label="用户历史" width="130" align="center">
           <template slot-scope="scope">
             <el-tag :type="scope.row.user_historysum | statusFilter">{{ scope.row.user_historysum }}</el-tag>
           </template>

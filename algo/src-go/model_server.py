@@ -17,12 +17,12 @@ header_cont_user=[
     "user_age", "user_historysum"
 ]
 
-basic_model = load_model("C://Users/Ryanw/go/src/github.com/somewhere/algo/src-go/deep_wide_model.h5")
+basic_model = load_model("C://Users/Ryanw/go/src/github.com/somewhere/algo/src-go/deep_wide_model_new.h5")
 model = basic_model
 
 
 def get_enc():
-    myclient = pymongo.MongoClient("mongodb://182.92.196.182:27017/")
+    myclient = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
     mydb = myclient["kit"]
     rec_col = mydb["records"]
     item_col = mydb["items"]
@@ -73,10 +73,11 @@ def get_enc():
     enc.fit(df_cate)
     return enc
 
+enc = get_enc()
 
 def get_data(user_id):
     # 链接数据库
-    myclient = pymongo.MongoClient("mongodb://182.92.196.182:27017/")
+    myclient = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
     mydb = myclient["kit"]
     item_col = mydb["items"]
     user_col = mydb["users"]
@@ -113,7 +114,7 @@ def get_data(user_id):
     scaler = preprocessing.MinMaxScaler(feature_range=(0, 1))
     scaled = scaler.fit_transform(df_cont)
     df_cont = pd.DataFrame(scaled)
-    enc = get_enc()
+    # enc = get_enc()
     arr = enc.transform(df_cate).toarray()
     df_cate = pd.DataFrame(arr)
     # df_cate = pd.get_dummies(df_cate)
@@ -143,7 +144,7 @@ def change_model(app):
 
 
 def getItemCFMatrix():
-    myclient = pymongo.MongoClient("mongodb://182.92.196.182:27017/")
+    myclient = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
     mydb = myclient["kit"]
     item_col = mydb["items"]
     rec_col = mydb["records"]
@@ -191,7 +192,8 @@ def getItemCFMatrix():
 
 
 def getUserScore(user_id, m):
-    myclient = pymongo.MongoClient("mongodb://182.92.196.182:27017/")
+    m = getItemCFMatrix()
+    myclient = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
     mydb = myclient["kit"]
     rec_col = mydb["records"]
     item_col = mydb["items"]
@@ -215,7 +217,8 @@ def getUserScore(user_id, m):
             total = total + 1
 
     for k in idToFreq.keys():
-        idToFreq[k] = idToFreq[k]/total
+        if total != 0:
+            idToFreq[k] = idToFreq[k]/total
     
     for k in idToScore.keys():
         for kk in idToFreq.keys():
@@ -230,7 +233,10 @@ def getUserScore(user_id, m):
     for k in idToScore.keys():
         total = total + idToScore[k]
     for k in idToScore.keys():
-        ans[k.__str__()] = idToScore[k]/total
+        if total!=0:
+            ans[k.__str__()] = idToScore[k]/total
+        else:
+            ans[k.__str__()] = idToScore[k]
 
     return ans
 

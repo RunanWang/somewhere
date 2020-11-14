@@ -75,7 +75,7 @@ export const asyncRoutes = [
       path: 'shoplist',
       name: 'Shoplist',
       component: () => import('@/views/table/shopList'),
-      meta: { title: '商铺列表', icon: 'table', roles: ['admin'] }
+      meta: { title: '广告主列表', icon: 'table', roles: ['admin'] }
     }]
   },
   {
@@ -97,7 +97,7 @@ export const asyncRoutes = [
       path: 'itemlist',
       name: 'Itemlist',
       component: () => import('@/views/table/productList'),
-      meta: { title: '商品列表', icon: 'table', roles: ['admin'] }
+      meta: { title: '广告列表', icon: 'table', roles: ['admin'] }
     }]
   },
   {
@@ -130,7 +130,7 @@ export const asyncRoutes = [
       path: 'shopitemlist',
       name: 'Shopitemlist',
       component: () => import('@/views/table/productList'),
-      meta: { title: '商品列表', icon: 'table', roles: ['shop'] }
+      meta: { title: '广告列表', icon: 'table', roles: ['shop'] }
     }]
   },
   {
@@ -141,7 +141,7 @@ export const asyncRoutes = [
       path: 'useritemlist',
       name: 'Useritemlist',
       component: () => import('@/views/table/userItemList'),
-      meta: { title: '商品列表', icon: 'table', roles: ['user'] }
+      meta: { title: '广告列表', icon: 'table', roles: ['user'] }
     }]
   },
   {
@@ -163,7 +163,7 @@ export const asyncRoutes = [
       path: 'shopinfo',
       name: 'Shopinfo',
       component: () => import('@/views/form/shopinfo'),
-      meta: { title: '商户信息', icon: 'form', roles: ['shop'] }
+      meta: { title: '广告主信息', icon: 'form', roles: ['shop'] }
     }]
   },
   {
